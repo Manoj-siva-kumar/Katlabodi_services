@@ -1,0 +1,585 @@
+<div class="font-[poppins] bg-gray-50 flex justify-center">
+
+  <div [formGroup]="taxReceipt"
+    class="w-full bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-10 sm:py-14 md:py-16 rounded-2xl">
+
+    <!-- ================= HEADER ================= -->
+    <div class="text-center mb-12">
+      <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 tracking-wide">
+        Tax Collection Receipt
+      </h1>
+
+      <div
+        class="mt-4 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-2 sm:gap-2 w-full max-w-lg mx-auto">
+
+        <!-- CREATE MODE → Show Selection -->
+        <ng-container *ngIf="!isEditMode && !yearConfirmed">
+          <span>From</span>
+
+          <select [(ngModel)]="fromYear" [ngModelOptions]="{standalone: true}"
+            class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
+
+            <option value="" selected disabled>Start Year</option>
+
+            <option *ngFor="let year of financialYears" [value]="year">
+              {{ year }}
+            </option>
+
+          </select>
+
+          <span>to</span>
+
+          <select [(ngModel)]="toYear" [ngModelOptions]="{standalone: true}"
+            class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
+
+            <option value="" selected disabled>End Year</option>
+
+            <option *ngFor="let year of financialYears" [value]="year">
+              {{ year }}
+            </option>
+
+          </select>
+
+
+          <button (click)="confirmYear()" class="w-full sm:w-auto mx-3 bg-blue-900 text-white px-4 py-2 text-sm
+      rounded-md hover:opacity-100 opacity-90 transition">
+            Confirm
+          </button>
+        </ng-container>
+
+        <!-- EDIT MODE OR CONFIRMED → Show Text Only -->
+        <ng-container *ngIf="isEditMode || yearConfirmed">
+          <p class="text-gray-900 text-base sm:text-base text-center">
+            Financial Year
+            <span class="font-semibold text-blue-900">
+              {{ fromYear }} <span class="font-light">to</span> {{ toYear }}
+            </span>
+          </p>
+        </ng-container>
+
+      </div>
+
+    </div>
+
+    <!-- ================= ADMINISTRATIVE DETAILS ================= -->
+    <div class="mb-12">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Administrative Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
+
+        <!-- ID -->
+        <div class="relative">
+          <input type="number" formControlName="id" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">ID</label>
+        </div>
+
+        <!-- Receipt Type -->
+        <div class="relative">
+          <input type="text" formControlName="receiptType" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Receipt Type</label>
+        </div>
+
+        <!-- Form No -->
+        <div class="relative">
+          <input type="text" formControlName="formNo" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Form No</label>
+        </div>
+
+        <!-- Rule Reference -->
+        <div class="relative">
+          <input type="text" formControlName="ruleReference" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Rule Reference</label>
+        </div>
+
+        <!-- Office Name -->
+        <div class="relative">
+          <input type="text" formControlName="officeName" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Office Name</label>
+        </div>
+
+        <!-- Panchayat Samiti -->
+        <div class="relative">
+          <input type="text" formControlName="panchayatSamiti" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Panchayat Samiti</label>
+        </div>
+
+        <!-- District -->
+        <div class="relative">
+          <input type="text" formControlName="district" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">District</label>
+        </div>
+
+        <!-- Financial Year -->
+        <div class="relative">
+          <input type="text" formControlName="financialYear" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Financial Year</label>
+        </div>
+
+        <!-- Receipt No -->
+        <div class="relative">
+          <input type="text" formControlName="receiptNo" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Receipt No</label>
+        </div>
+
+        <!-- Date -->
+        <div class="relative">
+          <input type="date" formControlName="date" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2"></label>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= PROPERTY DETAILS ================= -->
+    <div class="mb-12">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Property Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
+
+        <div class="relative">
+          <input type="text" formControlName="taxpayerName" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Taxpayer Name</label>
+        </div>
+
+        <div class="relative">
+          <input type="text" formControlName="address" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Address</label>
+        </div>
+
+        <div class="relative">
+          <input type="number" formControlName="wardNo" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Ward No</label>
+        </div>
+
+        <div class="relative">
+          <input type="text" formControlName="propertyNo" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Property No</label>
+        </div>
+
+        <div class="relative">
+          <input type="text" formControlName="plotNo" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Plot No</label>
+        </div>
+
+        <div class="relative">
+          <input type="text" formControlName="billNo" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Bill No</label>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= TAX DETAILS (ALL 9 CATEGORIES) ================= -->
+    <div class="mb-12" formGroupName="taxDetails">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Tax Breakdown
+      </h2>
+
+      <div class="space-y-10">
+
+        <!-- Repeat this structure for each tax -->
+        <!-- BUILDING TAX -->
+        <div formGroupName="buildingTax">
+          <h3 class="font-semibold text-blue-900 mb-3">Building Tax</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAND TAX -->
+        <div formGroupName="landTax">
+          <h3 class="font-semibold text-blue-900 mb-3">Land Tax</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lighting TAX -->
+        <div formGroupName="lightingTax">
+          <h3 class="font-semibold text-blue-900 mb-3">Lighting Tax</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Water TAX -->
+        <div formGroupName="waterTax">
+          <h3 class="font-semibold text-blue-900 mb-3">Water Tax</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sanitation TAX -->
+        <div formGroupName="sanitationTax">
+          <h3 class="font-semibold text-blue-900 mb-3">Sanitation Tax</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education TAX -->
+        <div formGroupName="educationTax">
+          <h3 class="font-semibold text-blue-900 mb-3">Education Tax</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice Fee -->
+        <div formGroupName="noticeFee">
+          <h3 class="font-semibold text-blue-900 mb-3">Notice Fee</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warntee Fee -->
+        <div formGroupName="warrantFee">
+          <h3 class="font-semibold text-blue-900 mb-3">Warntee Fee</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="relative">
+              <input type="number" formControlName="previous" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="current" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current</label>
+            </div>
+            <div class="relative">
+              <input type="number" formControlName="total" placeholder=" "
+                class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+              <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= GRAND TOTALS ================= -->
+    <div class="mb-12" formGroupName="grandTotals">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Grand Totals
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="relative">
+          <input type="number" formControlName="previous" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous Total</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="current" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current Total</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="total" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Grand Total</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAVE BUTTON -->
+    <div>
+      <button type="button" (click)="onSave()"
+        class="text-white px-6 py-3 text-base sm:text-lg rounded-md shadow-md opacity-90 hover:opacity-100 cursor-pointer bg-blue-900 transition duration-300 ease-in-out">
+        Save Record
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,544 @@
+<div class="font-[poppins] bg-gray-50 flex justify-center">
+
+  <div [formGroup]="taxForm" class="w-full bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-10 sm:py-14 md:py-16 rounded-2xl">
+
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+      <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 tracking-wide">
+        Property Tax Assessment Register
+      </h1>
+
+      <div
+        class="mt-4 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-2 sm:gap-2 w-full max-w-lg mx-auto">
+
+        <!-- CREATE MODE → Show Selection -->
+        <ng-container *ngIf="!isEditMode && !yearConfirmed">
+          <span>From</span>
+
+          <select [(ngModel)]="fromYear" [ngModelOptions]="{standalone: true}"
+            class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
+
+            <option value="" disabled>Start Year</option>
+
+            <option *ngFor="let year of financialYears" [value]="year">
+              {{ year }}
+            </option>
+
+          </select>
+
+          <span>to</span>
+
+          <select [(ngModel)]="toYear" [ngModelOptions]="{standalone: true}"
+            class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
+
+            <option value="" disabled>End Year</option>
+
+            <option *ngFor="let year of financialYears" [value]="year">
+              {{ year }}
+            </option>
+
+          </select>
+
+
+          <button (click)="confirmYear()" class="w-full sm:w-auto mx-3 bg-blue-900 text-white px-4 py-2 text-sm
+      rounded-md hover:opacity-100 opacity-90 transition">
+            Confirm
+          </button>
+        </ng-container>
+
+        <!-- EDIT MODE OR CONFIRMED → Show Text Only -->
+        <ng-container *ngIf="isEditMode || yearConfirmed">
+          <p class="text-gray-900 text-base sm:text-base text-center">
+            Financial Year
+            <span class="font-semibold text-blue-900">
+              {{ fromYear }} <span class="font-light">to</span> {{ toYear }}
+            </span>
+          </p>
+        </ng-container>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- Administrative Details -->
+    <div class="mb-12">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Administrative Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
+
+        <!-- 1 -->
+        <div class="relative">
+          <input formControlName="gramPanchayath" type="text" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Gram Panchayath Name
+          </label>
+        </div>
+
+        <!-- 2 -->
+        <div class="relative">
+          <input type="text" formControlName="village" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Village
+          </label>
+        </div>
+
+        <!-- 3 -->
+        <div class="relative">
+          <input type="text" formControlName="taluka" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Taluka
+          </label>
+        </div>
+
+        <!-- 4 -->
+        <div class="relative">
+          <input type="text" formControlName="district" placeholder=" " class=" peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            District
+            </label>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= BASIC PROPERTY DETAILS ================= -->
+    <div class="mb-12">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Basic Property Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
+
+        <!-- 1 -->
+        <div class="relative">
+          <input formControlName="sno" type="number" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            S. No.
+          </label>
+        </div>
+
+        <!-- 2 -->
+        <div class="relative">
+          <input type="text" formControlName="roadName" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Road Name
+          </label>
+        </div>
+
+        <!-- 3 -->
+        <div class="relative">
+          <input type="text" formControlName="groupNo" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            City Survey / Group No
+          </label>
+        </div>
+
+        <!-- 4 -->
+        <div class="relative">
+          <input type="text" formControlName="propertyNo" placeholder=" " class=" peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Property No
+          </label>
+        </div>
+
+        <!-- 5 -->
+        <div class="relative">
+          <input type="text" formControlName="owner" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm 
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Owner Name
+          </label>
+        </div>
+
+        <!-- 6 -->
+        <div class="relative">
+          <input type="text" formControlName="occupantName" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Occupant Name
+          </label>
+        </div>
+
+        <!-- 7 -->
+        <div class="relative sm:col-span-2">
+          <input type="text" formControlName="propertyDescription" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">
+            Property Description
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= AREA & VALUATION DETAILS ================= -->
+    <div class="mb-12">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Area & Valuation Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
+
+        <!-- 8–14 -->
+        <div class="relative">
+          <input type="number" formControlName="constructionYear" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Construction Year</label>
+        </div>
+
+        <div class="relative">
+          <input type="number" formControlName="area" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Area (Sq.m)</label>
+        </div>
+
+        <div class="relative">
+          <input type="number" formControlName="landArea" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Land Area</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="buildingArea" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Building Area</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="ratePerSqm" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Rate per Sq.m</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="taxRatePercent" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Tax Rate (%)</label>
+        </div>
+        <div class="relative">
+          <input type="text" formControlName="usageType" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Usage Type</label>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= TAX BREAKDOWN ================= -->
+    <div class="mb-12">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Tax Breakdown
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
+
+        <!-- 15–27 -->
+        <div class="relative">
+          <input type="number" formControlName="capitalValue" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Capital Value</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="ratePercent" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Rate (%)</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="houseTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">House Tax</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="lightingTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Lighting Tax</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="healthTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Health Tax</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="waterTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Water Tax</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="totalTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Total Tax</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="previousBalance" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Previous Balance</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="currentYearTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Current Year Tax</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="additionalTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Additional Tax</label>
+        </div>
+        <div class="relative">
+          <input type="number" formControlName="penaltyInterest" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" /><label
+            class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Penalty / Interest</label>
+        </div>
+
+        <div class="relative">
+          <input type="number" formControlName="grandTotal" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Grand Total
+          </label>
+        </div>
+
+        <div class="relative sm:col-span-4">
+          <input type="text" formControlName="remarks" placeholder=" " class="peer w-full text-gray-600 h-40 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
+            focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm sm:text-base
+
+            transition-all duration-200 ease-in-out
+            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
+
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Remarks
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SAVE BUTTON -->
+    <div class="" (click)="onSave()">
+      <button class="text-white px-6 py-3 text-base sm:text-lg rounded-md shadow-md opacity-90 hover:opacity-100 cursor-pointer
+       bg-blue-900 transition duration-300 ease-in-out">
+        Save Record
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- MAIN WRAPPER -->
+<div class="w-full h-full px-4" #scrollContainer>
+
+  <!-- HEADER (Matches Projects Component) -->
+  <div class="px-3 py-2 overflow-hidden">
+    <div class="flex items-center justify-between">
+      <span class="text-blue-900 text-3xl">Tax Receipt</span>
+
+      <div class="flex items-center gap-3">
+
+        <!-- SEARCH INPUT -->
+        <div class="relative">
+          <input #searchInput type="text" placeholder="Search by name..." class="peer w-80 py-3 pl-12 pr-10 border border-gray-400 rounded-md text-sm
+                   focus:placeholder:text-blue-900 focus:outline-blue-900
+                   transition-all duration-150 ease-in-out" />
+
+          <!-- Search Icon -->
+          <svg class="w-5 h-5 absolute top-3.5 left-5 text-zinc-400 peer-focus:text-blue-900" viewBox="0 0 24 24"
+            fill="none">
+            <path
+              d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <!-- NEW BUTTON -->
+        <button (click)="onCreate()" matTooltip="Add Register" matTooltipClass="custom-tooltip" class="border text-white bg-blue-900 border-blue-900 px-6 py-2 rounded-md text-sm
+                 font-medium flex items-center gap-2 opacity- hover:opacity-100
+                 transition-all duration-400 ease-in-out">
+
+          <span class="font-medium text-lg">+</span>
+          <span class="text-base">New</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID WRAPPER (Matches Projects Component) -->
+  <div class="mx-auto w-[99%] flex flex-col shadow-sm shadow-gray-50">
+
+    <div class="ag-theme-quartz w-full h-100 relative">
+      <!-- AG GRID -->
+      <ag-grid-angular class="ag-theme-quartz w-full h-[calc(98.5vh-150px)]" [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef" [rowData]="rowData" [pagination]="true" [paginationPageSize]="20"
+        [rowHeight]="43" [headerHeight]="54">
+      </ag-grid-angular>
+
+    </div>
+  </div>
+</div>

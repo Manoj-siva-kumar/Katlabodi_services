@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+/* Target MDC tooltip surface */
+.custom-tooltip .mdc-tooltip__surface {
+    background-color: #ffffff !important;
+    color: #052050 !important;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    border-radius: 3px;
+    padding: 7px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}

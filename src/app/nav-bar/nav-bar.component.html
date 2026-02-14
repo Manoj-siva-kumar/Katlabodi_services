@@ -1,0 +1,67 @@
+<!-- NAVBAR -->
+<nav class="bg-blue-900 px-16 py-3 flex items-center justify-center border-b border-gray-800 relative font-[poppins]">
+
+  <!-- Menu -->
+  <div class="flex items-center justify-center gap-10 text-sm tracking-wide">
+
+    <!-- WHAT WE DO  -->
+    <div class="relative group">
+
+      <button (click)="toggleMenu()" (mouseenter)="openMenu()"
+        class="relative flex items-center justify-center gap-1 px-4 py-2 bg-blue-900 text-white group">
+
+        <span class="text-lg font-medium relative">
+          Services
+
+          <!-- Animated Underline -->
+          <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-zinc-300
+             group-hover:w-full
+             group-hover:transition-[width]
+             group-hover:duration-500
+             group-hover:ease-in-out" [ngClass]="selectedItem === 'services' ? 'w-full bg-white transition-none' : ''">
+          </span>
+
+        </span>
+      </button>
+
+
+
+      <div *ngIf="isMenuOpen" (mouseenter)="openMenu()" (mouseleave)="closeMenu()"
+        class="z-999 absolute group-hover:visible invisible -left-60 top-11.5 shadow-2xl border-gray-500">
+
+        <svg class="text-white absolute z-20 w-7 h-6 left-70 -top-0.5" fill="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path d="M21,21H3L12,3Z"></path>
+          </g>
+        </svg>
+
+        <!-- MEGA MENU DROPDOWN -->
+        <div class="absolute top-3 w-150 
+            bg-white backdrop-blur-lg backdrop-saturate-150 
+            border border-gray-300 border-t-2
+            shadow-md shadow-gray-300 opacity-0 
+            group-hover:opacity-100 
+            transition-all rounded-xl py-6 px-4">
+
+
+          <!-- 2 ROWS × 3 COLUMNS -->
+          <div class="grid grid-cols-3 gap-2 gap-y-4 text-gray-800 select-none">
+
+            <div *ngFor="let item of items" (click)="selectService(item.id)" [ngClass]="{
+      'bg-blue-900 text-white': selectedService === item.id,
+      'hover:bg-gray-200 text-gray-900': selectedService !== item.id
+    }" class="p-3 text-sm font-medium cursor-pointer text-center transition rounded-md">
+
+              {{ item.serviceName }}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>

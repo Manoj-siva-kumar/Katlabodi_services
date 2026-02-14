@@ -1,0 +1,279 @@
+<div class="w-full mt-6 flex justify-center font-sans px-2">
+
+  <!-- RECEIPT PAPER -->
+  <div class="
+      relative
+      bg-white
+      w-full
+      max-w-[850px]
+      px-3 sm:px-6 md:px-10 lg:px-16
+      py-6 sm:py-8 md:py-10
+      text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px]
+      text-black
+      shadow-lg
+      border border-gray-300
+    ">
+
+    <!-- ================= EDIT BUTTON (TOP RIGHT) ================= -->
+    <div class="absolute top-3 right-3 sm:top-4 sm:right-4">
+
+      <button (click)="onEdit()" class="bg-blue-900 text-white hover:cursor-pointer
+               px-2 sm:px-3 md:px-4
+               py-1 sm:py-2
+               text-[9px] sm:text-[11px] md:text-sm
+               rounded-md opacity-80 hover:opacity-100
+               transition-all duration-400 flex items-center gap-1">
+
+        <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" viewBox="0 -0.5 21 21" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor">
+          <path
+            d="M61.9,258.010643 L45.1,258.010643 L45.1,242.095788 L53.5,242.095788 L53.5,240.106431 L43,240.106431 L43,260 L64,260 L64,250.053215 L61.9,250.053215 L61.9,258.010643 Z M49.3,249.949769 L59.63095,240 L64,244.114985 L53.3341,254.031929 L49.3,254.031929 L49.3,249.949769 Z"
+            transform="translate(-43 -240)" />
+        </svg>
+
+        <span class="hidden sm:inline">Edit Document</span>
+
+      </button>
+
+    </div>
+    <!-- ================= END EDIT BUTTON ================= -->
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="text-center leading-tight">
+
+      <div class="text-[10px] sm:text-[12px]">
+        Sample No. 10
+      </div>
+
+      <div class="text-[10px] sm:text-[12px]">
+        (Rule 32 (4))
+      </div>
+
+      <div class="mt-2 font-semibold tracking-wide text-[11px] sm:text-[13px] md:text-[15px]">
+        * TAX COLLECTION RECEIPT *
+      </div>
+
+      <div class="text-[16px] sm:text-[20px] md:text-[24px] font-bold mt-1">
+        {{data?.officeName}}
+      </div>
+
+      <div class="text-[10px] sm:text-[12px] md:text-[14px] mt-1">
+        Panchayat Samiti {{data?.panchayatSamiti}}, {{data?.district}} District
+      </div>
+
+    </div>
+
+
+    <!-- ================= TAXPAYER DOTTED LINES ================= -->
+
+    <div class="w-full mt-4">
+
+      <div class="relative w-full border-b border-dotted border-black h-[20px] sm:h-[24px] md:h-[28px]">
+        <span class="absolute  bottom-0 bg-white px-2">
+          {{data?.taxpayerName}}
+        </span>
+      </div>
+
+      <div class="relative w-full border-b border-dotted border-black h-[20px] sm:h-[24px] md:h-[28px] mt-2">
+      </div>
+
+    </div>
+
+
+    <!-- ================= PROPERTY ROW (ALWAYS SINGLE LINE) ================= -->
+
+    <div class="
+        w-full
+        flex
+        items-end
+        justify-between
+        gap-2
+        mt-1 sm:mt-4
+        whitespace-nowrap
+      ">
+
+      <div class="flex-1 text-left truncate">
+        Ward No:
+        <span class="border-b border-dotted border-black inline-block min-w-[40px] text-center">
+          {{data?.wardNo}}
+        </span>
+      </div>
+
+      <div class="flex-1 text-left truncate">
+        Property No:
+        <span class="border-b border-dotted border-black inline-block min-w-[70px] text-center">
+          {{data?.propertyNo}}
+        </span>
+      </div>
+
+      <div class="flex-1 text-left truncate">
+        Plot No:
+        <span class="border-b border-dotted border-black inline-block min-w-[70px] text-center">
+          {{data?.plotNo}}
+        </span>
+      </div>
+
+      <div class="flex-1 text-left truncate">
+        Bill No:
+        <span class="border-b sm:text-sm text-xs border-dotted border-black inline-block min-w-[70px] text-center">
+          {{data?.billNo}}
+        </span>
+      </div>
+
+    </div>
+
+
+    <!-- ================= FINANCIAL YEAR LINE ================= -->
+
+    <div class="sm:mt-2 mt-0 leading-relaxed">
+      For the Financial Year
+      <strong>{{data?.financialYear}}</strong>
+      the amount collected in advance is acknowledged.
+    </div>
+
+
+    <!-- ================= TAX TABLE ================= -->
+
+    <div class="w-full sm:mt-6 mt-4 overflow-x-auto">
+
+      <table class="w-full border-collapse table-fixed">
+
+        <thead>
+
+          <tr>
+            <th class="border border-black w-[28%] py-1">Tax Name</th>
+            <th class="border border-black w-[18%]" colspan="2">Previous</th>
+            <th class="border border-black w-[18%]" colspan="2">Current</th>
+            <th class="border border-black w-[18%]">Total</th>
+          </tr>
+
+          <tr>
+            <th class="border border-black py-1"></th>
+            <th class="border border-black py-1">Rs</th>
+            <th class="border border-black py-1">-</th>
+            <th class="border border-black py-1">Rs</th>
+            <th class="border border-black py-1">-</th>
+            <th class="border border-black py-1"></th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <!-- Building Tax -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Building Tax</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.buildingTax?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.buildingTax?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.buildingTax?.total}}</td>
+          </tr>
+
+          <!-- Land Tax -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Land Tax</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.landTax?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.landTax?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.landTax?.total}}</td>
+          </tr>
+
+          <!-- Lighting Tax -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Lighting Tax</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.lightingTax?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.lightingTax?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.lightingTax?.total}}</td>
+          </tr>
+
+          <!-- Water Tax -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Water Tax</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.waterTax?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.waterTax?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.waterTax?.total}}</td>
+          </tr>
+
+          <!-- Sanitation Tax -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Sanitation Tax</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.sanitationTax?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.sanitationTax?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.sanitationTax?.total}}</td>
+          </tr>
+
+          <!-- Education Tax -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Education Tax</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.educationTax?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.educationTax?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.educationTax?.total}}</td>
+          </tr>
+
+          <!-- Notice Fee -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Notice Fee</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.noticeFee?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.noticeFee?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.noticeFee?.total}}</td>
+          </tr>
+
+          <!-- Warrant Fee -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Warrant Fee</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.warrantFee?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.warrantFee?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.warrantFee?.total}}</td>
+          </tr>
+
+          <!-- Other -->
+          <tr class="h-[30px] sm:h-[34px] md:h-[38px]">
+            <td class="border border-black px-2 text-left">Other</td>
+            <td class="border border-black text-center">{{data?.taxDetails?.other?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.other?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.taxDetails?.other?.total}}</td>
+          </tr>
+
+          <!-- Grand Total -->
+          <tr class="h-[34px] sm:h-[38px] md:h-[42px] font-semibold">
+            <td class="border border-black px-2 text-left"><strong>Grand Total</strong></td>
+            <td class="border border-black text-center">{{data?.grandTotals?.previous}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center">{{data?.grandTotals?.current}}</td>
+            <td class="border border-black"></td>
+            <td class="border border-black text-center"><strong>{{data?.grandTotals?.total}}</strong></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <div class="flex justify-between mt-6 text-[10px] sm:text-[12px] md:text-[13px]">
+      <div><strong>Receiver Signature:</strong></div>
+      <div><strong>Secretary / Sarpanch:</strong></div>
+    </div>
+
+  </div>
+</div>

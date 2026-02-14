@@ -1,7 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { TaxManagerGridComponent } from "./Tax-manger-component/tax-manager-grid/tax-manager-grid.component";
-import { TaxManagerCreateComponent } from "./Tax-manger-component/tax-manager-create/tax-manager-create.component";
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 
 @Component({

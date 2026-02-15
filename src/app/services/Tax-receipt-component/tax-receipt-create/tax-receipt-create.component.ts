@@ -40,7 +40,7 @@ export class TaxReceiptCreateComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  public ngOnInit() {
 
     this.taxReceipt = this.fb.group({
 

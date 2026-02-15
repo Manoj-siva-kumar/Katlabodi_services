@@ -29,6 +29,6 @@ export class TaxReceiptViewComponent implements OnInit {
 
   public onEdit(): void {
     if (!this.data) return;
-    this.router.navigate(['/tax-receipt/create', this.data.id]);
+    this.router.navigate(['/birth/create', this.data.id]);
   }
 }

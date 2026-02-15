@@ -1,11 +1,32 @@
 import { Routes } from '@angular/router';
-import { TaxManagerViewComponent } from './services/Tax-manger-component/tax-manager-view/tax-manager-view.component';
-import { TaxReceiptGridComponent } from './services/Tax-receipt-component/tax-receipt-grid/tax-receipt-grid.component';
-import { TaxReceiptCreateComponent } from './services/Tax-receipt-component/tax-receipt-create/tax-receipt-create.component';
 
 export const routes: Routes = [
 
-    
+    {
+        path: 'birth',
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./services/Birth-register-component/birth-register-grid/birth-register-grid.component')
+                    .then(m => m.BirthRegisterGridComponent)
+            },
+            {
+                path: 'create',
+                loadComponent: () => import('./services/Birth-register-component/birth-register-create/birth-register-create.component')
+                    .then(m => m.BirthRegisterCreateComponent)
+            },
+            {
+                path: 'create/:id',
+                loadComponent: () => import('./services/Birth-register-component/birth-register-create/birth-register-create.component')
+                    .then(m => m.BirthRegisterCreateComponent)
+            },
+            {
+                path: 'view/:id',
+                loadComponent: () => import('./services/Birth-register-component/birth-register-view/birth-register-view.component')
+                    .then(m => m.BirthRegisterViewComponent)
+            }
+        ]
+    },
     {
         path: 'tax',
         children: [

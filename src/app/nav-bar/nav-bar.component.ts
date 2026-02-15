@@ -45,12 +45,12 @@ export class NavBarComponent implements OnInit {
   }
 
   public items: ServiceItem[] = [
-    { id: 'marriage', serviceName: 'Marriage Register' },
-    { id: 'birth', serviceName: 'Birth Death Register' },
-    { id: 'proceeding', serviceName: 'Proceeding Register' },
-    { id: 'cashbook', serviceName: 'Cashbook' },
+    { id: 'birth', serviceName: 'Birth Register' },
     { id: 'tax', serviceName: 'Tax Register' },
-    { id: 'tax-receipt', serviceName: 'Tax Receipt' }
+    { id: 'tax-receipt', serviceName: 'Tax Receipt' },
+    { id: 'death', serviceName: 'Death Register' },
+    { id: 'reg', serviceName: 'Register' },
+    { id: 'marriage', serviceName: 'Marriage Register' },
   ];
 
 }

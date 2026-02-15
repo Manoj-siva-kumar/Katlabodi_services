@@ -1,0 +1,235 @@
+<div class="w-full flex justify-center px-2 font-sans mt-6">
+
+  <!-- FORM PAPER -->
+  <div class="relative bg-white w-full max-w-[950px]
+              border border-black
+              px-4 sm:px-6 md:px-10
+              py-6
+              text-[11px] sm:text-[12px] md:text-[13px]">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="text-center leading-tight mb-4">
+
+      <div class="text-xs sm:text-sm font-semibold">
+        {{data?.form_number}}
+      </div>
+
+      <div class="text-xs">
+        {{data?.legal_reference}}
+      </div>
+
+      <div class="text-lg sm:text-xl font-bold mt-1">
+        BIRTH REGISTRATION FORM
+      </div>
+
+    </div>
+
+    <!-- ================= TWO COLUMN BODY ================= -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- ================= LEFT COLUMN ================= -->
+      <div class="space-y-3">
+
+        <!-- 1 -->
+        <div>
+          (1) Date of Birth:
+          <span class="border-b border-dotted border-black inline-block w-40 text-center">
+            {{data?.birth_event_details?.date_of_birth}}
+          </span>
+        </div>
+
+        <!-- 2 -->
+        <div>
+          (2) Time of Birth:
+          <span class="border-b border-dotted border-black inline-block w-32 text-center">
+            {{data?.birth_event_details?.time_of_birth}}
+          </span>
+        </div>
+
+        <!-- 3 -->
+        <div>
+          (3) Name of Child:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.birth_event_details?.name_of_child}}
+          </span>
+        </div>
+
+        <!-- 4 Gender -->
+        <div>
+          (4) Sex:
+          <span class="ml-2">☐ Male</span>
+          <span class="ml-4">☐ Female</span>
+          <span class="ml-4">☐ Other</span>
+        </div>
+
+        <!-- 5 Place of Birth -->
+        <div>
+          (5) Place of Birth:
+          <span class="ml-2">☐ Hospital</span>
+          <span class="ml-4">☐ Home</span>
+          <span class="ml-4">☐ Other</span>
+        </div>
+
+        <div>
+          Hospital Name:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.birth_event_details?.hospital_name}}
+          </span>
+        </div>
+
+        <!-- Mother -->
+        <div>
+          (6) Mother’s Name:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.mother_details?.name}}
+          </span>
+        </div>
+
+        <div>
+          Age at Birth:
+          <span class="border-b border-dotted border-black inline-block w-20 text-center">
+            {{data?.mother_details?.age_at_birth}}
+          </span>
+        </div>
+
+        <div>
+          Education:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.mother_details?.education}}
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- ================= RIGHT COLUMN ================= -->
+      <div class="space-y-3">
+
+        <!-- Father -->
+        <div>
+          (7) Father’s Name:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.father_details?.name}}
+          </span>
+        </div>
+
+        <div>
+          Age:
+          <span class="border-b border-dotted border-black inline-block w-20 text-center">
+            {{data?.father_details?.age}}
+          </span>
+        </div>
+
+        <div>
+          Education:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.father_details?.education}}
+          </span>
+        </div>
+
+        <div>
+          Occupation:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.father_details?.occupation}}
+          </span>
+        </div>
+
+        <!-- Address -->
+        <div>
+          (8) Permanent Address:
+          <span class="border-b border-dotted border-black inline-block w-full text-center">
+            {{data?.permanent_address_of_parents?.house_number}},
+            {{data?.permanent_address_of_parents?.street_area}}
+          </span>
+        </div>
+
+        <div>
+          Village:
+          <span class="border-b border-dotted border-black inline-block w-40 text-center">
+            {{data?.permanent_address_of_parents?.village}}
+          </span>
+        </div>
+
+        <div>
+          Taluka:
+          <span class="border-b border-dotted border-black inline-block w-32 text-center">
+            {{data?.permanent_address_of_parents?.taluka}}
+          </span>
+        </div>
+
+        <div>
+          District:
+          <span class="border-b border-dotted border-black inline-block w-32 text-center">
+            {{data?.permanent_address_of_parents?.district}}
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= DELIVERY INFO ================= -->
+
+    <div class="mt-6 space-y-2">
+
+      <div>
+        (9) Type of Delivery:
+        <span class="ml-3">☐ Institutional</span>
+        <span class="ml-4">☐ Home</span>
+        <span class="ml-4">☐ Other</span>
+      </div>
+
+      <div>
+        (10) Informant Name:
+        <span class="border-b border-dotted border-black inline-block w-60 text-center">
+          {{data?.informant_details?.name}}
+        </span>
+      </div>
+
+      <div>
+        Relationship:
+        <span class="border-b border-dotted border-black inline-block w-40 text-center">
+          {{data?.informant_details?.relationship_to_child}}
+        </span>
+      </div>
+
+    </div>
+
+    <!-- ================= OFFICE USE SECTION ================= -->
+
+    <div class="mt-8 border-t border-black pt-4 space-y-3">
+
+      <div class="font-semibold text-sm">For Office Use Only</div>
+
+      <div>
+        Registration No:
+        <span class="border-b border-dotted border-black inline-block w-48 text-center">
+          {{data?.registration_details_office_use?.registration_number}}
+        </span>
+      </div>
+
+      <div>
+        Registration Date:
+        <span class="border-b border-dotted border-black inline-block w-40 text-center">
+          {{data?.registration_details_office_use?.registration_date}}
+        </span>
+      </div>
+
+      <div>
+        Registrar Name:
+        <span class="border-b border-dotted border-black inline-block w-60 text-center">
+          {{data?.registration_details_office_use?.registrar_name}}
+        </span>
+      </div>
+
+      <div class="flex justify-between mt-6">
+        <div>Signature of Informant</div>
+        <div>Registrar Signature & Seal</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

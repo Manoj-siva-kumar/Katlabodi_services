@@ -1,0 +1,737 @@
+<div class="font-[poppins] bg-gray-50 flex justify-center">
+
+  <div [formGroup]="birthForm"
+    class="w-full bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-10 sm:py-14 md:py-16 rounded-2xl">
+
+    <!-- ================= HEADER ================= -->
+    <div class="text-center mb-12">
+      <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 tracking-wide">
+        Birth Registration Form
+      </h1>
+    </div>
+
+    <!-- ================= ADMINISTRATIVE DETAILS ================= -->
+    <div class="mb-12">
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
+        Administrative Section
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
+
+        <!-- ID -->
+        <div class="relative">
+          <input type="number" formControlName="id" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">ID</label>
+        </div>
+
+        <!-- Document Type -->
+        <div class="relative">
+          <input type="text" formControlName="document_type" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Document Type</label>
+        </div>
+
+        <!-- Form No -->
+        <div class="relative">
+          <input type="text" formControlName="form_number" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Form No</label>
+        </div>
+
+        <!-- Legal Reference -->
+        <div class="relative">
+          <input type="text" formControlName="legal_reference" placeholder=" "
+            class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+            peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
+            bg-white px-2">Legal Reference</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Birth Event Details ================= -->
+    <!-- ================= BIRTH EVENT DETAILS ================= -->
+    <div formGroupName="birth_event_details" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Birth Event Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+
+        <!-- Child Name -->
+        <div class="relative">
+          <input type="text" formControlName="name_of_child" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Child Name
+          </label>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="relative">
+          <input type="date" formControlName="date_of_birth" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Date of Birth
+          </label>
+        </div>
+
+        <!-- Time of Birth -->
+        <div class="relative">
+          <input type="text" formControlName="time_of_birth" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Time of Birth
+          </label>
+        </div>
+
+      </div>
+
+      <div class="flex space-x-20">
+        <!-- ================= Gender Section ================= -->
+        <div formGroupName="sex_of_child" class="mt-8">
+          <h3 class="font-semibold text-blue-900 mb-3">Gender</h3>
+
+          <div class="flex flex-wrap gap-6">
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="male" class="h-4 w-4 accent-blue-900" />
+              <span>Male</span>
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="female" class="h-4 w-4 accent-blue-900" />
+              <span>Female</span>
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="other" class="h-4 w-4 accent-blue-900" />
+              <span>Other</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ================= Place of Birth Type ================= -->
+        <div formGroupName="place_of_birth_type" class="mt-8">
+          <h3 class="font-semibold text-blue-900 mb-3">Place of Birth Type</h3>
+
+          <div class="flex flex-wrap gap-6">
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="hospital" class="h-4 w-4 accent-blue-900" />
+              <span>Hospital</span>
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="home" class="h-4 w-4 accent-blue-900" />
+              <span>Home</span>
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="other" class="h-4 w-4 accent-blue-900" />
+              <span>Other</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= Hospital Name ================= -->
+      <div class="relative mt-8">
+        <input type="text" formControlName="hospital_name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+             focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+        <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+      bg-white px-2">
+          Hospital Name
+        </label>
+      </div>
+
+      <!-- ================= Place of Birth Address ================= -->
+      <div formGroupName="place_of_birth_address" class="mt-10">
+
+        <h3 class="font-semibold text-blue-900 mb-4">Place of Birth Address</h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+
+          <div class="relative">
+            <input type="text" formControlName="village" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+                 focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+          peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+          peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+          peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+          bg-white px-2">
+              Village
+            </label>
+          </div>
+
+          <div class="relative">
+            <input type="text" formControlName="taluka" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+                 focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+          peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+          peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+          peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+          bg-white px-2">
+              Taluka
+            </label>
+          </div>
+
+          <div class="relative">
+            <input type="text" formControlName="district" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+                 focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+          peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+          peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+          peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+          bg-white px-2">
+              District
+            </label>
+          </div>
+
+          <div class="relative">
+            <input type="text" formControlName="state" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+                 focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+          peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+          peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+          peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+          bg-white px-2">
+              State
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= BIRTH TYPE INFORMATION ================= -->
+    <div formGroupName="birth_type_information" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Birth Type Information
+      </h2>
+
+      <div class="flex space-x-20 items-center">
+        <!-- Birth Type Checkboxes -->
+        <div formGroupName="birth_type" class="mb-4">
+
+          <h3 class="font-semibold text-blue-900 mb-3">Type of Birth</h3>
+
+          <div class="flex flex-wrap gap-6">
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="single" class="h-4 w-4 accent-blue-900" />
+              <span>Single</span>
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="twin" class="h-4 w-4 accent-blue-900" />
+              <span>Twin</span>
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="triplet" class="h-4 w-4 accent-blue-900" />
+              <span>Triplet</span>
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="multiple" class="h-4 w-4 accent-blue-900" />
+              <span>Multiple</span>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- Birth Order -->
+        <div class="relative max-w-sm">
+          <input type="number" formControlName="birth_order" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+             focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+      bg-white px-2">
+            Birth Order
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MOTHER DETAILS ================= -->
+    <div formGroupName="mother_details" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Mother Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+
+        <!-- Mother Name -->
+        <div class="relative">
+          <input type="text" formControlName="name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Mother Name
+          </label>
+        </div>
+
+        <!-- Age at Birth -->
+        <div class="relative">
+          <input type="text" formControlName="age_at_birth" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Age at Birth
+          </label>
+        </div>
+
+        <!-- Education -->
+        <div class="relative">
+          <input type="text" formControlName="education" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Education
+          </label>
+        </div>
+
+        <!-- Occupation -->
+        <div class="relative">
+          <input type="text" formControlName="occupation" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Occupation
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= FATHER DETAILS ================= -->
+    <div formGroupName="father_details" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Father Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+
+        <!-- Father Name -->
+        <div class="relative">
+          <input type="text" formControlName="name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Father Name
+          </label>
+        </div>
+
+        <!-- Age -->
+        <div class="relative">
+          <input type="text" formControlName="age" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Age
+          </label>
+        </div>
+
+        <!-- Education -->
+        <div class="relative">
+          <input type="text" formControlName="education" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Education
+          </label>
+        </div>
+
+        <!-- Occupation -->
+        <div class="relative">
+          <input type="text" formControlName="occupation" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Occupation
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= PERMANENT ADDRESS OF PARENTS ================= -->
+    <div formGroupName="permanent_address_of_parents" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Permanent Address of Parents
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+
+        <!-- House Number -->
+        <div class="relative">
+          <input type="text" formControlName="house_number" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            House Number
+          </label>
+        </div>
+
+        <!-- Street / Area -->
+        <div class="relative">
+          <input type="text" formControlName="street_area" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Street / Area
+          </label>
+        </div>
+
+        <!-- Village -->
+        <div class="relative">
+          <input type="text" formControlName="village" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Village
+          </label>
+        </div>
+
+        <!-- Taluka -->
+        <div class="relative">
+          <input type="text" formControlName="taluka" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Taluka
+          </label>
+        </div>
+
+        <!-- District -->
+        <div class="relative">
+          <input type="text" formControlName="district" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            District
+          </label>
+        </div>
+
+        <!-- State -->
+        <div class="relative">
+          <input type="text" formControlName="state" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            State
+          </label>
+        </div>
+
+        <!-- Pin Code -->
+        <div class="relative">
+          <input type="number" formControlName="pin_code" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Pin Code
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= DELIVERY INFORMATION ================= -->
+    <div formGroupName="delivery_information" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Delivery Information
+      </h2>
+
+      <div formGroupName="delivery_type">
+
+        <h3 class="font-semibold text-blue-900 mb-4">
+          Type of Delivery
+        </h3>
+
+        <div class="flex flex-wrap gap-8">
+
+          <!-- Institutional -->
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input type="checkbox" formControlName="institutional" class="h-4 w-4 accent-blue-900" />
+            <span class="text-gray-800">Institutional</span>
+          </label>
+
+          <!-- Home -->
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input type="checkbox" formControlName="home" class="h-4 w-4 accent-blue-900" />
+            <span class="text-gray-800">Home</span>
+          </label>
+
+          <!-- Other -->
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input type="checkbox" formControlName="other" class="h-4 w-4 accent-blue-900" />
+            <span class="text-gray-800">Other</span>
+          </label>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= INFORMANT DETAILS ================= -->
+    <div formGroupName="informant_details" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Informant Details
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+
+        <!-- Informant Name -->
+        <div class="relative">
+          <input type="text" formControlName="name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Informant Name
+          </label>
+        </div>
+
+        <!-- Relationship to Child -->
+        <div class="relative">
+          <input type="text" formControlName="relationship_to_child" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Relationship to Child
+          </label>
+        </div>
+
+        <!-- Informant Address -->
+        <div class="relative sm:col-span-2 lg:col-span-3">
+          <input type="text" formControlName="address" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Informant Address
+          </label>
+        </div>
+
+      </div>
+
+      <!-- Signature Present -->
+      <div class="mt-8">
+        <label class="flex items-center gap-3 cursor-pointer">
+          <input type="checkbox" formControlName="signature_present" class="h-4 w-4 accent-blue-900" />
+          <span class="text-gray-800">Signature Present</span>
+        </label>
+      </div>
+
+    </div>
+
+    <!-- ================= REGISTRATION DETAILS (OFFICE USE) ================= -->
+    <div formGroupName="registration_details_office_use" class="mb-12">
+
+      <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-6">
+        Registration Details (Office Use)
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+
+        <!-- Registration Number -->
+        <div class="relative">
+          <input type="text" formControlName="registration_number" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Registration Number
+          </label>
+        </div>
+
+        <!-- Registration Date -->
+        <div class="relative">
+          <input type="date" formControlName="registration_date" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Registration Date
+          </label>
+        </div>
+
+        <!-- Registration Year -->
+        <div class="relative">
+          <input type="number" formControlName="registration_year" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Registration Year
+          </label>
+        </div>
+
+        <!-- Registration Unit Code -->
+        <div class="relative">
+          <input type="text" formControlName="registration_unit_code" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Registration Unit Code
+          </label>
+        </div>
+
+        <!-- Local Body Name -->
+        <div class="relative">
+          <input type="text" formControlName="local_body_name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Local Body Name
+          </label>
+        </div>
+
+        <!-- Registrar Name -->
+        <div class="relative">
+          <input type="text" formControlName="registrar_name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+               focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            Registrar Name
+          </label>
+        </div>
+
+      </div>
+
+      <!-- Signature & Seal -->
+      <div class="mt-8 flex flex-wrap gap-8">
+
+        <label class="flex items-center gap-3 cursor-pointer">
+          <input type="checkbox" formControlName="registrar_signature_present" class="h-4 w-4 accent-blue-900" />
+          <span>Registrar Signature Present</span>
+        </label>
+
+        <label class="flex items-center gap-3 cursor-pointer">
+          <input type="checkbox" formControlName="official_seal_present" class="h-4 w-4 accent-blue-900" />
+          <span>Official Seal Present</span>
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <!-- SAVE BUTTON -->
+    <div>
+      <button type="button" (click)="onSave()"
+        class="text-white px-6 py-3 text-base sm:text-lg rounded-md shadow-md opacity-90 hover:opacity-100 cursor-pointer bg-blue-900 transition duration-300 ease-in-out">
+        Save Record
+      </button>
+    </div>
+
+  </div>
+</div>

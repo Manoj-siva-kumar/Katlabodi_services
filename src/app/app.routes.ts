@@ -28,6 +28,31 @@ export const routes: Routes = [
         ]
     },
     {
+        path: 'death',
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./services/Death-register-component/death-register-grid/death-register-grid.component')
+                    .then(m => m.DeathRegisterGridComponent)
+            },
+            {
+                path: 'create',
+                loadComponent: () => import('./services/Death-register-component/death-register-create/death-register-create.component')
+                    .then(m => m.DeathRegisterCreateComponent)
+            },
+            {
+                path: 'create/:id',
+                loadComponent: () => import('./services/Death-register-component/death-register-create/death-register-create.component')
+                    .then(m => m.DeathRegisterCreateComponent)
+            },
+            {
+                path: 'view/:id',
+                loadComponent: () => import('./services/Death-register-component/death-register-view/death-register-view.component')
+                    .then(m => m.DeathRegisterViewComponent)
+            }
+        ]
+    },
+    {
         path: 'tax',
         children: [
             {

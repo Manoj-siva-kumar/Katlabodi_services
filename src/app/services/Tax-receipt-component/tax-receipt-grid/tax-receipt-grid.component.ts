@@ -35,57 +35,83 @@ export class TaxReceiptGridComponent implements OnInit {
   };
 
   public columnDefs: ColDef<rowdata>[] = [
+
     {
       field: 'id',
       headerName: 'S.No',
       headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellClass: "font-[poppins]",
+      width: 90
     },
+
     {
-      field: 'formNo',
-      headerName: 'Group No',
+      field: 'receiptNo',
+      headerName: 'Receipt No',
       headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellClass: "font-[poppins]",
-
+      width: 140
     },
+
     {
       field: 'financialYear',
-      headerName: 'Property No',
+      headerName: 'Financial Year',
       headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellClass: "font-[poppins]",
+      width: 150
     },
+
     {
       field: 'taxpayerName',
       headerName: 'Owner',
       headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellClass: "font-[poppins]",
+      flex: 1
     },
+
     {
-      field: 'wardNo',
-      headerName: 'Usage Type',
+      field: 'propertyNo',
+      headerName: 'Property No',
       headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellClass: "font-[poppins]",
+      width: 140
     },
+
     {
       field: 'wardNo',
-      headerName: 'Capital Value',
+      headerName: 'Ward No',
       headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellClass: "font-[poppins]",
+      width: 120
     },
+
     {
-      field: 'receiptType',
+      field: 'billNo',
+      headerName: 'Bill No',
+      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+      cellClass: "font-[poppins]",
+      width: 130
+    },
+
+    {
       headerName: 'Total Tax',
+      valueGetter: params => params.data?.grandTotals?.total ?? 0,
       headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellClass: "font-[poppins]",
+      width: 140,
+      valueFormatter: params => `₹ ${params.value}`
     },
+
     {
       headerName: 'Actions',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80",
+      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
       cellRenderer: TaxReceiptActionsComponent,
-    },
+      width: 150
+    }
+
   ];
 
-  public onCreate(): void{
+
+  public onCreate(): void {
     this.router.navigate(['/tax-receipt/create']);
   }
 

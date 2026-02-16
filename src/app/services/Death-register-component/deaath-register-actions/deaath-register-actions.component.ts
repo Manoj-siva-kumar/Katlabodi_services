@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { ICellRendererParams } from 'ag-grid-community';
 
 @Component({
-  selector: 'app-tax-receipt-actions',
-  templateUrl: './tax-receipt-actions.component.html',
-  styleUrls: ['./tax-receipt-actions.component.css'],
+  selector: 'app-deaath-register-actions',
+  templateUrl: './deaath-register-actions.component.html',
+  styleUrls: ['./deaath-register-actions.component.css'],
   standalone: true,
   imports: [MatTooltip],
 })
-export class TaxReceiptActionsComponent implements OnInit {
+export class DeaathRegisterActionsComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
@@ -36,12 +36,12 @@ export class TaxReceiptActionsComponent implements OnInit {
 
   public onView() {
     const id = this.params.data.id;
-    this.router.navigate(['/tax-receipt/view', id]);
+    this.router.navigate(['/death/view', id]);
   }
 
   public onEdit() {
     const id = this.params.data.id;
-    this.router.navigate(['/tax-receipt/create', id]);
+    this.router.navigate(['/death/create', id]);
   }
 
 }

@@ -2,43 +2,23 @@
 
   <div class="flex items-center justify-between mb-6">
 
-    <!-- Left Spacer -->
     <div class="w-1/4"></div>
 
-    <!-- Center Content -->
     <div class="w-2/4 text-center">
-      <div class="text-2xl font-bold mt-2">
-        Deth Register
+      <div class="text-2xl font-bold mt-2 text-blue-900">
+        Death Report (Form No. 2)
       </div>
     </div>
 
-    <!-- Right Button -->
     <div class="w-1/4 flex justify-end">
       <button (click)="onEdit()" class="bg-blue-900 text-white px-6 py-3 text-base rounded-md opacity-90 cursor-pointer
       transition-all duration-400 ease-in-out hover:opacity-100">
-        <div class="flex">
-          <!-- Edit Button -->
-          <button matTooltip="Edit" matTooltipClass="custom-tooltip" class="focus:outline-none h-6 w-6">
-            <svg class="w-4 h-4 text-white" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <title>edit [#1479]</title>
-                <desc>Created with Sketch.</desc>
-                <defs> </defs>
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="Dribbble-Light-Preview" transform="translate(-99.000000, -400.000000)" fill="currentColor">
-                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                      <path
-                        d="M61.9,258.010643 L45.1,258.010643 L45.1,242.095788 L53.5,242.095788 L53.5,240.106431 L43,240.106431 L43,260 L64,260 L64,250.053215 L61.9,250.053215 L61.9,258.010643 Z M49.3,249.949769 L59.63095,240 L64,244.114985 L53.3341,254.031929 L49.3,254.031929 L49.3,249.949769 Z"
-                        id="edit-[#1479]"> </path>
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </button>
+        <div class="flex items-center">
+          <svg class="w-4 h-4 text-white mr-2" viewBox="0 -0.5 21 21" fill="currentColor">
+            <path
+              d="M61.9,258.010643 L45.1,258.010643 L45.1,242.095788 L53.5,242.095788 L53.5,240.106431 L43,240.106431 L43,260 L64,260 L64,250.053215 L61.9,250.053215 L61.9,258.010643 Z M49.3,249.949769 L59.63095,240 L64,244.114985 L53.3341,254.031929 L49.3,254.031929 L49.3,249.949769 Z"
+              transform="translate(-43, -240)"></path>
+          </svg>
           <span>Edit Document</span>
         </div>
       </button>
@@ -53,73 +33,341 @@
       <col class="w-[13%]">
       <col class="w-[13%]">
       <col class="w-[31%]">
-      >
     </colgroup>
 
     <tr class="h-[60px]">
-      <th colspan="1" class="border-b-2 border-r-2 border-black p-2 align-top">
+      <th colspan="1" class="border-b-2 border-r-2 border-black p-2 align-top text-left">
         <div class="flex items-center">
-          <span class="font-bold text-sm w-1/3 text-left">SL No.</span>
-          <span class="font-bold text-sm w-1/3 text-center">Deth</span>
-          <span class="w-1/3"></span>
+          <span class="font-bold text-sm w-1/3 text-left">Form No. 2</span>
+          <span class="font-bold text-sm w-1/3 text-center">Death Report</span>
         </div>
-        <span class="font-bold">klksd</span><br>
-        <span class="font-bold">sdjksd</span><br>
-        <span class="font-bold">sdjksd</span>
+        <div class="text-center">
+          <span class="font-bold block">Legal Information</span>
+          <span class="font-bold block">(To be treated as death registration)</span>
+          <span class="font-bold block">Gram Panchayat Katlabodi</span>
+        </div>
       </th>
       <th colspan="4" class="border-b-2 border-black p-2 text-right align-top">
-        <span class="font-bold text-sm">आधार क्रमांक: २७९६ ९७२९ ०५७७</span><br>
-        मृत्यू अहवाल<br>
-        <span class="font-bold">सांख्यिकी माहिती</span>
-      </th>
+        <div class="flex text-right">
+          <span class="font-bold text-sm w-1/2 text-right">Death Report</span>
+          <span class="font-bold text-sm w-1/2 text-right">Form No. 2</span>
+        </div>
+        <div class="text-center">
+          <span class="font-bold block">Statistical Information</span>
+          <span class="font-bold block">(To be treated as death registration)</span>
+        </div>
     </tr>
 
-    <tr class="h-[300px]">
+    <tr class="h-[500px]">
       <td colspan="1" class="border-r-2 border-black p-2 align-top leading-6">
-        1 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        2 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        3 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        4 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        5 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        6 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        7 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        8 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        9 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
-        10 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        <div class="p-2 relative">
+          <div>
+            <span class=" font-bold">(1) Date of Death:</span><span
+              class=" border-b border-black inline-block w-50 text-center">
+              12 / 01 / 2022
+            </span>
+          </div>
+          <div class=" pl-[145px]">Date &nbsp; Month &nbsp; Year</div>
+          <div class="mt-1">
+            <span class=" font-bold">(2) Full Name of Deceased: </span><span
+              class=" border-b border-black inline-block w-40 text-center">
+              nmnmnmn
+            </span>
+          </div>
+          <div class="mt-1">
+            <span class="font-bold">(3) Gender of Deceased: </span><span class="inline-block w-40 text-center">
+              Female
+            </span>
+          </div>
+          <div class="mt-1">
+            <span class="font-bold">(4) Age of Deceased: </span><span
+              class=" border-b border-black inline-block w-40 text-center">
+              60 Yrs.
+            </span>
+          </div>
+          <div class="mt-1 pl-4">
+            <span class="">(If deceased was under 1 year, write age in months; if under 1 month, write in days; if under
+              1 day, write in hours.)</span>
+          </div>
+          <div class="mt-1">
+            <span class="font-bold">(5) Mother's Full Name: </span><span
+              class=" border-b border-black inline-block w-40 text-center">
+
+            </span>
+          </div>
+          <div class="mt-1">
+            <span class="font-bold">(6) Father's / Husband's Full Name: </span><span
+              class=" border-b border-black inline-block w-40 text-center">
+              Jeevan Jivtu Kohade
+            </span>
+          </div>
+          <div class="mt-1">
+            <span class="font-bold">(7) Address of Deceased at time of Death: </span><span
+              class=" border-b border-black inline-block w-30 text-center">
+              Rh. Katlabod
+            </span>
+          </div>
+          <div class="mt-1">
+            <span class="font-bold">(8) Permanent Address of Deceased: </span><span
+              class=" border-b border-black inline-block w-30 text-center">
+              Rh. Katlabod
+            </span>
+          </div>
+          <div class="mt-1">
+            <span class="font-bold">(9) Place of Death </span>
+          </div>
+          <div class="pl-4">(If born in hospital/home or other
+            place, fill all details. E.g. Hospital/Home/Other place where born.)</div>
+
+          <div class="mt-1 pl-4">
+            <span class="font-bold">a. Hospital / Institution Name &amp; Address: </span><span
+              class=" border-b border-black inline-block w-30 text-center">
+              Rh. Katlabod
+            </span>
+          </div>
+          <div class="mt-1 pl-4">
+            <span class="font-bold">b. Home </span><span class=" border-b border-black inline-block w-30 text-center">
+              Rh. Katlabod
+            </span>
+          </div>
+          <div class="mt-1 pl-4">
+            <span class="font-bold">c. Other: </span><span class=" border-b border-black inline-block w-30 text-center">
+              Rh. Katlabod
+            </span>
+          </div>
+          <div class="mt-1 ">
+            <span class="font-bold">(10) Informant's Name &amp; Address: </span><span
+              class=" border-b border-black inline-block w-30 text-center">
+              Rameshwar Jeevan Kohade
+            </span>
+          </div>
+          <div class="mt-1 ">
+            <span class="font-bold">Date </span><span class=" border-b border-black inline-block w-30 text-center">
+              09/10/2026
+            </span>
+          </div>
+        </div>
       </td>
       <td colspan="3" class="border-r-2 border-black p-2 align-top leading-6">
-        (११) कुटुंबाचा धर्म: <span class="font-bold">हिंदू</span><br>
-        (१३) मृताचा व्यवसाय: <span class="font-bold">निरंक</span><br>
-        (१५) मृत्यूचे कारण प्रमाणित आहे का? <span class="font-bold">नाही</span>
+        <div class="p-2">
+          <div class="font-bold italic underline text-gray-600 mb-1">(Statistical Information)</div>
+
+          <!-- 11 -->
+          <div class="mt-1">
+            <span class="font-bold">(11) Deceased's usual place of residence</span>
+          </div>
+          <div class="pl-4 text-[10px]">(Is this place different from place of death?)</div>
+          <div class="pl-4 mt-1">
+            <span class="font-bold">a. Village / Gram: </span>
+            <span class="border-b border-black inline-block w-32 text-center">Katlabodi</span>
+          </div>
+          <div class="pl-4 mt-1">
+            <span class="font-bold">b. Village or City: </span>
+            <span class="pl-2"> (1) Village
+              &nbsp;&nbsp;
+              (2) City
+            </span>
+          </div>
+          <div class="pl-4 mt-1">
+            <span class="font-bold">k. District Name: </span>
+            <span class="border-b border-black inline-block w-32 text-center">Nagpur</span>
+          </div>
+          <div class="pl-4 mt-1">
+            <span class="font-bold">d. State Name: </span>
+            <span class="border-b border-black inline-block w-32 text-center">Maharashtra</span>
+          </div>
+
+          <!-- 12 -->
+          <div class="mt-2">
+            <span class="font-bold">(12) Family's Religion*</span>
+          </div>
+          <div class="pl-4"> (1) Hindu
+            &nbsp;&nbsp; (2) Muslim &nbsp;&nbsp; (3) Christian <br>
+            (4) Other (Write religion name):
+            <span class="border-b border-black inline-block w-28 text-center"></span>
+          </div>
+
+          <!-- 13 -->
+          <div class="mt-2">
+            <span class="font-bold">(13) Deceased's Occupation / Job: </span>
+            <span class="border-b border-black inline-block w-28 text-center">Nil</span>
+          </div>
+          <div class="pl-4 text-[9px]">(If not employed, write Nil.)</div>
+
+          <!-- 14 -->
+          <div class="mt-2">
+            <span class="font-bold">(14) Type of Medical Attention received before death*</span>
+          </div>
+          <div class="pl-4">
+            (1) Medical Institution <br>
+            (2) Other medical service <br>
+            (3) No Medical Service received.
+          </div>
+
+          <div class="text-[9px] italic mt-2 text-gray-600">
+            Statistical information to be sent to Tehsildar / Corporation.
+          </div>
+        </div>
       </td>
-      <td colspan="1" class="border-r-2 border-black p-2 align-top leading-6">
-        (११) कुटुंबाचा धर्म: <span class="font-bold">हिंदू</span><br>
-        (१३) मृताचा व्यवसाय: <span class="font-bold">निरंक</span><br>
-        (१५) मृत्यूचे कारण प्रमाणित आहे का? <span class="font-bold">नाही</span>
+
+      <td colspan="1" class="p-2 align-top leading-6">
+        <div class="p-2">
+          <div class="font-bold italic underline text-gray-600 mb-1">(Statistical Information)</div>
+
+          <!-- 15 -->
+          <div class="mt-1">
+            <span class="font-bold pr-4">(15) Is Cause of Death medically certified?</span>
+            (a) Yes &nbsp;&nbsp; (b) No
+          </div>
+
+          <!-- 16 -->
+          <div class="mt-2">
+            <span class="font-bold">(16) Name of Disease or Exact Cause of Death:</span>
+          </div>
+          <div class="pl-4">
+            <span class="border-b border-black inline-block w-80 text-center">Old Age</span>
+          </div>
+          <div class="pl-4 text-[8.5px] italic text-gray-600">
+            (If medically certified, mention as per medical certificate.)
+          </div>
+
+          <!-- 17 -->
+          <div class="mt-2">
+            <span class="font-bold">(17) If deceased was a woman and death occurred during / after delivery or within 6
+              weeks after delivery, fill the following:</span>
+          </div>
+          <div class="pl-4">
+            (1) Yes <span class="border-b border-black inline-block w-10 text-center"></span>
+            &nbsp;&nbsp;
+            (2) No <span class="border-b border-black inline-block w-10 text-center"></span>
+          </div>
+
+          <!-- 18 -->
+          <div class="mt-1">
+            <span class="font-bold">(18) Smoking / Bidi / Cigarette habit?</span>
+            <span class="pl-4">
+              <span class="border-b border-black inline-block w-25 text-center"></span>
+              &nbsp; If yes, how many years?
+              <span class="border-b border-black inline-block w-10 text-center"></span>
+            </span>
+          </div>
+
+          <!-- 19 -->
+          <div class="mt-1">
+            <span class="font-bold">(19) Tobacco chewing habit?</span>
+            <span class="pl-4">
+              If yes, how many years?
+              <span class="border-b border-black inline-block w-10 text-center"></span>
+            </span>
+          </div>
+
+          <!-- 20 -->
+          <div class="mt-1">
+            <span class="font-bold">(20) Betel Nut / Pan Masala eating habit?</span>
+            <span class="pl-4">
+              If yes, how many years?
+              <span class="border-b border-black inline-block w-10 text-center"></span>
+            </span>
+          </div>
+
+          <!-- 21 -->
+          <div class="mt-1">
+            <span class="font-bold">(21) Alcohol or intoxicant habit?</span>
+            <span class="pl-4">
+              If yes, how many years?
+              <span class="border-b border-black inline-block w-10 text-center"></span>
+            </span>
+          </div>
+
+          <div class="text-[8.5px] italic mt-3 text-gray-600">
+            (After filling the blank boxes completely, signature to be taken from informant at the bottom of the form.)
+          </div>
+
+        </div>
       </td>
     </tr>
 
     <tr class="border-t-2 border-black">
-      <th colspan="1" rowspan="6" class="border-r-2 border-black p-2 align-top h-[150px]">
-        <span class="font-bold text-[10px]">abc</span>
+      <th colspan="1" rowspan="6" class="border-r-2 border-black p-2 align-top h-[150px] text-left">
+        <span class="font-bold text-[10px]">Information for Registrar:</span><br>
+        <div class="mt-1">
+          <span class="font-bold">Reg. No:</span><span class="border-b border-black"></span>
+          <span class="pl-4">
+            <span class="border-b border-black inline-block w-30 text-center"></span>
+            &nbsp; Date
+            <span class="border-b border-black inline-block w-30 text-center"></span>
+          </span>
+        </div>
+        <div class="mt-2">
+          <span class="font-bold">Name: </span><span class=" border-b border-black inline-block w-50 text-center">
+            klkllklk
+          </span>
+        </div>
+        <div class="mt-3">
+          <span class="font-bold">Village / Town</span><span class="border-b border-black"></span>
+          <span class="pl-4">
+            <span class="border-b border-black inline-block w-25 text-center"></span>
+            &nbsp; District
+            <span class="border-b border-black inline-block w-25 text-center"></span>
+          </span>
+        </div>
+        <div class="mt-3">
+          <span class="font-bold">Sora</span><span class="border-b border-black"></span>
+          <span class="pl-1">
+            <span class="border-b border-black inline-block w-25 text-center"></span>
+          </span>
+        </div>
+        <div class="mt-3 mr-4 text-right">
+          <span class="font-bold">Sora</span><span class="border-b border-black"></span>
+        </div>
+        <div class="mt-1 flex justify-between">
+          <span class="font-bold">Date</span><span class="border-b border-black"></span>
+          <span class="font-bold">Date</span><span class="border-b border-black"></span>
+        </div>
+
       </th>
-      <th colspan="4" class="border-r-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]">nm</span>
+      <th colspan="4" class="border-r-2 border-black p-2 align-top h-[30px] text-center">
+        <span class="font-bold text-[10px]">Office Use / Location Details</span>
       </th>
     </tr>
 
     <tr class="border-t-2 border-black">
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]">Address</span>
+        <span class="font-bold text-[10px]">Administrative Level</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
         <span class="font-bold text-[10px]">Name</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]">Code No.</span>
+        <span class="font-bold text-[10px]">Census Code</span>
       </th>
-      <th>
-        sdsdjweklj
+      <th rowspan="4" class="p-2 align-top text-left">
+        <div class="mt-1">
+          <span class="font-bold">Reg. No:</span><span class="border-b border-black"></span>
+          <span class="pl-4">
+            <span class="border-b border-black inline-block w-30 text-center"></span>
+            &nbsp; Date
+            <span class="border-b border-black inline-block w-30 text-center"></span>
+          </span>
+        </div>
+        <div class="mt-2">
+          <span class="font-bold">Date of death</span><span class="border-b border-black"></span>
+          <span class="pl-4">
+            <span class="border-b border-black inline-block w-30 text-center"></span>
+            &nbsp; Age
+            <span class="border-b border-black inline-block w-30 text-center"></span>
+          </span>
+        </div>
+        <div class="mt-2">
+          <span class="font-bold">Gender of Deceased: </span><span class="border-b inline-block w-40 text-center">
+            Female
+          </span>
+        </div>
+        <div class="mt-2">
+          <span class="font-bold">Death Place: </span><span class="border-b inline-block w-40 text-center">
+            Hospital
+          </span>
+        </div>
       </th>
     </tr>
     <tr>
@@ -127,10 +375,10 @@
         <span class="font-bold text-[10px]">District</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+        <span class="font-bold text-[10px]">Nagpur</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+        <span class="font-bold text-[10px]">-</span>
       </th>
     </tr>
     <tr>
@@ -138,10 +386,10 @@
         <span class="font-bold text-[10px]">Taluka</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+        <span class="font-bold text-[10px]">Katol</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+        <span class="font-bold text-[10px]">-</span>
       </th>
     </tr>
     <tr>
@@ -149,23 +397,26 @@
         <span class="font-bold text-[10px]">Village/Town</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+        <span class="font-bold text-[10px]">Katlabodi</span>
       </th>
       <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+        <span class="font-bold text-[10px]">-</span>
       </th>
     </tr>
     <tr>
-      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]">hjshj</span>
+      <th colspan="1" class="border-r-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Registering Institution</span>
       </th>
-      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+      <th colspan="1" class="border-r-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Gram Panchayat</span>
       </th>
-      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
-        <span class="font-bold text-[10px]"></span>
+      <th colspan="1" class="border-r-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Katlabodi</span>
       </th>
     </tr>
   </table>
+  <div class="mt-2">
+    <span>Tip:</span> <span>valid Information</span>
+  </div>
 
 </div>

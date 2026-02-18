@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "services": "Services"
+  },
+  "services": {
+    "birth": "Birth Register",
+    "tax": "Tax Register",
+    "taxReceipt": "Tax Receipt",
+    "death": "Death Register",
+    "register": "Register",
+    "marriage": "Marriage Register"
+  }
+}

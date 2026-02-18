@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ROWDATA } from '../birth-register-data';
+import { TranslatePipe } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-birth-register-create',
   templateUrl: './birth-register-create.component.html',
   styleUrls: ['./birth-register-create.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslatePipe]
 })
 export class BirthRegisterCreateComponent implements OnInit {
 

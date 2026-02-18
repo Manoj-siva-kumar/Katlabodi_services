@@ -7,23 +7,35 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { BirthRegistrationForm, ROWDATA } from '../birth-register-data';
 import { BirthRegisterActionsComponent } from '../birth-register-actions/birth-register-actions.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-birth-register-grid',
   templateUrl: './birth-register-grid.component.html',
   styleUrls: ['./birth-register-grid.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, AgGridAngular, MatTooltip],
+  imports: [CommonModule, FormsModule, AgGridAngular, MatTooltip, TranslateModule],
 })
 export class BirthRegisterGridComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
+    private readonly translate: TranslateService,
   ) { }
 
   ngOnInit() {
+
+    this.buildColumns();
+
+    this.translate.onLangChange.subscribe(() => {
+      this.buildColumns();
+    });
+
   }
 
+
+  public columnDefs: ColDef<BirthRegistrationForm>[] = [];
   public rowData: BirthRegistrationForm[] = ROWDATA;
   public defaultColDef: ColDef = {
     flex: 1,
@@ -32,101 +44,125 @@ export class BirthRegisterGridComponent implements OnInit {
     filter: true,
   };
 
-  public columnDefs: ColDef<BirthRegistrationForm>[] = [
+  buildColumns() {
 
-    {
-      field: 'id',
-      flex: 0.7,
-      headerName: 'S.No',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+    this.translate.get([
+      'birthRegister.columns.serial',
+      'birthRegister.columns.registrationNo',
+      'birthRegister.columns.registrationDate',
+      'birthRegister.columns.childName',
+      'birthRegister.columns.dob',
+      'birthRegister.columns.gender',
+      'birthRegister.columns.motherName',
+      'birthRegister.columns.fatherName',
+      'birthRegister.columns.village',
+      'birthRegister.columns.localBody',
+      'birthRegister.columns.actions'
+    ]).subscribe(t => {
 
-    {
-      headerName: 'Registration No',
-      valueGetter: params =>
-        params.data?.registration_details_office_use?.registration_number,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+      this.columnDefs = [
 
-    {
-      headerName: 'Registration Date',
-      valueGetter: params =>
-        params.data?.registration_details_office_use?.registration_date,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+        {
+          field: 'id',
+          flex: 0.7,
+          headerName: t['birthRegister.columns.serial'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
 
-    {
-      headerName: 'Child Name',
-      valueGetter: params =>
-        params.data?.birth_event_details?.name_of_child,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+        {
+          headerName: t['birthRegister.columns.registrationNo'],
+          valueGetter: params =>
+            params.data?.registration_details_office_use?.registration_number,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
 
-    {
-      headerName: 'Date of Birth',
-      valueGetter: params =>
-        params.data?.birth_event_details?.date_of_birth,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+        {
+          headerName: t['birthRegister.columns.registrationDate'],
+          valueGetter: params =>
+            params.data?.registration_details_office_use?.registration_date,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
 
-    {
-      headerName: 'Gender',
-      valueGetter: params => {
-        const gender = params.data?.birth_event_details?.sex_of_child;
-        if (!gender) return '';
-        if (gender.male) return 'Male';
-        if (gender.female) return 'Female';
-        if (gender.other) return 'Other';
-        return '';
-      },
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+        {
+          headerName: t['birthRegister.columns.childName'],
+          valueGetter: params =>
+            params.data?.birth_event_details?.name_of_child,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
 
-    {
-      headerName: 'Mother Name',
-      valueGetter: params =>
-        params.data?.mother_details?.name,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+        {
+          headerName: t['birthRegister.columns.dob'],
+          valueGetter: params =>
+            params.data?.birth_event_details?.date_of_birth,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
 
-    {
-      headerName: 'Father Name',
-      valueGetter: params =>
-        params.data?.father_details?.name,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+        {
+          headerName: t['birthRegister.columns.gender'],
+          valueGetter: params => {
 
-    {
-      headerName: 'Village',
-      valueGetter: params =>
-        params.data?.birth_event_details?.place_of_birth_address?.village,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
+            const gender = params.data?.birth_event_details?.sex_of_child;
+            if (!gender) return '';
 
-    {
-      headerName: 'Local Body',
-      valueGetter: params =>
-        params.data?.registration_details_office_use?.local_body_name,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-    },
-    {
-      headerName: 'Actions',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      cellRenderer: BirthRegisterActionsComponent,
-    },
+            if (gender.male) return this.translate.instant('birthRegister.gender.male');
+            if (gender.female) return this.translate.instant('birthRegister.gender.female');
+            if (gender.other) return this.translate.instant('birthRegister.gender.other');
 
-  ];
+            return '';
+          },
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          headerName: t['birthRegister.columns.motherName'],
+          valueGetter: params => params.data?.mother_details?.name,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          headerName: t['birthRegister.columns.fatherName'],
+          valueGetter: params => params.data?.father_details?.name,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          headerName: t['birthRegister.columns.village'],
+          valueGetter: params =>
+            params.data?.birth_event_details?.place_of_birth_address?.village,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          headerName: t['birthRegister.columns.localBody'],
+          valueGetter: params =>
+            params.data?.registration_details_office_use?.local_body_name,
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          headerName: t['birthRegister.columns.actions'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+          cellRenderer: BirthRegisterActionsComponent,
+        }
+
+      ];
+
+    });
+
+  }
+
+
 
 
   public onCreate(): void {

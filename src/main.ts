@@ -7,5 +7,6 @@ import { AllCommunityModule } from 'ag-grid-community';
 ModuleRegistry.registerModules([
   AllCommunityModule,
 ]);
+
 bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));

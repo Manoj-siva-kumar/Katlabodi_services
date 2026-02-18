@@ -4,13 +4,13 @@
   <!-- HEADER (Matches Projects Component) -->
   <div class="px-3 py-2 overflow-hidden">
     <div class="flex items-center justify-between">
-      <span class="text-blue-900 text-3xl">Birth Register</span>
+      <span class="text-blue-900 text-3xl">{{ 'birthRegister.title' | translate }}</span>
 
       <div class="flex items-center gap-3">
 
         <!-- SEARCH INPUT -->
         <div class="relative">
-          <input #searchInput type="text" placeholder="Search by name..." class="peer w-80 py-3 pl-12 pr-10 border border-gray-400 rounded-md text-sm
+          <input #searchInput type="text" [placeholder]="'birthRegister.searchPlaceholder' | translate" class="peer w-80 py-3 pl-12 pr-10 border border-gray-400 rounded-md text-sm
                    focus:placeholder:text-blue-900 focus:outline-blue-900
                    transition-all duration-150 ease-in-out" />
 
@@ -29,7 +29,10 @@
                  transition-all duration-400 ease-in-out">
 
           <span class="font-medium text-lg">+</span>
-          <span class="text-base">New</span>
+          <span class="text-base">
+            {{ 'birthRegister.new' | translate }}
+          </span>
+
         </button>
       </div>
     </div>

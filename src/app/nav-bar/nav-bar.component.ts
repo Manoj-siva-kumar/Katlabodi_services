@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface ServiceItem {
   id: string;
-  serviceName: string
+  serviceNameKey: string;
 }
 
 @Component({
@@ -11,14 +12,18 @@ interface ServiceItem {
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit() {
+    const saved = localStorage.getItem('lang') || 'en';
+    this.currentLanguage = saved;
+    this.translate.use(saved);
   }
+
 
   public selectedItem: string = '';
   selectedService: string = 'birth';
@@ -45,13 +50,32 @@ export class NavBarComponent implements OnInit {
   }
 
   public items: ServiceItem[] = [
-    { id: 'birth', serviceName: 'Birth Register' },
-    { id: 'tax', serviceName: 'Tax Register' },
-    { id: 'tax-receipt', serviceName: 'Tax Receipt' },
-    { id: 'death', serviceName: 'Death Register' },
-    { id: 'reg', serviceName: 'Register' },
-    { id: 'marriage', serviceName: 'Marriage Register' },
+    { id: 'birth', serviceNameKey: 'services.birth' },
+    { id: 'tax', serviceNameKey: 'services.tax' },
+    { id: 'tax-receipt', serviceNameKey: 'services.taxReceipt' },
+    { id: 'death', serviceNameKey: 'services.death' },
+    { id: 'reg', serviceNameKey: 'services.register' },
+    { id: 'marriage', serviceNameKey: 'services.marriage' },
   ];
+
+  currentLanguage = 'en';
+  toggle = false;
+
+  availableLanguages = [
+    { code: 'en', label: 'English' },
+    { code: 'mr', label: 'Marathi' }
+  ];
+
+  onOpen() {
+    this.toggle = !this.toggle;
+  }
+
+  onSelect(lang: string) {
+    this.currentLanguage = lang;
+    localStorage.setItem('lang', lang);
+    this.translate.use(lang);
+    this.toggle = false;
+  }
 
 }
 

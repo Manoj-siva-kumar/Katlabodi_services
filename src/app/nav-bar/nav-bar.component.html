@@ -11,7 +11,8 @@
         class="relative flex items-center justify-center gap-1 px-4 py-2 bg-blue-900 text-white group">
 
         <span class="text-lg font-medium relative">
-          Services
+          {{ 'nav.services' | translate }}
+
 
           <!-- Animated Underline -->
           <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-zinc-300
@@ -55,10 +56,44 @@
       'hover:bg-gray-200 text-gray-900': selectedService !== item.id
     }" class="py-3 text-sm font-medium cursor-pointer text-center transition rounded-md">
 
-              {{ item.serviceName }}
+              {{ item.serviceNameKey | translate}}
 
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative inline-flex px-2 lg:px-5">
+      <svg (click)="onOpen()"
+        class="w-4 h-4 sm:w-5 sm:h-5 text-zinc-200 hover:text-white transition-colors duration-200 cursor-pointer"
+        viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M4 0H6V2H10V4H8.86807C8.57073 5.66996 7.78574 7.17117 6.6656 8.35112C7.46567 8.73941 8.35737 8.96842 9.29948 8.99697L10.2735 6H12.7265L15.9765 16H13.8735L13.2235 14H9.77647L9.12647 16H7.0235L8.66176 10.9592C7.32639 10.8285 6.08165 10.3888 4.99999 9.71246C3.69496 10.5284 2.15255 11 0.5 11H0V9H0.5C1.5161 9 2.47775 8.76685 3.33437 8.35112C2.68381 7.66582 2.14629 6.87215 1.75171 6H4.02179C4.30023 6.43491 4.62904 6.83446 4.99999 7.19044C5.88743 6.33881 6.53369 5.23777 6.82607 4H0V2H4V0ZM12.5735 12L11.5 8.69688L10.4265 12H12.5735Z"
+          fill="currentColor"></path>
+      </svg>
+
+      <!-- Language Dropdown - UPDATED -->
+      <div *ngIf="toggle" class="absolute top-[160%] left-1/2 -translate-x-1/2 z-50 animate-fadeIn">
+        <svg class="w-3 h-3 text-white mx-auto -mb-1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor">
+          <path
+            d="M246.312928,5.62892705 C252.927596,9.40873724 258.409564,14.8907053 262.189374,21.5053731 L444.667042,340.84129 C456.358134,361.300701 449.250007,387.363834 428.790595,399.054926 C422.34376,402.738832 415.04715,404.676552 407.622001,404.676552 L42.6666667,404.676552 C19.1025173,404.676552 0,385.574034 0,362.009885 C0,354.584736 1.93772021,347.288125 5.62162594,340.84129 L188.099293,21.5053731 C199.790385,1.04596203 225.853517,-6.06216498 246.312928,5.62892705 Z">
+          </path>
+        </svg>
+
+        <div
+          class="flex flex-col bg-white border border-gray-200 shadow-lg text-xs sm:text-sm font-medium rounded-sm overflow-hidden min-w-[120px]">
+          <span *ngFor="let lang of availableLanguages" (click)="onSelect(lang.code)"
+            class="cursor-pointer p-2 text-center transition-colors duration-150" [ngClass]="
+            currentLanguage === lang.code
+              ? 'bg-blue-900 text-white'
+              : 'text-black hover:bg-zinc-100 hover:text-blue-900'
+        ">
+
+            {{ lang.label }}
+
+          </span>
         </div>
       </div>
     </div>

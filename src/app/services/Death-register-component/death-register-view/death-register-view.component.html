@@ -1,3 +1,171 @@
-<p>
-  death-register-view works!
-</p>
+<div class="w-full max-w-full bg-white p-4">
+
+  <div class="flex items-center justify-between mb-6">
+
+    <!-- Left Spacer -->
+    <div class="w-1/4"></div>
+
+    <!-- Center Content -->
+    <div class="w-2/4 text-center">
+      <div class="text-2xl font-bold mt-2">
+        Deth Register
+      </div>
+    </div>
+
+    <!-- Right Button -->
+    <div class="w-1/4 flex justify-end">
+      <button (click)="onEdit()" class="bg-blue-900 text-white px-6 py-3 text-base rounded-md opacity-90 cursor-pointer
+      transition-all duration-400 ease-in-out hover:opacity-100">
+        <div class="flex">
+          <!-- Edit Button -->
+          <button matTooltip="Edit" matTooltipClass="custom-tooltip" class="focus:outline-none h-6 w-6">
+            <svg class="w-4 h-4 text-white" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>edit [#1479]</title>
+                <desc>Created with Sketch.</desc>
+                <defs> </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Dribbble-Light-Preview" transform="translate(-99.000000, -400.000000)" fill="currentColor">
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M61.9,258.010643 L45.1,258.010643 L45.1,242.095788 L53.5,242.095788 L53.5,240.106431 L43,240.106431 L43,260 L64,260 L64,250.053215 L61.9,250.053215 L61.9,258.010643 Z M49.3,249.949769 L59.63095,240 L64,244.114985 L53.3341,254.031929 L49.3,254.031929 L49.3,249.949769 Z"
+                        id="edit-[#1479]"> </path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <span>Edit Document</span>
+        </div>
+      </button>
+    </div>
+
+  </div>
+
+  <table class="w-full border-collapse table-fixed text-[11px] font-sans border-2 border-black">
+    <colgroup>
+      <col class="w-[30%]">
+      <col class="w-[13%]">
+      <col class="w-[13%]">
+      <col class="w-[13%]">
+      <col class="w-[31%]">
+      >
+    </colgroup>
+
+    <tr class="h-[60px]">
+      <th colspan="1" class="border-b-2 border-r-2 border-black p-2 align-top">
+        <div class="flex items-center">
+          <span class="font-bold text-sm w-1/3 text-left">SL No.</span>
+          <span class="font-bold text-sm w-1/3 text-center">Deth</span>
+          <span class="w-1/3"></span>
+        </div>
+        <span class="font-bold">klksd</span><br>
+        <span class="font-bold">sdjksd</span><br>
+        <span class="font-bold">sdjksd</span>
+      </th>
+      <th colspan="4" class="border-b-2 border-black p-2 text-right align-top">
+        <span class="font-bold text-sm">आधार क्रमांक: २७९६ ९७२९ ०५७७</span><br>
+        मृत्यू अहवाल<br>
+        <span class="font-bold">सांख्यिकी माहिती</span>
+      </th>
+    </tr>
+
+    <tr class="h-[300px]">
+      <td colspan="1" class="border-r-2 border-black p-2 align-top leading-6">
+        1 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        2 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        3 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        4 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        5 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        6 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        7 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        8 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        9 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+        10 मृत्यूचा दिनांक: <span class="font-bold">१२/०१/२०२२</span><br>
+      </td>
+      <td colspan="3" class="border-r-2 border-black p-2 align-top leading-6">
+        (११) कुटुंबाचा धर्म: <span class="font-bold">हिंदू</span><br>
+        (१३) मृताचा व्यवसाय: <span class="font-bold">निरंक</span><br>
+        (१५) मृत्यूचे कारण प्रमाणित आहे का? <span class="font-bold">नाही</span>
+      </td>
+      <td colspan="1" class="border-r-2 border-black p-2 align-top leading-6">
+        (११) कुटुंबाचा धर्म: <span class="font-bold">हिंदू</span><br>
+        (१३) मृताचा व्यवसाय: <span class="font-bold">निरंक</span><br>
+        (१५) मृत्यूचे कारण प्रमाणित आहे का? <span class="font-bold">नाही</span>
+      </td>
+    </tr>
+
+    <tr class="border-t-2 border-black">
+      <th colspan="1" rowspan="6" class="border-r-2 border-black p-2 align-top h-[150px]">
+        <span class="font-bold text-[10px]">abc</span>
+      </th>
+      <th colspan="4" class="border-r-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">nm</span>
+      </th>
+    </tr>
+
+    <tr class="border-t-2 border-black">
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Address</span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Name</span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Code No.</span>
+      </th>
+      <th>
+        sdsdjweklj
+      </th>
+    </tr>
+    <tr>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">District</span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+    </tr>
+    <tr>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Taluka</span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+    </tr>
+    <tr>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">Village/Town</span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+    </tr>
+    <tr>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]">hjshj</span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+      <th colspan="1" class="border-r-2 border-b-2 border-black p-2 align-top h-[30px]">
+        <span class="font-bold text-[10px]"></span>
+      </th>
+    </tr>
+  </table>
+
+</div>

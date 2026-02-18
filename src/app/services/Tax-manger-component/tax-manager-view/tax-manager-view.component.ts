@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ROWDATA } from '../tax-manager-data';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-tax-manager-view',
   templateUrl: './tax-manager-view.component.html',
-  styleUrls: ['./tax-manager-view.component.css']
+  styleUrls: ['./tax-manager-view.component.css'],
+  standalone: true,
+  imports: [MatTooltip],
 })
 
 export class TaxManagerViewComponent implements OnInit {

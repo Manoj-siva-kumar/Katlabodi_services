@@ -1,234 +1,451 @@
-<div class="w-full flex justify-center px-2 font-sans mt-6">
+<div
+  class="bg-white w-full flex flex-col  justify-center px-3 sm:px-4 md:px-8 sm:py-2 md:py-4 text-base font-[poppins]">
 
-  <!-- FORM PAPER -->
-  <div class="relative bg-white w-full max-w-[950px]
-              border border-black
-              px-4 sm:px-6 md:px-10
-              py-6
-              text-[11px] sm:text-[12px] md:text-[13px]">
+  <!-- Edit Button -->
+  <div class="w-full flex justify-end mb-4 md:mb-6">
+    <button (click)="onEdit()"
+      class="bg-blue-900 text-white px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-md opacity-90 cursor-pointer transition-all duration-400 ease-in-out hover:opacity-100 flex items-center gap-2 min-w-[160px] justify-center">
+      <svg class="w-4 h-4 text-white" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <title>edit [#1479]</title>
+          <desc>Created with Sketch.</desc>
+          <defs> </defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Dribbble-Light-Preview" transform="translate(-99.000000, -400.000000)" fill="currentColor">
+              <g id="icons" transform="translate(56.000000, 160.000000)">
+                <path
+                  d="M61.9,258.010643 L45.1,258.010643 L45.1,242.095788 L53.5,242.095788 L53.5,240.106431 L43,240.106431 L43,260 L64,260 L64,250.053215 L61.9,250.053215 L61.9,258.010643 Z M49.3,249.949769 L59.63095,240 L64,244.114985 L53.3341,254.031929 L49.3,254.031929 L49.3,249.949769 Z"
+                  id="edit-[#1479]"> </path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <span matTooltip="Edit Document" matTooltipClass="custom-tooltip"> Edit Document</span>
+    </button>
+  </div>
 
-    <!-- ================= HEADER ================= -->
+  <div class="w-full border py-4  shadow-xl
+      border-gray-300">
 
-    <div class="text-center leading-tight mb-4">
-
-      <div class="text-xs sm:text-sm font-semibold">
-        {{data?.form_number}}
+    <!-- TOP HEADER -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-black pb-4 px-5 md:px-6 pt-5 text-sm md:text-base">
+      <div class="space-y-1 text-center md:text-left order-2 md:order-1">
+        <div class="text-lg md:text-xl font-bold">Form No. 1</div>
+        <div class="mt-1">Reg. No.: <span
+            class="border-b border-black inline-block min-w-[100px] md:min-w-[140px] px-2 md:px-8"></span></div>
+        <div class="text-xs mt-1">(See Rule Chapter 5)</div>
+        <div class="font-bold mt-3">Office Information</div>
+        <div class="text-xs mt-1">This section is for recording information in the Birth Register.</div>
       </div>
 
-      <div class="text-xs">
-        {{data?.legal_reference}}
+      <div class="text-center order-1 md:order-2 py-2 md:py-0">
+        <div class="text-2xl md:text-3xl font-bold tracking-wide">Birth Report</div>
+        <div class="text-lg md:text-xl mt-1">Statistical Information</div>
       </div>
 
-      <div class="text-lg sm:text-xl font-bold mt-1">
-        BIRTH REGISTRATION FORM
+      <div class="text-center md:text-right text-sm space-y-1 order-3 md:order-3">
+        <div class="text-lg md:text-xl font-bold">Form No. 1</div>
+        <div class="text-xs mt-1">This portion to be cut and sent to Sub-District / Municipality / City Council /
+          Cantonment Board for further compilation.</div>
       </div>
-
     </div>
 
-    <!-- ================= TWO COLUMN BODY ================= -->
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-      <!-- ================= LEFT COLUMN ================= -->
-      <div class="space-y-3">
-
-        <!-- 1 -->
-        <div>
-          (1) Date of Birth:
-          <span class="border-b border-dotted border-black inline-block w-40 text-center">
-            {{data?.birth_event_details?.date_of_birth}}
-          </span>
-        </div>
-
-        <!-- 2 -->
-        <div>
-          (2) Time of Birth:
-          <span class="border-b border-dotted border-black inline-block w-32 text-center">
-            {{data?.birth_event_details?.time_of_birth}}
-          </span>
-        </div>
-
-        <!-- 3 -->
-        <div>
-          (3) Name of Child:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.birth_event_details?.name_of_child}}
-          </span>
-        </div>
-
-        <!-- 4 Gender -->
-        <div>
-          (4) Sex:
-          <span class="ml-2">☐ Male</span>
-          <span class="ml-4">☐ Female</span>
-          <span class="ml-4">☐ Other</span>
-        </div>
-
-        <!-- 5 Place of Birth -->
-        <div>
-          (5) Place of Birth:
-          <span class="ml-2">☐ Hospital</span>
-          <span class="ml-4">☐ Home</span>
-          <span class="ml-4">☐ Other</span>
-        </div>
-
-        <div>
-          Hospital Name:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.birth_event_details?.hospital_name}}
-          </span>
-        </div>
-
-        <!-- Mother -->
-        <div>
-          (6) Mother’s Name:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.mother_details?.name}}
-          </span>
-        </div>
-
-        <div>
-          Age at Birth:
-          <span class="border-b border-dotted border-black inline-block w-20 text-center">
-            {{data?.mother_details?.age_at_birth}}
-          </span>
-        </div>
-
-        <div>
-          Education:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.mother_details?.education}}
-          </span>
-        </div>
-
-      </div>
-
-
-      <!-- ================= RIGHT COLUMN ================= -->
-      <div class="space-y-3">
-
-        <!-- Father -->
-        <div>
-          (7) Father’s Name:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.father_details?.name}}
-          </span>
-        </div>
-
-        <div>
-          Age:
-          <span class="border-b border-dotted border-black inline-block w-20 text-center">
-            {{data?.father_details?.age}}
-          </span>
-        </div>
-
-        <div>
-          Education:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.father_details?.education}}
-          </span>
-        </div>
-
-        <div>
-          Occupation:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.father_details?.occupation}}
-          </span>
-        </div>
-
-        <!-- Address -->
-        <div>
-          (8) Permanent Address:
-          <span class="border-b border-dotted border-black inline-block w-full text-center">
-            {{data?.permanent_address_of_parents?.house_number}},
-            {{data?.permanent_address_of_parents?.street_area}}
-          </span>
-        </div>
-
-        <div>
-          Village:
-          <span class="border-b border-dotted border-black inline-block w-40 text-center">
-            {{data?.permanent_address_of_parents?.village}}
-          </span>
-        </div>
-
-        <div>
-          Taluka:
-          <span class="border-b border-dotted border-black inline-block w-32 text-center">
-            {{data?.permanent_address_of_parents?.taluka}}
-          </span>
-        </div>
-
-        <div>
-          District:
-          <span class="border-b border-dotted border-black inline-block w-32 text-center">
-            {{data?.permanent_address_of_parents?.district}}
-          </span>
-        </div>
-
-      </div>
-
+    <!-- SUB HEADER -->
+    <div class="text-center text-sm md:text-base border-b border-black py-2.5 px-4 md:px-6 font-medium bg-gray-50">
+      (The informant is required to fill in the fields below)
     </div>
 
-    <!-- ================= DELIVERY INFO ================= -->
+    <!-- MAIN 3-COLUMN BODY -->
+    <div class="flex flex-col lg:flex-row border-b border-black divide-y lg:divide-y-0 lg:divide-x divide-black">
 
-    <div class="mt-6 space-y-2">
+      <!-- LEFT COLUMN -->
+      <div class="flex-1 p-4 sm:p-5 lg:p-6 space-y-5 lg:space-y-6 min-w-0">
 
-      <div>
-        (9) Type of Delivery:
-        <span class="ml-3">☐ Institutional</span>
-        <span class="ml-4">☐ Home</span>
-        <span class="ml-4">☐ Other</span>
+        <div>
+          <div class="text-base font-semibold">(1) Date of Birth</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800">{{
+            data?.birth_event_details?.date_of_birth || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(Enter exact date, time and year of birth — AD/BC)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(2) Sex</div>
+          <div class="flex flex-wrap gap-x-8 gap-y-2 mt-2 pl-2 sm:pl-4 text-base">
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> (1) Male</label>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> (2) Female</label>
+          </div>
+          <div class="text-xs text-gray-500 pl-4 mt-1">(Full age must be recorded)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(3) Name of Child</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800">{{
+            data?.birth_event_details?.name_of_child || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(Write full name)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(4) Father's Name</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800">{{
+            data?.father_details?.name || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(Write full name)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(5) Mother's Name</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800">{{
+            data?.mother_details?.name || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(Write full name)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(6) Address of Parents at Time of Birth</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">
+            {{ (data?.permanent_address_of_parents?.house_number || '') + ', ' +
+            (data?.permanent_address_of_parents?.street_area || '') }}
+          </div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(7) Permanent Address of Parents</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.permanent_address_of_parents?.village || '' }}</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(8) Place of Birth</div>
+          <div class="pl-4 mt-2 space-y-2.5 text-sm">
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> a. Hospital / Institution</label>
+            <div class="flex items-center gap-3">
+              <span class="whitespace-nowrap">b. Home</span>
+              <div class="border-b border-dotted border-black flex-1 min-h-[2rem] pb-1 text-blue-800">{{
+                data?.permanent_address_of_parents?.house_number || '' }}</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="whitespace-nowrap">c. Other</span>
+              <div class="border-b border-dotted border-black flex-1 min-h-[2rem]"></div>
+            </div>
+          </div>
+          <div class="text-xs text-gray-500 mt-1 pl-4">(Taluka / Village of the home)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(9) Name & Address of Informant</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.informant_details?.name || '' }}</div>
+          <div class="flex items-center gap-3 mt-3 text-sm">
+            <span class="whitespace-nowrap">Date:</span>
+            <div class="border-b border-dotted border-black flex-1 min-h-[2rem]"></div>
+          </div>
+          <div class="flex items-center gap-3 mt-3 text-sm">
+            <span class="whitespace-nowrap">Informant's Signature:</span>
+            <div class="border-b border-dotted border-black flex-1 min-h-[2rem]"></div>
+          </div>
+        </div>
+
       </div>
 
-      <div>
-        (10) Informant Name:
-        <span class="border-b border-dotted border-black inline-block w-60 text-center">
-          {{data?.informant_details?.name}}
-        </span>
+      <!-- MIDDLE COLUMN -->
+      <div class="flex-1 p-4 sm:p-5 lg:p-6 space-y-5 lg:space-y-6 min-w-0 border-t lg:border-t-0">
+
+        <div class="text-base font-bold border-b border-black pb-2 mb-3">To be Filled by the Statistical Authority</div>
+
+        <div>
+          <div class="text-base font-semibold">(10) Mother's Usual Place of Residence</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.permanent_address_of_parents?.village || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(Where the mother was residing at the time of delivery)</div>
+          <div class="mt-3 text-sm">
+            <div>Is it Village or Town?</div>
+            <div class="flex flex-wrap gap-6 mt-2">
+              <div class="flex items-center gap-2">(1) Village <span
+                  class="border-b border-dotted border-black w-20 inline-block ml-2"></span></div>
+              <div class="flex items-center gap-2">(2) Town <span
+                  class="border-b border-dotted border-black w-20 inline-block ml-2"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(b) Name of Taluka</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.permanent_address_of_parents?.taluka || '' }}</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(c) Name of District</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.permanent_address_of_parents?.district || '' }}</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(d) Name of State</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">
+            Maharashtra</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(11) Religion of Family *</div>
+          <div class="flex flex-wrap gap-x-5 gap-y-3 mt-2 pl-4 text-sm">
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-flex items-center justify-center text-xs font-bold">✓</span>
+              1. Hindu</label>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> 2. Muslim</label>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> 3. Christian</label>
+          </div>
+          <div class="text-xs pl-4 mt-2">4. Other Religion (please specify below)</div>
+          <div class="border-b border-dotted border-black w-full mt-1 min-h-[2rem]"></div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(12) Father's Education</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.father_details?.education || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(If passed a class/grade, write highest level attained)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(13) Mother's Education</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.mother_details?.education || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(If passed a class/grade, write highest level attained)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(14) Father's Occupation / Profession</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.father_details?.occupation || '' }}</div>
+          <div class="text-xs text-gray-500 mt-1">(If employed, specify designation)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(15) Mother's Occupation / Profession</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem]"></div>
+          <div class="text-xs text-gray-500 mt-1">(If employed, specify designation)</div>
+        </div>
+
       </div>
 
-      <div>
-        Relationship:
-        <span class="border-b border-dotted border-black inline-block w-40 text-center">
-          {{data?.informant_details?.relationship_to_child}}
-        </span>
-      </div>
+      <!-- RIGHT COLUMN -->
+      <div class="flex-1 p-4 sm:p-5 lg:p-6 space-y-5 lg:space-y-6 min-w-0 border-t lg:border-t-0">
 
+        <div>
+          <div class="text-base font-semibold">(16) Mother's Age at Time of Marriage</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem]"></div>
+          <div class="text-xs text-gray-500 mt-1">(Write mother's age at time of delivery; if unknown, write years /
+            months)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(17) Mother's Age at Time of Child's Birth (years)</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800 text-sm">{{
+            data?.mother_details?.age_at_birth || '' }}</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(18) Total Number of Live Births</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem]"></div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(19) Where did the Delivery take place? *</div>
+          <div class="pl-4 mt-2 space-y-2.5 text-sm">
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> (a) Government
+              Institution</label>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> (b) Private Institution</label>
+            <div>(c) Home or Other Location — Attended by **</div>
+            <div class="pl-6 space-y-1 text-xs mt-1">
+              <div>c-(1) Doctor, Nurse, Trained Midwife</div>
+              <div>c-(2) Traditional Birth Attendant</div>
+              <div>c-(3) Relative or Other</div>
+            </div>
+          </div>
+          <div class="text-xs text-gray-500 mt-2 pl-4">** If delivery option "c", tick (✓) who attended the delivery
+          </div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(20) Type of Delivery</div>
+          <div class="flex flex-wrap gap-x-4 gap-y-2 mt-2 pl-4 text-sm">
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-flex items-center justify-center text-xs font-bold">✓</span>
+              (a) Normal</label>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> (b) Caesarean</label>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-block flex-shrink-0"></span> (c) Forceps / Vacuum</label>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(21) Baby's Weight at Birth</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem]"></div>
+          <div class="text-xs text-gray-500 mt-1">(Weight in kilograms)</div>
+        </div>
+
+        <div>
+          <div class="text-base font-semibold">(22) Duration of Pregnancy</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem]"></div>
+          <div class="text-xs text-gray-500 mt-1">(In weeks)</div>
+        </div>
+
+        <div class="text-xs text-gray-500 mt-3 border-t border-black pt-3">
+          (The above complete information should be signed by the Doctor / person providing information)
+        </div>
+
+      </div>
     </div>
 
-    <!-- ================= OFFICE USE SECTION ================= -->
+    <!-- BOTTOM SECTION -->
+    <div class="flex flex-col lg:flex-row border-b border-black divide-y lg:divide-y-0 lg:divide-x divide-black">
 
-    <div class="mt-8 border-t border-black pt-4 space-y-3">
+      <!-- Registrar fills -->
+      <div class="lg:w-[57%] p-4 sm:p-5 lg:p-6 space-y-5 border-r-0 lg:border-r border-black">
 
-      <div class="font-semibold text-sm">For Office Use Only</div>
+        <div class="text-base font-bold border-b border-black pb-2 mb-4">Information to be Filled by the Registrar</div>
 
-      <div>
-        Registration No:
-        <span class="border-b border-dotted border-black inline-block w-48 text-center">
-          {{data?.registration_details_office_use?.registration_number}}
-        </span>
+        <div class="flex items-center gap-3 text-sm">
+          <span class="whitespace-nowrap font-medium min-w-[140px]">Registration Date:</span>
+          <div class="border-b border-dotted border-black flex-1 min-h-[2rem] pb-1 text-blue-800">{{
+            data?.registration_details_office_use?.registration_date || '' }}</div>
+        </div>
+
+        <div class="flex items-center gap-3 text-sm">
+          <span class="whitespace-nowrap font-medium min-w-[140px]">Registration Authority Name:</span>
+          <div class="border-b border-dotted border-black flex-1 min-h-[2rem] pb-1 text-blue-800">{{
+            data?.registration_details_office_use?.registrar_name || '' }}</div>
+        </div>
+
+        <div class="flex items-center gap-3 text-sm">
+          <span class="whitespace-nowrap font-medium min-w-[140px]">Village / Town:</span>
+          <div class="border-b border-dotted border-black flex-1 min-h-[2rem]"></div>
+        </div>
+
+        <div class="mt-8">
+          <div class="text-sm font-medium">Registrar's Signature</div>
+          <div class="mt-12 border-t border-black w-48 text-xs text-center pt-2">Signature & Seal</div>
+        </div>
+
+        <div class="mt-6 text-sm">
+          <div class="font-medium">Date of Birth Registration:</div>
+          <div class="border-b border-dotted border-black w-full mt-1 pb-1 min-h-[2rem] text-blue-800">{{
+            data?.registration_details_office_use?.registration_date || '' }}</div>
+        </div>
+
+        <div class="flex flex-wrap gap-8 mt-5 text-sm">
+          <label class="flex items-center gap-2"><span class="w-5 h-5 border border-black inline-block"></span>
+            Certificate Issued</label>
+          <label class="flex items-center gap-2"><span class="w-5 h-5 border border-black inline-block"></span> Not
+            Issued</label>
+        </div>
+
       </div>
 
-      <div>
-        Registration Date:
-        <span class="border-b border-dotted border-black inline-block w-40 text-center">
-          {{data?.registration_details_office_use?.registration_date}}
-        </span>
-      </div>
+      <!-- Office Use Only -->
+      <div class="flex-1 p-4 sm:p-5 lg:p-6 space-y-6">
 
-      <div>
-        Registrar Name:
-        <span class="border-b border-dotted border-black inline-block w-60 text-center">
-          {{data?.registration_details_office_use?.registrar_name}}
-        </span>
-      </div>
+        <div class="text-base font-bold border-b border-black pb-2 mb-4">Office Use Only</div>
 
-      <div class="flex justify-between mt-6">
-        <div>Signature of Informant</div>
-        <div>Registrar Signature & Seal</div>
-      </div>
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr>
+              <th class="border border-black px-3 py-2 text-left font-semibold">Category</th>
+              <th class="border border-black px-3 py-2 font-semibold">Name</th>
+              <th class="border border-black px-3 py-2 font-semibold">Code No.<br>(Census)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black px-3 py-2 font-medium">District</td>
+              <td class="border border-black px-3 py-2 text-center text-blue-800">{{
+                data?.permanent_address_of_parents?.district || '' }}</td>
+              <td class="border border-black px-3 py-2"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-3 py-2 font-medium">Taluka</td>
+              <td class="border border-black px-3 py-2 text-center text-blue-800">{{
+                data?.permanent_address_of_parents?.taluka || '' }}</td>
+              <td class="border border-black px-3 py-2"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-3 py-2 font-medium">Village / Town</td>
+              <td class="border border-black px-3 py-2 text-center text-blue-800">{{
+                data?.permanent_address_of_parents?.village || '' }}</td>
+              <td class="border border-black px-3 py-2"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-3 py-2 font-medium">Registration Authority</td>
+              <td class="border border-black px-3 py-2 text-center text-blue-800">{{
+                data?.registration_details_office_use?.registrar_name || '' }}</td>
+              <td class="border border-black px-3 py-2"></td>
+            </tr>
+          </tbody>
+        </table>
 
+        <!-- Registration Details Box -->
+        <div class="border border-black p-4 mt-5 space-y-4 text-sm rounded-sm">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <span class="font-medium">Reg. No.</span>
+            <div class="border-b border-dotted border-black min-w-[100px] pb-1 text-blue-800 inline-block">{{
+              data?.registration_details_office_use?.registration_number || '' }}</div>
+            <span class="font-medium">Reg. Date</span>
+            <div class="border-b border-dotted border-black min-w-[100px] pb-1 text-blue-800 inline-block">{{
+              data?.registration_details_office_use?.registration_date || '' }}</div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="font-medium whitespace-nowrap">Date of Birth:</span>
+            <div class="border-b border-dotted border-black flex-1 pb-1 min-h-[2rem] text-blue-800">{{
+              data?.birth_event_details?.date_of_birth || '' }}</div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span class="font-medium">Sex *</span>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-flex items-center justify-center text-xs font-bold">✓</span>
+              (1) Male</label>
+            <label class="flex items-center gap-2"><span class="w-5 h-5 border border-black inline-block"></span> (2)
+              Female</label>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <span class="font-medium">Place of Birth *</span>
+            <label class="flex items-center gap-2"><span
+                class="w-5 h-5 border border-black inline-flex items-center justify-center text-xs font-bold">✓</span>
+              (a) Hospital</label>
+            <label class="flex items-center gap-2"><span class="w-5 h-5 border border-black inline-block"></span> (b)
+              Home</label>
+            <label class="flex items-center gap-2"><span class="w-5 h-5 border border-black inline-block"></span> (c)
+              Other</label>
+          </div>
+
+          <div class="flex justify-end mt-5">
+            <div class="text-center">
+              <div class="h-12"></div>
+              <div class="border-t border-black w-48 text-xs pt-1">Registrar's Signature & Seal</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FINAL SIGNATURES -->
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-6 px-5 md:px-6 py-6 text-sm font-medium">
+      <div>Informant's Signature</div>
+      <div class="text-center">Signature & Seal of Officer In-Charge</div>
     </div>
 
   </div>

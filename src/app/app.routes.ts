@@ -1,7 +1,13 @@
 import { Routes } from '@angular/router';
+import { BirthRegisterGridComponent } from './services/Birth-register-component/birth-register-grid/birth-register-grid.component';
+import { PageNotFoundComponent } from './services/page-not-found/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
 
+    {
+        path:'',
+        component: BirthRegisterGridComponent
+    },
     {
         path: 'birth',
         children: [
@@ -110,4 +116,8 @@ export const routes: Routes = [
             }
         ]
     },
+    {
+        path:'**',
+        component:PageNotFoundComponent
+    }
 ];

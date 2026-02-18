@@ -1,34 +1,11 @@
-<div class="w-full bg-white px-12 py-10 font-[poppins] text-[15px]">
-
-  <!-- HEADER -->
-  <div class="flex items-center justify-between mb-6">
-
-    <!-- Left Spacer -->
-    <div class="w-1/4"></div>
-
-    <!-- Center Content -->
-    <div class="w-2/4 text-center">
-      <div class="text-lg">Form 8</div>
-      <div class="text-lg">Rule 32 (1)</div>
-      <div class="text-2xl font-bold mt-2">
-        Property Tax Assessment Register
-      </div>
-      <div class="mt-1 text-lg">
-        Financial Year {{data?.fromYear}} to {{data?.toYear}}
-      </div>
-      <div class="mt-1 text-xs">
-        {{data?.gramPanchayath}}, {{data?.village}}, {{data?.taluka}}, {{data?.district}}
-      </div>
-    </div>
-
-    <!-- Right Button -->
-    <div class="w-1/4 flex justify-end">
-      <button (click)="onEdit()" class="bg-blue-900 text-white px-6 py-3 text-base rounded-md opacity-90 cursor-pointer
+<div class="p-4 px-8">
+  <!-- Right Button -->
+  <div class="w-full flex justify-end pb-6">
+    <button (click)="onEdit()" class="bg-blue-900 text-white px-6 py-3 text-base rounded-md opacity-90 cursor-pointer
       transition-all duration-400 ease-in-out hover:opacity-100">
-       <div class="flex">
-         <!-- Edit Button -->
-        <button matTooltip="Edit" matTooltipClass="custom-tooltip"
-          class="focus:outline-none h-6 w-6">
+      <div class="flex">
+        <!-- Edit Button -->
+        <button class="focus:outline-none h-6 w-6">
           <svg class="w-4 h-4 text-white" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -49,297 +26,323 @@
             </g>
           </svg>
         </button>
-        <span>Edit Document</span>
-       </div>
-      </button>
-    </div>
-
+        <span matTooltip="Edit Document" matTooltipClass="custom-tooltip">Edit Document</span>
+      </div>
+    </button>
   </div>
 
 
-  <!-- ================= TOP HEADER ================= -->
-  <div class="mb-6 font-[poppins]">
-
-    <!-- Row 1: Left / Center / Right -->
-    <div class="flex justify-between text-[14px]">
-
-      <!-- Left Section -->
-      <div class="text-left">
-        <div><strong>Gram Panchayat:</strong> {{data?.gramPanchayath}}</div>
-        <div><strong>Village:</strong> {{data?.village}}</div>
-      </div>
-
-      <!-- Right Section -->
-      <div class="text-right">
-        <div><strong>Taluka:</strong> {{data?.taluka}}</div>
-        <div><strong>District:</strong> {{data?.district}}</div>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- ================= MAIN TABLE ================= -->
-  <table class="w-full border-collapse table-fixed text-center">
-
-    <!-- COLUMN WIDTH CONTROL -->
-    <colgroup>
-      <col class="w-[5%]">
-      <col class="w-[8%]">
-      <col class="w-[6%]">
-      <col class="w-[7%]">
-      <col class="w-[9%]">
-      <col class="w-[8%]">
-      <col class="w-[10%]">
-      <col class="w-[7%]">
-      <col class="w-[6%]">
-      <col class="w-[7%]">
-      <col class="w-[7%]">
-      <col class="w-[7%]">
-      <col class="w-[5%]">
-      <col class="w-[7%]">
-    </colgroup>
-
-    <!-- ================= GROUP HEADER ROW ================= -->
-    <tr class="h-[50px] font-semibold text-[13px]">
-
-      <th class="border border-black" rowspan="2">S.No</th>
-      <th class="border border-black" rowspan="2">Road Name</th>
-      <th class="border border-black" rowspan="2">Ward No</th>
-      <th class="border border-black" rowspan="2">Property No</th>
-      <th class="border border-black" rowspan="2">Owner Name</th>
-      <th class="border border-black" rowspan="2">Occupant Name</th>
-      <th class="border border-black" rowspan="2">Property Description</th>
-
-      <th class="border border-black" rowspan="2">Construction Year</th>
-      <th class="border border-black" rowspan="2">Total Built-up Area</th>
-
-      <!-- GROUPED HEADER -->
-      <th class="border border-black" colspan="3">
-        Rate per Sq.m (₹)
-      </th>
-
-      <th class="border border-black" rowspan="2">Tax %</th>
-      <th class="border border-black" rowspan="2">Usage Type</th>
-
-    </tr>
-
-    <!-- ================= SUB HEADER ROW ================= -->
-    <tr class="h-[40px] font-semibold text-[13px]">
-
-      <th class="border border-black">Land</th>
-      <th class="border border-black">Building</th>
-      <th class="border border-black">Composite</th>
-
-    </tr>
-
-
-    <!-- NUMBER ROW 1–14 -->
-    <tr class="h-[16px] text-[10px]">
-      <td class="border border-black">1</td>
-      <td class="border border-black">2</td>
-      <td class="border border-black">3</td>
-      <td class="border border-black">4</td>
-      <td class="border border-black">5</td>
-      <td class="border border-black">6</td>
-      <td class="border border-black">7</td>
-      <td class="border border-black">8</td>
-      <td class="border border-black">9</td>
-      <td class="border border-black">10</td>
-      <td class="border border-black">11</td>
-      <td class="border border-black">12</td>
-      <td class="border border-black">13</td>
-      <td class="border border-black">14</td>
-    </tr>
-
-    <!-- DATA ROW -->
-    <tr class="h-[180px]">
-      <td class="border border-black align-top text-center pt-2">{{data?.sno}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.roadName}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.groupNo}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.propertyNo}}</td>
-      <td class="border border-black align-top text-center pt-2 row-span-2">{{data?.owner}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.occupantName}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.propertyDescription}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.constructionYear}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.area}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.landArea}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.buildingArea}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.ratePerSqm}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.taxRatePercent}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.usageType}}</td>
-    </tr>
-
-
-    <!-- DATA ROW -->
-    <tr class="h-[40px]">
-      <td class="border border-black align-top text-left px-2 pt-2" colspan="4">Mobile No/Adhar No: {{0}}</td>
-      <td class="border border-black align-top text-center pt-2" rowspan="2">{{data?.owner}}</td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2">{{data?.area}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.landArea}}</td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2">{{data?.ratePerSqm}}</td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2"></td>
-    </tr>
-
-  </table>
-
-
-  <!-- ================= SECOND SECTION ================= -->
-  <table class="w-full border-collapse table-fixed text-center  ">
-
-    <colgroup>
-      <col class="w-[8%]">
-      <col class="w-[5%]">
-      <col class="w-[6%]">
-      <col class="w-[6%]">
-      <col class="w-[6%]">
-      <col class="w-[6%]">
-      <col class="w-[7%]">
-      <col class="w-[7%]">
-      <col class="w-[7%]">
-      <col class="w-[7%]">
-      <col class="w-[7%]">
-      <col class="w-[7%]">
-      <col class="w-[8%]">
-    </colgroup>
+  <div class="w-full bg-white px-12 py-4 pt-8 font-[poppins] text-[15px]  shadow-lg
+      border border-gray-300">
 
 
 
-    <!-- ================= GROUP HEADER ROW ================= -->
-    <tr class="h-[50px] font-semibold text-[13px]">
+    <!-- HEADER -->
+    <div class="flex items-center justify-center mb-6 ">
 
-      <!-- Single column -->
-      <th class="border border-black" rowspan="2">
-        Capital Value
-      </th>
-
-      <!-- Single column -->
-      <th class="border border-black" rowspan="2">
-        Rate %
-      </th>
-
-      <!-- Property Tax Group (5 columns) -->
-      <th class="border border-black" colspan="5">
-        Property Tax (₹)
-      </th>
-
-      <!-- Arrears / Previous Collection Group (5 columns) -->
-      <th class="border border-black" colspan="5">
-        Results of appeal & changes after that (₹)
-      </th>
-
-      <!-- Final column -->
-      <th class="border border-black" rowspan="2">
-        Remarks
-      </th>
-
-    </tr>
-
-
-    <!-- ================= SUB HEADER ROW ================= -->
-    <tr class="h-[50px] font-semibold text-[13px]">
-
-      <!-- Under Property Tax -->
-      <th class="border border-black">House</th>
-      <th class="border border-black">Lighting</th>
-      <th class="border border-black">Health</th>
-      <th class="border border-black">Water</th>
-      <th class="border border-black">Total</th>
-
-      <!-- Under Arrears & Collection -->
-      <th class="border border-black">Previous Balance</th>
-      <th class="border border-black">Current Year</th>
-      <th class="border border-black">Additional</th>
-      <th class="border border-black">Penalty</th>
-      <th class="border border-black">Grand Total</th>
-
-    </tr>
-
-
-    <!-- NUMBER ROW 15–27 -->
-    <tr class="h-[16px] text-[10px]">
-      <td class="border border-black">15</td>
-      <td class="border border-black">16</td>
-      <td class="border border-black">17</td>
-      <td class="border border-black">18</td>
-      <td class="border border-black">19</td>
-      <td class="border border-black">20</td>
-      <td class="border border-black">21</td>
-      <td class="border border-black">22</td>
-      <td class="border border-black">23</td>
-      <td class="border border-black">24</td>
-      <td class="border border-black">25</td>
-      <td class="border border-black">26</td>
-      <td class="border border-black">27</td>
-    </tr>
-
-    <!-- DATA ROW -->
-    <tr class="h-[180px]">
-      <td class="border border-black align-top text-center pt-2">{{data?.capitalValue}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.ratePercent}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.houseTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.lightingTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.healthTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.waterTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.totalTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.previousBalance}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.currentYearTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.additionalTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.penaltyInterest}}</td>
-      <td class="border border-black align-top text-center pt-2 font-semibold">{{data?.grandTotal}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.remarks}}</td>
-    </tr>
-    <!-- DATA ROW -->
-    <tr class="h-[40px]">
-      <td class="border border-black align-top text-center pt-2">{{data?.capitalValue}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.ratePercent}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.houseTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.lightingTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.healthTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.waterTax}}</td>
-      <td class="border border-black align-top text-center pt-2">{{data?.totalTax}}</td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2"></td>
-      <td class="border border-black align-top text-center pt-2 font-semibold"></td>
-      <td class="border border-black align-top text-center pt-2"></td>
-    </tr>
-
-    <!-- Footer ROW -->
-    <tr class="h-[40px]">
-      <td class="border border-black text-left px-3 pt-2" colspan="13">
-        <div class="flex justify-between">
-          <span>Toilets: {{data?.toilets}}</span>
-          <span>Perimeter: {{data?.toilets}}</span>
-          <span>East: {{data?.eastBoundary}}</span>
-          <span>West: {{data?.westBoundary}}</span>
-          <span>North: {{data?.northBoundary}}</span>
-          <span>South: {{data?.southBoundary}}</span>
+      <!-- Center Content -->
+      <div class="w-2/4 text-center">
+        <div class="text-lg">Form 8</div>
+        <div class="text-lg">Rule 32 (1)</div>
+        <div class="text-2xl font-bold mt-2">
+          Property Tax Assessment Register
         </div>
-      </td>
-    </tr>
+        <div class="mt-1 text-lg">
+          Financial Year {{data?.fromYear}} to {{data?.toYear}}
+        </div>
+        <div class="mt-1 text-xs">
+          {{data?.gramPanchayath}}, {{data?.village}}, {{data?.taluka}}, {{data?.district}}
+        </div>
+      </div>
 
-  </table>
 
-  <div class="flex  h-[60px] mt-4">
-
-    <div class="w-1/2 flex items-center justify-center font-semibold">
-      Gram Panchayat Seal:
     </div>
 
-    <div class="w-1/2 flex items-center justify-center font-semibold text-center">
-      Secretary / Sarpanch
-      Gram Panchayat:
+
+    <!-- ================= TOP HEADER ================= -->
+    <div class="mb-6 font-[poppins]">
+
+      <!-- Row 1: Left / Center / Right -->
+      <div class="flex justify-between text-[14px]">
+
+        <!-- Left Section -->
+        <div class="text-left">
+          <div><strong>Gram Panchayat:</strong> {{data?.gramPanchayath}}</div>
+          <div><strong>Village:</strong> {{data?.village}}</div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="text-right">
+          <div><strong>Taluka:</strong> {{data?.taluka}}</div>
+          <div><strong>District:</strong> {{data?.district}}</div>
+        </div>
+
+      </div>
+
     </div>
+
+
+    <!-- ================= MAIN TABLE ================= -->
+    <table class="w-full border-collapse table-fixed text-center">
+
+      <!-- COLUMN WIDTH CONTROL -->
+      <colgroup>
+        <col class="w-[5%]">
+        <col class="w-[8%]">
+        <col class="w-[6%]">
+        <col class="w-[7%]">
+        <col class="w-[9%]">
+        <col class="w-[8%]">
+        <col class="w-[10%]">
+        <col class="w-[7%]">
+        <col class="w-[6%]">
+        <col class="w-[7%]">
+        <col class="w-[7%]">
+        <col class="w-[7%]">
+        <col class="w-[5%]">
+        <col class="w-[7%]">
+      </colgroup>
+
+      <!-- ================= GROUP HEADER ROW ================= -->
+      <tr class="h-[50px] font-semibold text-[13px]">
+
+        <th class="border border-black" rowspan="2">S.No</th>
+        <th class="border border-black" rowspan="2">Road Name</th>
+        <th class="border border-black" rowspan="2">Ward No</th>
+        <th class="border border-black" rowspan="2">Property No</th>
+        <th class="border border-black" rowspan="2">Owner Name</th>
+        <th class="border border-black" rowspan="2">Occupant Name</th>
+        <th class="border border-black" rowspan="2">Property Description</th>
+
+        <th class="border border-black" rowspan="2">Construction Year</th>
+        <th class="border border-black" rowspan="2">Total Built-up Area</th>
+
+        <!-- GROUPED HEADER -->
+        <th class="border border-black" colspan="3">
+          Rate per Sq.m (₹)
+        </th>
+
+        <th class="border border-black" rowspan="2">Tax %</th>
+        <th class="border border-black" rowspan="2">Usage Type</th>
+
+      </tr>
+
+      <!-- ================= SUB HEADER ROW ================= -->
+      <tr class="h-[40px] font-semibold text-[13px]">
+
+        <th class="border border-black">Land</th>
+        <th class="border border-black">Building</th>
+        <th class="border border-black">Composite</th>
+
+      </tr>
+
+
+      <!-- NUMBER ROW 1–14 -->
+      <tr class="h-[16px] text-[10px]">
+        <td class="border border-black">1</td>
+        <td class="border border-black">2</td>
+        <td class="border border-black">3</td>
+        <td class="border border-black">4</td>
+        <td class="border border-black">5</td>
+        <td class="border border-black">6</td>
+        <td class="border border-black">7</td>
+        <td class="border border-black">8</td>
+        <td class="border border-black">9</td>
+        <td class="border border-black">10</td>
+        <td class="border border-black">11</td>
+        <td class="border border-black">12</td>
+        <td class="border border-black">13</td>
+        <td class="border border-black">14</td>
+      </tr>
+
+      <!-- DATA ROW -->
+      <tr class="h-[180px]">
+        <td class="border border-black align-top text-center pt-2">{{data?.sno}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.roadName}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.groupNo}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.propertyNo}}</td>
+        <td class="border border-black align-top text-center pt-2 row-span-2">{{data?.owner}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.occupantName}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.propertyDescription}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.constructionYear}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.area}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.landArea}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.buildingArea}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.ratePerSqm}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.taxRatePercent}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.usageType}}</td>
+      </tr>
+
+
+      <!-- DATA ROW -->
+      <tr class="h-[40px]">
+        <td class="border border-black align-top text-left px-2 pt-2" colspan="4">Mobile No/Adhar No: {{0}}</td>
+        <td class="border border-black align-top text-center pt-2" rowspan="2">{{data?.owner}}</td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2">{{data?.area}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.landArea}}</td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2">{{data?.ratePerSqm}}</td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2"></td>
+      </tr>
+
+    </table>
+
+
+    <!-- ================= SECOND SECTION ================= -->
+    <table class="w-full border-collapse table-fixed text-center  ">
+
+      <colgroup>
+        <col class="w-[8%]">
+        <col class="w-[5%]">
+        <col class="w-[6%]">
+        <col class="w-[6%]">
+        <col class="w-[6%]">
+        <col class="w-[6%]">
+        <col class="w-[7%]">
+        <col class="w-[7%]">
+        <col class="w-[7%]">
+        <col class="w-[7%]">
+        <col class="w-[7%]">
+        <col class="w-[7%]">
+        <col class="w-[8%]">
+      </colgroup>
+
+
+
+      <!-- ================= GROUP HEADER ROW ================= -->
+      <tr class="h-[50px] font-semibold text-[13px]">
+
+        <!-- Single column -->
+        <th class="border border-black" rowspan="2">
+          Capital Value
+        </th>
+
+        <!-- Single column -->
+        <th class="border border-black" rowspan="2">
+          Rate %
+        </th>
+
+        <!-- Property Tax Group (5 columns) -->
+        <th class="border border-black" colspan="5">
+          Property Tax (₹)
+        </th>
+
+        <!-- Arrears / Previous Collection Group (5 columns) -->
+        <th class="border border-black" colspan="5">
+          Results of appeal & changes after that (₹)
+        </th>
+
+        <!-- Final column -->
+        <th class="border border-black" rowspan="2">
+          Remarks
+        </th>
+
+      </tr>
+
+
+      <!-- ================= SUB HEADER ROW ================= -->
+      <tr class="h-[50px] font-semibold text-[13px]">
+
+        <!-- Under Property Tax -->
+        <th class="border border-black">House</th>
+        <th class="border border-black">Lighting</th>
+        <th class="border border-black">Health</th>
+        <th class="border border-black">Water</th>
+        <th class="border border-black">Total</th>
+
+        <!-- Under Arrears & Collection -->
+        <th class="border border-black">Previous Balance</th>
+        <th class="border border-black">Current Year</th>
+        <th class="border border-black">Additional</th>
+        <th class="border border-black">Penalty</th>
+        <th class="border border-black">Grand Total</th>
+
+      </tr>
+
+
+      <!-- NUMBER ROW 15–27 -->
+      <tr class="h-[16px] text-[10px]">
+        <td class="border border-black">15</td>
+        <td class="border border-black">16</td>
+        <td class="border border-black">17</td>
+        <td class="border border-black">18</td>
+        <td class="border border-black">19</td>
+        <td class="border border-black">20</td>
+        <td class="border border-black">21</td>
+        <td class="border border-black">22</td>
+        <td class="border border-black">23</td>
+        <td class="border border-black">24</td>
+        <td class="border border-black">25</td>
+        <td class="border border-black">26</td>
+        <td class="border border-black">27</td>
+      </tr>
+
+      <!-- DATA ROW -->
+      <tr class="h-[180px]">
+        <td class="border border-black align-top text-center pt-2">{{data?.capitalValue}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.ratePercent}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.houseTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.lightingTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.healthTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.waterTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.totalTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.previousBalance}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.currentYearTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.additionalTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.penaltyInterest}}</td>
+        <td class="border border-black align-top text-center pt-2 font-semibold">{{data?.grandTotal}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.remarks}}</td>
+      </tr>
+      <!-- DATA ROW -->
+      <tr class="h-[40px]">
+        <td class="border border-black align-top text-center pt-2">{{data?.capitalValue}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.ratePercent}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.houseTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.lightingTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.healthTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.waterTax}}</td>
+        <td class="border border-black align-top text-center pt-2">{{data?.totalTax}}</td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2"></td>
+        <td class="border border-black align-top text-center pt-2 font-semibold"></td>
+        <td class="border border-black align-top text-center pt-2"></td>
+      </tr>
+
+      <!-- Footer ROW -->
+      <tr class="h-[40px]">
+        <td class="border border-black text-left px-3 pt-2" colspan="13">
+          <div class="flex justify-between">
+            <span>Toilets: {{data?.toilets}}</span>
+            <span>Perimeter: {{data?.toilets}}</span>
+            <span>East: {{data?.eastBoundary}}</span>
+            <span>West: {{data?.westBoundary}}</span>
+            <span>North: {{data?.northBoundary}}</span>
+            <span>South: {{data?.southBoundary}}</span>
+          </div>
+        </td>
+      </tr>
+
+    </table>
+
+    <div class="flex  h-[60px] mt-4">
+
+      <div class="w-1/2 flex items-center justify-center font-semibold">
+        Gram Panchayat Seal:
+      </div>
+
+      <div class="w-1/2 flex items-center justify-center font-semibold text-center">
+        Secretary / Sarpanch
+        Gram Panchayat:
+      </div>
+
+    </div>
+
 
   </div>
-
-
 </div>

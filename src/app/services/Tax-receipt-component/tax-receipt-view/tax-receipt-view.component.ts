@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ROWDATA } from '../tax-receipt-data';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-tax-receipt-view',
   templateUrl: './tax-receipt-view.component.html',
-  styleUrls: ['./tax-receipt-view.component.css']
+  styleUrls: ['./tax-receipt-view.component.css'],
+  standalone: true,
+  imports: [MatTooltip],
 })
 export class TaxReceiptViewComponent implements OnInit {
 

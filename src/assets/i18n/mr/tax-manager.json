@@ -1,0 +1,69 @@
+{
+    "propertyTax": {
+        "title": "मालमत्ता कर मूल्यांकन नोंदवही",
+        "searchPlaceholder": "नावाने शोधा...",
+        "new": "नवीन",
+        "financialYear": {
+            "from": "पासून",
+            "to": "ते",
+            "startYear": "सुरुवातीचे वर्ष",
+            "endYear": "अंतिम वर्ष",
+            "confirm": "निश्चित करा",
+            "label": "आर्थिक वर्ष"
+        },
+        "sections": {
+            "administrative": "प्रशासकीय तपशील",
+            "basicProperty": "मूलभूत मालमत्ता तपशील",
+            "areaValuation": "क्षेत्रफळ व मूल्यांकन तपशील",
+            "taxBreakdown": "कर तपशील"
+        },
+        "fields": {
+            "gramPanchayath": "ग्रामपंचायत नाव",
+            "village": "गाव",
+            "taluka": "तालुका",
+            "district": "जिल्हा",
+            "sno": "क्र. क्रमांक",
+            "roadName": "रस्त्याचे नाव",
+            "groupNo": "सिटी सर्वे / गट क्रमांक",
+            "propertyNo": "मालमत्ता क्रमांक",
+            "owner": "मालकाचे नाव",
+            "occupantName": "रहिवाशाचे नाव",
+            "propertyDescription": "मालमत्तेचे वर्णन",
+            "constructionYear": "बांधकाम वर्ष",
+            "area": "क्षेत्रफळ (चौ.मी.)",
+            "landArea": "जमीन क्षेत्रफळ",
+            "buildingArea": "इमारत क्षेत्रफळ",
+            "ratePerSqm": "प्रति चौ.मी. दर",
+            "taxRatePercent": "कर दर (%)",
+            "usageType": "वापर प्रकार",
+            "capitalValue": "भांडवली मूल्य",
+            "ratePercent": "दर (%)",
+            "houseTax": "घर कर",
+            "lightingTax": "लाईट कर",
+            "healthTax": "आरोग्य कर",
+            "waterTax": "पाणी कर",
+            "totalTax": "एकूण कर",
+            "previousBalance": "मागील बाकी",
+            "currentYearTax": "चालू वर्षाचा कर",
+            "additionalTax": "अतिरिक्त कर",
+            "penaltyInterest": "दंड / व्याज",
+            "grandTotal": "एकूण रक्कम",
+            "remarks": "टीप"
+        },
+        "buttons": {
+            "save": "नोंद जतन करा"
+        },
+        "grid": {
+            "columns": {
+                "sno": "क्र.",
+                "groupNo": "गट क्रमांक",
+                "propertyNo": "मालमत्ता क्रमांक",
+                "owner": "मालक",
+                "usageType": "वापर प्रकार",
+                "capitalValue": "भांडवली मूल्य",
+                "totalTax": "एकूण कर",
+                "actions": "क्रिया"
+            }
+        }
+    }
+}

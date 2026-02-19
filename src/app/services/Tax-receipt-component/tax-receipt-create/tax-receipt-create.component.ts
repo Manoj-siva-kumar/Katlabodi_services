@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ROWDATA } from '../tax-receipt-data';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tax-receipt-create',
   templateUrl: './tax-receipt-create.component.html',
   styleUrls: ['./tax-receipt-create.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslatePipe]
 })
 export class TaxReceiptCreateComponent implements OnInit {
 

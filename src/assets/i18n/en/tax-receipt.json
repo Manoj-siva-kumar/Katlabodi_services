@@ -1,0 +1,79 @@
+{
+    "taxReceipt": {
+        "title": "Tax Receipt",
+        "collectionTitle": "Tax Collection Receipt",
+        "searchPlaceholder": "Search by name...",
+        "new": "New",
+        "buttons": {
+            "create": "New",
+            "save": "Save Record",
+            "edit": "Edit",
+            "view": "View",
+            "delete": "Delete",
+            "confirm": "Confirm"
+        },
+        "financialYear": {
+            "label": "Financial Year",
+            "from": "From",
+            "to": "to",
+            "startYear": "Start Year",
+            "endYear": "End Year"
+        },
+        "sections": {
+            "administrative": "Administrative Details",
+            "property": "Property Details",
+            "taxBreakdown": "Tax Breakdown",
+            "grandTotals": "Grand Totals"
+        },
+        "fields": {
+            "id": "ID",
+            "receiptType": "Receipt Type",
+            "formNo": "Form No",
+            "ruleReference": "Rule Reference",
+            "officeName": "Office Name",
+            "panchayatSamiti": "Panchayat Samiti",
+            "district": "District",
+            "financialYear": "Financial Year",
+            "receiptNo": "Receipt No",
+            "date": "Date",
+            "taxpayerName": "Taxpayer Name",
+            "address": "Address",
+            "wardNo": "Ward No",
+            "propertyNo": "Property No",
+            "plotNo": "Plot No",
+            "billNo": "Bill No",
+            "previous": "Previous",
+            "current": "Current",
+            "total": "Total",
+            "previousTotal": "Previous Total",
+            "currentTotal": "Current Total",
+            "grandTotal": "Grand Total"
+        },
+        "taxes": {
+            "buildingTax": "Building Tax",
+            "landTax": "Land Tax",
+            "lightingTax": "Lighting Tax",
+            "waterTax": "Water Tax",
+            "sanitationTax": "Sanitation Tax",
+            "educationTax": "Education Tax",
+            "noticeFee": "Notice Fee",
+            "warrantFee": "Warrant Fee"
+        },
+        "grid": {
+            "columns": {
+                "serial": "S.No",
+                "receiptNo": "Receipt No",
+                "financialYear": "Financial Year",
+                "owner": "Owner",
+                "propertyNo": "Property No",
+                "wardNo": "Ward No",
+                "billNo": "Bill No",
+                "totalTax": "Total Tax",
+                "actions": "Actions"
+            }
+        },
+        "labels": {
+            "currency": "₹"
+        }
+    }
+}

@@ -6,7 +6,7 @@
     <!-- ================= HEADER ================= -->
     <div class="text-center mb-12">
       <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 tracking-wide">
-        Tax Collection Receipt
+        {{'taxReceipt.collectionTitle' | translate}}
       </h1>
 
       <div
@@ -14,12 +14,12 @@
 
         <!-- CREATE MODE → Show Selection -->
         <ng-container *ngIf="!isEditMode && !yearConfirmed">
-          <span>From</span>
+          <span>{{'taxReceipt.financialYear.from' | translate}}</span>
 
           <select [(ngModel)]="fromYear" [ngModelOptions]="{standalone: true}"
             class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
 
-            <option value="" selected disabled>Start Year</option>
+            <option value="" selected disabled>{{'taxReceipt.financialYear.startYear' | translate}}</option>
 
             <option *ngFor="let year of financialYears" [value]="year">
               {{ year }}
@@ -27,12 +27,12 @@
 
           </select>
 
-          <span>to</span>
+          <span>{{'taxReceipt.financialYear.to' | translate}}</span>
 
           <select [(ngModel)]="toYear" [ngModelOptions]="{standalone: true}"
             class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
 
-            <option value="" selected disabled>End Year</option>
+            <option value="" selected disabled>{{'taxReceipt.financialYear.endYear' | translate}}</option>
 
             <option *ngFor="let year of financialYears" [value]="year">
               {{ year }}
@@ -43,14 +43,14 @@
 
           <button (click)="confirmYear()" class="w-full sm:w-auto mx-3 bg-blue-900 text-white px-4 py-2 text-sm
       rounded-md hover:opacity-100 opacity-90 transition">
-            Confirm
+            {{'taxReceipt.buttons.confirm' | translate}}
           </button>
         </ng-container>
 
         <!-- EDIT MODE OR CONFIRMED → Show Text Only -->
         <ng-container *ngIf="isEditMode || yearConfirmed">
           <p class="text-gray-900 text-base sm:text-base text-center">
-            Financial Year
+            {{'taxReceipt.financialYear.label' | translate}}
             <span class="font-semibold text-blue-900">
               {{ fromYear }} <span class="font-light">to</span> {{ toYear }}
             </span>
@@ -64,7 +64,7 @@
     <!-- ================= ADMINISTRATIVE DETAILS ================= -->
     <div class="mb-12">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Administrative Details
+        {{'taxReceipt.sections.administrative' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
@@ -77,10 +77,11 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">ID</label>
+            bg-white px-2"> {{'taxReceipt.fields.id' | translate}}
+          </label>
         </div>
 
-        <!-- Receipt Type -->
+        <!-- {{'taxReceipt.fields.receiptType' | translate}} -->
         <div class="relative">
           <input type="text" formControlName="receiptType" placeholder=" "
             class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
@@ -88,7 +89,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Receipt Type</label>
+            bg-white px-2">{{'taxReceipt.fields.receiptType' | translate}}</label>
         </div>
 
         <!-- Form No -->
@@ -99,7 +100,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Form No</label>
+            bg-white px-2">{{'taxReceipt.fields.formNo' | translate}}</label>
         </div>
 
         <!-- Rule Reference -->
@@ -110,7 +111,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Rule Reference</label>
+            bg-white px-2">{{'taxReceipt.fields.ruleReference' | translate}}</label>
         </div>
 
         <!-- Office Name -->
@@ -121,7 +122,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Office Name</label>
+            bg-white px-2">{{'taxReceipt.fields.officeName' | translate}}</label>
         </div>
 
         <!-- Panchayat Samiti -->
@@ -132,7 +133,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Panchayat Samiti</label>
+            bg-white px-2">{{'taxReceipt.fields.panchayatSamiti' | translate}}</label>
         </div>
 
         <!-- District -->
@@ -143,7 +144,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">District</label>
+            bg-white px-2">{{'taxReceipt.fields.district' | translate}}</label>
         </div>
 
         <!-- Financial Year -->
@@ -154,7 +155,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Financial Year</label>
+            bg-white px-2">{{'taxReceipt.fields.financialYear' | translate}}</label>
         </div>
 
         <!-- Receipt No -->
@@ -165,7 +166,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Receipt No</label>
+            bg-white px-2">{{'taxReceipt.fields.receiptNo' | translate}}</label>
         </div>
 
         <!-- Date -->
@@ -185,7 +186,7 @@
     <!-- ================= PROPERTY DETAILS ================= -->
     <div class="mb-12">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Property Details
+        {{'taxReceipt.sections.property' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
@@ -197,7 +198,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Taxpayer Name</label>
+            bg-white px-2">{{'taxReceipt.fields.taxpayerName' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -207,7 +208,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Address</label>
+            bg-white px-2">{{'taxReceipt.fields.address' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -217,7 +218,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Ward No</label>
+            bg-white px-2">{{'taxReceipt.fields.wardNo' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -227,7 +228,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Property No</label>
+            bg-white px-2">{{'taxReceipt.fields.propertyNo' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -237,7 +238,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Plot No</label>
+            bg-white px-2">{{'taxReceipt.fields.plotNo' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -247,7 +248,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Bill No</label>
+            bg-white px-2">{{'taxReceipt.fields.billNo' | translate}}</label>
         </div>
 
       </div>
@@ -256,7 +257,7 @@
     <!-- ================= TAX DETAILS (ALL 9 CATEGORIES) ================= -->
     <div class="mb-12" formGroupName="taxDetails">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Tax Breakdown
+        {{'taxReceipt.sections.taxBreakdown' | translate}}
       </h2>
 
       <div class="space-y-10">
@@ -264,7 +265,7 @@
         <!-- Repeat this structure for each tax -->
         <!-- BUILDING TAX -->
         <div formGroupName="buildingTax">
-          <h3 class="font-semibold text-blue-900 mb-3">Building Tax</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.buildingTax' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -273,7 +274,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous</label>
+            bg-white px-2">{{'taxReceipt.fields.previous' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="current" placeholder=" "
@@ -282,7 +283,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -291,14 +292,14 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
 
         <!-- LAND TAX -->
         <div formGroupName="landTax">
-          <h3 class="font-semibold text-blue-900 mb-3">Land Tax</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.landTax' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -316,7 +317,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -325,14 +326,14 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
 
         <!-- Lighting TAX -->
         <div formGroupName="lightingTax">
-          <h3 class="font-semibold text-blue-900 mb-3">Lighting Tax</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.lightingTax' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -341,7 +342,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous</label>
+            bg-white px-2">{{'taxReceipt.fields.previous' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="current" placeholder=" "
@@ -350,7 +351,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -359,14 +360,14 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
 
         <!-- Water TAX -->
         <div formGroupName="waterTax">
-          <h3 class="font-semibold text-blue-900 mb-3">Water Tax</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.waterTax' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -375,7 +376,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous</label>
+            bg-white px-2">{{'taxReceipt.fields.previous' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="current" placeholder=" "
@@ -384,7 +385,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -393,14 +394,14 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
 
         <!-- Sanitation TAX -->
         <div formGroupName="sanitationTax">
-          <h3 class="font-semibold text-blue-900 mb-3">Sanitation Tax</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.sanitationTax' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -409,7 +410,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous</label>
+            bg-white px-2">{{'taxReceipt.fields.previous' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="current" placeholder=" "
@@ -418,7 +419,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -427,14 +428,14 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
 
         <!-- Education TAX -->
         <div formGroupName="educationTax">
-          <h3 class="font-semibold text-blue-900 mb-3">Education Tax</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.educationTax' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -443,7 +444,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous</label>
+            bg-white px-2">{{'taxReceipt.fields.previous' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="current" placeholder=" "
@@ -452,7 +453,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -461,14 +462,14 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
 
         <!-- Notice Fee -->
         <div formGroupName="noticeFee">
-          <h3 class="font-semibold text-blue-900 mb-3">Notice Fee</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.noticeFee' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -477,7 +478,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous</label>
+            bg-white px-2">{{'taxReceipt.fields.previous' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="current" placeholder=" "
@@ -486,7 +487,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -495,14 +496,14 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
 
         <!-- Warntee Fee -->
         <div formGroupName="warrantFee">
-          <h3 class="font-semibold text-blue-900 mb-3">Warntee Fee</h3>
+          <h3 class="font-semibold text-blue-900 mb-3">{{'taxReceipt.taxes.warrantFee' | translate}}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="relative">
               <input type="number" formControlName="previous" placeholder=" "
@@ -511,7 +512,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous</label>
+            bg-white px-2">{{'taxReceipt.fields.previous' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="current" placeholder=" "
@@ -520,7 +521,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current</label>
+            bg-white px-2">{{'taxReceipt.fields.current' | translate}}</label>
             </div>
             <div class="relative">
               <input type="number" formControlName="total" placeholder=" "
@@ -529,7 +530,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total</label>
+            bg-white px-2">{{'taxReceipt.fields.total' | translate}}</label>
             </div>
           </div>
         </div>
@@ -539,7 +540,7 @@
     <!-- ================= GRAND TOTALS ================= -->
     <div class="mb-12" formGroupName="grandTotals">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Grand Totals
+        {{'taxReceipt.sections.grandTotals' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -550,7 +551,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous Total</label>
+            bg-white px-2">{{'taxReceipt.fields.previousTotal' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="current" placeholder=" "
@@ -559,7 +560,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current Total</label>
+            bg-white px-2">{{'taxReceipt.fields.currentTotal' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="total" placeholder=" "
@@ -568,7 +569,7 @@
             peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Grand Total</label>
+            bg-white px-2">{{'taxReceipt.fields.grandTotal' | translate}}</label>
         </div>
       </div>
     </div>
@@ -577,7 +578,7 @@
     <div>
       <button type="button" (click)="onSave()"
         class="text-white px-6 py-3 text-base sm:text-lg rounded-md shadow-md opacity-90 hover:opacity-100 cursor-pointer bg-blue-900 transition duration-300 ease-in-out">
-        Save Record
+        {{'taxReceipt.buttons.save' | translate}}
       </button>
     </div>
 

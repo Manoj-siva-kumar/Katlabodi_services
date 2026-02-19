@@ -1,0 +1,79 @@
+{
+    "taxReceipt": {
+        "title": "कर पावती",
+        "collectionTitle": "कर वसुली पावती",
+        "searchPlaceholder": "नावाने शोधा...",
+        "new": "नवीन",
+        "buttons": {
+            "create": "नवीन",
+            "save": "नोंद जतन करा",
+            "edit": "संपादित करा",
+            "view": "पहा",
+            "delete": "हटवा",
+            "confirm": "निश्चित करा"
+        },
+        "financialYear": {
+            "label": "आर्थिक वर्ष",
+            "from": "पासून",
+            "to": "ते",
+            "startYear": "सुरुवातीचे वर्ष",
+            "endYear": "अखेरचे वर्ष"
+        },
+        "sections": {
+            "administrative": "प्रशासकीय तपशील",
+            "property": "मालमत्ता तपशील",
+            "taxBreakdown": "कर तपशील",
+            "grandTotals": "एकूण रक्कम"
+        },
+        "fields": {
+            "id": "आयडी",
+            "receiptType": "पावती प्रकार",
+            "formNo": "फॉर्म क्रमांक",
+            "ruleReference": "नियम संदर्भ",
+            "officeName": "कार्यालयाचे नाव",
+            "panchayatSamiti": "पंचायत समिती",
+            "district": "जिल्हा",
+            "financialYear": "आर्थिक वर्ष",
+            "receiptNo": "पावती क्रमांक",
+            "date": "तारीख",
+            "taxpayerName": "करदात्याचे नाव",
+            "address": "पत्ता",
+            "wardNo": "प्रभाग क्रमांक",
+            "propertyNo": "मालमत्ता क्रमांक",
+            "plotNo": "प्लॉट क्रमांक",
+            "billNo": "बिल क्रमांक",
+            "previous": "मागील",
+            "current": "चालू",
+            "total": "एकूण",
+            "previousTotal": "मागील एकूण",
+            "currentTotal": "चालू एकूण",
+            "grandTotal": "एकूण रक्कम"
+        },
+        "taxes": {
+            "buildingTax": "इमारत कर",
+            "landTax": "जमीन कर",
+            "lightingTax": "प्रकाश कर",
+            "waterTax": "पाणी कर",
+            "sanitationTax": "स्वच्छता कर",
+            "educationTax": "शिक्षण कर",
+            "noticeFee": "नोटीस शुल्क",
+            "warrantFee": "वॉरंट शुल्क"
+        },
+        "grid": {
+            "columns": {
+                "serial": "क्र.",
+                "receiptNo": "पावती क्रमांक",
+                "financialYear": "आर्थिक वर्ष",
+                "owner": "मालक",
+                "propertyNo": "मालमत्ता क्रमांक",
+                "wardNo": "प्रभाग क्रमांक",
+                "billNo": "बिल क्रमांक",
+                "totalTax": "एकूण कर",
+                "actions": "क्रिया"
+            }
+        },
+        "labels": {
+            "currency": "₹"
+        }
+    }
+}

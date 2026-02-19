@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { rowdata, ROWDATA } from '../tax-receipt-data';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TaxReceiptActionsComponent } from '../tax-receipt-actions/tax-receipt-actions.component';
 
 @Component({
@@ -13,20 +14,15 @@ import { TaxReceiptActionsComponent } from '../tax-receipt-actions/tax-receipt-a
   templateUrl: './tax-receipt-grid.component.html',
   styleUrls: ['./tax-receipt-grid.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, AgGridAngular, MatTooltip],
+  imports: [CommonModule, FormsModule, AgGridAngular, MatTooltip, TranslateModule],
 })
 
 
 export class TaxReceiptGridComponent implements OnInit {
 
-  constructor(
-    private readonly router: Router,
-  ) { }
-
-  ngOnInit() {
-  }
 
   public rowData: rowdata[] = ROWDATA;
+  public columnDefs: ColDef<rowdata>[] = [];
   public defaultColDef: ColDef = {
     flex: 1,
     sortable: true,
@@ -34,82 +30,101 @@ export class TaxReceiptGridComponent implements OnInit {
     filter: true,
   };
 
-  public columnDefs: ColDef<rowdata>[] = [
+  constructor(
+    private readonly router: Router,
+    private readonly translate: TranslateService,
+  ) { }
 
-    {
-      field: 'id',
-      headerName: 'S.No',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      width: 90
-    },
+  ngOnInit(): void {
+    this.buildColumns();
 
-    {
-      field: 'receiptNo',
-      headerName: 'Receipt No',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      width: 140
-    },
+    this.translate.onLangChange.subscribe(() => {
+      this.buildColumns();
+    });
+  }
 
-    {
-      field: 'financialYear',
-      headerName: 'Financial Year',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      width: 150
-    },
 
-    {
-      field: 'taxpayerName',
-      headerName: 'Owner',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      flex: 1
-    },
 
-    {
-      field: 'propertyNo',
-      headerName: 'Property No',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      width: 140
-    },
 
-    {
-      field: 'wardNo',
-      headerName: 'Ward No',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      width: 120
-    },
+  private buildColumns(): void {
 
-    {
-      field: 'billNo',
-      headerName: 'Bill No',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      width: 130
-    },
+    this.translate.get([
+      'taxReceipt.grid.columns.serialNo',
+      'taxReceipt.grid.columns.receiptNo',
+      'taxReceipt.grid.columns.financialYear',
+      'taxReceipt.grid.columns.taxPayerName',
+      'taxReceipt.grid.columns.propertyNo',
+      'taxReceipt.grid.columns.wardNo',
+      'taxReceipt.grid.columns.billNo',
+      'taxReceipt.grid.columns.totalTax',
+      'taxReceipt.grid.columns.actions'
+    ]).subscribe(t => {
 
-    {
-      headerName: 'Total Tax',
-      valueGetter: params => params.data?.grandTotals?.total ?? 0,
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellClass: "font-[poppins]",
-      width: 140,
-      valueFormatter: params => `₹ ${params.value}`
-    },
+      this.columnDefs = [
 
-    {
-      headerName: 'Actions',
-      headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
-      cellRenderer: TaxReceiptActionsComponent,
-      width: 150
-    }
+        {
+          field: 'id',
+          headerName: t['taxReceipt.grid.columns.serialNo'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
 
-  ];
+        {
+          field: 'receiptNo',
+          headerName: t['taxReceipt.grid.columns.receiptNo'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
 
+        {
+          field: 'financialYear',
+          headerName: t['taxReceipt.grid.columns.financialYear'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          field: 'taxpayerName',
+          headerName: t['taxReceipt.grid.columns.taxpayerName'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          field: 'propertyNo',
+          headerName: t['taxReceipt.grid.columns.propertyNo'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          field: 'wardNo',
+          headerName: t['taxReceipt.grid.columns.wardNo'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          field: 'billNo',
+          headerName: t['taxReceipt.grid.columns.billNo'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+        {
+          headerName: t['taxReceipt.grid.columns.totalTax'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
+          cellClass: "font-[poppins]",
+        },
+
+        {
+          headerName: t['taxReceipt.grid.columns.actions'],
+          headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80",
+          cellRenderer: TaxReceiptActionsComponent,
+        }
+
+      ];
+    });
+  }
 
   public onCreate(): void {
     this.router.navigate(['/tax-receipt/create']);

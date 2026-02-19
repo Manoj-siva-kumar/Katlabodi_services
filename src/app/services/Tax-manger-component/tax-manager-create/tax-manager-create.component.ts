@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ROWDATA } from '../tax-manager-data';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tax-manager-create',
   templateUrl: './tax-manager-create.component.html',
   styleUrls: ['./tax-manager-create.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslatePipe]
 })
 export class TaxManagerCreateComponent implements OnInit {
 

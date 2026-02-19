@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../services/language-service';
 
 interface ServiceItem {
   id: string;
@@ -16,12 +17,13 @@ interface ServiceItem {
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private translate: TranslateService) { }
+  constructor(
+    private readonly translate: TranslateService,
+    private readonly langService: LanguageService,
+  ) { }
 
   ngOnInit() {
-    const saved = localStorage.getItem('lang') || 'en';
-    this.currentLanguage = saved;
-    this.translate.use(saved);
+    this.currentLanguage = this.langService.getLanguage();
   }
 
 
@@ -72,8 +74,7 @@ export class NavBarComponent implements OnInit {
 
   onSelect(lang: string) {
     this.currentLanguage = lang;
-    localStorage.setItem('lang', lang);
-    this.translate.use(lang);
+    this.langService.setLanguage(lang);
     this.toggle = false;
   }
 

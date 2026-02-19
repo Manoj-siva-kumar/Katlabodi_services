@@ -1,0 +1,69 @@
+{
+    "propertyTax": {
+        "title": "Property Tax Assessment Register",
+        "searchPlaceholder": "Search by name...",
+        "new": "New",
+        "financialYear": {
+            "from": "From",
+            "to": "to",
+            "startYear": "Start Year",
+            "endYear": "End Year",
+            "confirm": "Confirm",
+            "label": "Financial Year"
+        },
+        "sections": {
+            "administrative": "Administrative Details",
+            "basicProperty": "Basic Property Details",
+            "areaValuation": "Area & Valuation Details",
+            "taxBreakdown": "Tax Breakdown"
+        },
+        "fields": {
+            "gramPanchayath": "Gram Panchayath Name",
+            "village": "Village",
+            "taluka": "Taluka",
+            "district": "District",
+            "sno": "S. No.",
+            "roadName": "Road Name",
+            "groupNo": "City Survey / Group No",
+            "propertyNo": "Property No",
+            "owner": "Owner Name",
+            "occupantName": "Occupant Name",
+            "propertyDescription": "Property Description",
+            "constructionYear": "Construction Year",
+            "area": "Area (Sq.m)",
+            "landArea": "Land Area",
+            "buildingArea": "Building Area",
+            "ratePerSqm": "Rate per Sq.m",
+            "taxRatePercent": "Tax Rate (%)",
+            "usageType": "Usage Type",
+            "capitalValue": "Capital Value",
+            "ratePercent": "Rate (%)",
+            "houseTax": "House Tax",
+            "lightingTax": "Lighting Tax",
+            "healthTax": "Health Tax",
+            "waterTax": "Water Tax",
+            "totalTax": "Total Tax",
+            "previousBalance": "Previous Balance",
+            "currentYearTax": "Current Year Tax",
+            "additionalTax": "Additional Tax",
+            "penaltyInterest": "Penalty / Interest",
+            "grandTotal": "Grand Total",
+            "remarks": "Remarks"
+        },
+        "buttons": {
+            "save": "Save Record"
+        },
+        "grid": {
+            "columns": {
+                "sno": "S.No",
+                "groupNo": "Group No",
+                "propertyNo": "Property No",
+                "owner": "Owner",
+                "usageType": "Usage Type",
+                "capitalValue": "Capital Value",
+                "totalTax": "Total Tax",
+                "actions": "Actions"
+            }
+        }
+    }
+}

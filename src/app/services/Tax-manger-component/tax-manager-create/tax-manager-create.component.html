@@ -5,7 +5,7 @@
     <!-- HEADER -->
     <div class="text-center mb-12">
       <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 tracking-wide">
-        Property Tax Assessment Register
+        {{'propertyTax.title' | translate}}
       </h1>
 
       <div
@@ -13,12 +13,12 @@
 
         <!-- CREATE MODE → Show Selection -->
         <ng-container *ngIf="!isEditMode && !yearConfirmed">
-          <span>From</span>
+          <span>{{'propertyTax.financialYear.from' | translate}}</span>
 
           <select [(ngModel)]="fromYear" [ngModelOptions]="{standalone: true}"
             class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
 
-            <option value="" disabled>Start Year</option>
+            <option value="" disabled>{{'propertyTax.financialYear.startYear' | translate}}</option>
 
             <option *ngFor="let year of financialYears" [value]="year">
               {{ year }}
@@ -26,12 +26,12 @@
 
           </select>
 
-          <span>to</span>
+          <span>{{'propertyTax.financialYear.to' | translate}}</span>
 
           <select [(ngModel)]="toYear" [ngModelOptions]="{standalone: true}"
             class="w-full sm:w-auto border border-gray-300 rounded-sm px-6 py-1 text-sm sm:text-base text-gray-600">
 
-            <option value="" disabled>End Year</option>
+            <option value="" disabled>{{'propertyTax.financialYear.endYear' | translate}}</option>
 
             <option *ngFor="let year of financialYears" [value]="year">
               {{ year }}
@@ -42,14 +42,14 @@
 
           <button (click)="confirmYear()" class="w-full sm:w-auto mx-3 bg-blue-900 text-white px-4 py-2 text-sm
       rounded-md hover:opacity-100 opacity-90 transition">
-            Confirm
+            {{'propertyTax.financialYear.confirm' | translate}}
           </button>
         </ng-container>
 
         <!-- EDIT MODE OR CONFIRMED → Show Text Only -->
         <ng-container *ngIf="isEditMode || yearConfirmed">
           <p class="text-gray-900 text-base sm:text-base text-center">
-            Financial Year
+            {{'propertyTax.financialYear.label' | translate}}
             <span class="font-semibold text-blue-900">
               {{ fromYear }} <span class="font-light">to</span> {{ toYear }}
             </span>
@@ -65,7 +65,7 @@
     <!-- Administrative Details -->
     <div class="mb-12">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Administrative Details
+        {{'propertyTax.sections.administrative' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
@@ -82,7 +82,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Gram Panchayath Name
+            {{'propertyTax.fields.gramPanchayath' | translate}}
           </label>
         </div>
 
@@ -98,7 +98,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Village
+            {{'propertyTax.fields.village' | translate}}
           </label>
         </div>
 
@@ -114,7 +114,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Taluka
+            {{'propertyTax.fields.taluka' | translate}}
           </label>
         </div>
 
@@ -130,8 +130,8 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            District
-            </label>
+            {{'propertyTax.fields.district' | translate}}
+          </label>
         </div>
 
       </div>
@@ -140,7 +140,7 @@
     <!-- ================= BASIC PROPERTY DETAILS ================= -->
     <div class="mb-12">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Basic Property Details
+        {{'propertyTax.sections.basicProperty' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
@@ -157,7 +157,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            S. No.
+            {{'propertyTax.fields.sno' | translate}}
           </label>
         </div>
 
@@ -173,7 +173,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Road Name
+            {{'propertyTax.fields.roadName' | translate}}
           </label>
         </div>
 
@@ -189,7 +189,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            City Survey / Group No
+            {{'propertyTax.fields.groupNo' | translate}}
           </label>
         </div>
 
@@ -205,7 +205,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Property No
+            {{'propertyTax.fields.propertyNo' | translate}}
           </label>
         </div>
 
@@ -221,7 +221,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Owner Name
+            {{'propertyTax.fields.owner' | translate}}
           </label>
         </div>
 
@@ -237,7 +237,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Occupant Name
+            O{{'propertyTax.fields.occupantName' | translate}}
           </label>
         </div>
 
@@ -253,7 +253,7 @@
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
             bg-white px-2">
-            Property Description
+            {{'propertyTax.fields.propertyDescription' | translate}}
           </label>
         </div>
 
@@ -263,7 +263,7 @@
     <!-- ================= AREA & VALUATION DETAILS ================= -->
     <div class="mb-12">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Area & Valuation Details
+        {{'propertyTax.sections.areaValuation' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
@@ -279,7 +279,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Construction Year</label>
+            bg-white px-2">{{'propertyTax.fields.constructionYear' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -292,7 +292,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Area (Sq.m)</label>
+            bg-white px-2">{{'propertyTax.fields.area' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -305,7 +305,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Land Area</label>
+            bg-white px-2">{{'propertyTax.fields.landArea' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="buildingArea" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -317,7 +317,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Building Area</label>
+            bg-white px-2">{{'propertyTax.fields.buildingArea' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="ratePerSqm" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -329,7 +329,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Rate per Sq.m</label>
+            bg-white px-2">{{'propertyTax.fields.ratePerSqm' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="taxRatePercent" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -341,7 +341,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Tax Rate (%)</label>
+            bg-white px-2">{{'propertyTax.fields.taxRatePercent' | translate}}</label>
         </div>
         <div class="relative">
           <input type="text" formControlName="usageType" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -353,7 +353,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Usage Type</label>
+            bg-white px-2">{{'propertyTax.fields.usageType' | translate}}</label>
         </div>
 
       </div>
@@ -362,7 +362,7 @@
     <!-- ================= TAX BREAKDOWN ================= -->
     <div class="mb-12">
       <h2 class="text-lg sm:text-xl font-semibold text-blue-900 mb-5">
-        Tax Breakdown
+        {{'propertyTax.sections.taxBreakdown' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-8">
@@ -378,7 +378,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Capital Value</label>
+            bg-white px-2">{{'propertyTax.fields.capitalValue' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="ratePercent" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -390,7 +390,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Rate (%)</label>
+            bg-white px-2">{{'propertyTax.fields.rate' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="houseTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -402,7 +402,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">House Tax</label>
+            bg-white px-2">{{'propertyTax.fields.houseTax' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="lightingTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -414,7 +414,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Lighting Tax</label>
+            bg-white px-2">{{'propertyTax.fields.lightingTax' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="healthTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -426,7 +426,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Health Tax</label>
+            bg-white px-2">{{'propertyTax.fields.healthTax' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="waterTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -438,7 +438,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Water Tax</label>
+            bg-white px-2">{{'propertyTax.fields.waterTax' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="totalTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -450,7 +450,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Total Tax</label>
+            bg-white px-2">{{'propertyTax.fields.totalTax' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="previousBalance" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -462,7 +462,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Previous Balance</label>
+            bg-white px-2">{{'propertyTax.fields.previousBalance' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="currentYearTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -474,7 +474,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Current Year Tax</label>
+            bg-white px-2">{{'propertyTax.fields.currentYearTax' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="additionalTax" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -486,7 +486,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Additional Tax</label>
+            bg-white px-2">{{'propertyTax.fields.additionalTax' | translate}}</label>
         </div>
         <div class="relative">
           <input type="number" formControlName="penaltyInterest" placeholder=" " class="peer w-full text-gray-600 border border-gray-300 rounded-md px-4 py-3 bg-white shadow-sm
@@ -498,7 +498,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Penalty / Interest</label>
+            bg-white px-2">{{'propertyTax.fields.penaltyInterest' | translate}}</label>
         </div>
 
         <div class="relative">
@@ -511,7 +511,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Grand Total
+            bg-white px-2">{{'propertyTax.fields.grandTotal' | translate}}
           </label>
         </div>
 
@@ -525,7 +525,7 @@
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm sm:text-base
 
             peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-blue-900
-            bg-white px-2">Remarks
+            bg-white px-2">{{'propertyTax.fields.remarks' | translate}}
           </label>
         </div>
 
@@ -536,7 +536,7 @@
     <div class="" (click)="onSave()">
       <button class="text-white px-6 py-3 text-base sm:text-lg rounded-md shadow-md opacity-90 hover:opacity-100 cursor-pointer
        bg-blue-900 transition duration-300 ease-in-out">
-        Save Record
+        {{'propertyTax.buttons.save' | translate}}
       </button>
     </div>
 

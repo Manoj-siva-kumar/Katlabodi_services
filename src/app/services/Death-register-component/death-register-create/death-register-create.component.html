@@ -5,7 +5,7 @@
     <!-- ================= HEADER ================= -->
     <div class="text-center mb-10">
       <h1 class="text-2xl md:text-3xl font-semibold text-blue-900">
-        Death Registration Form
+        {{'deathRegister.formTitle' | translate}}
       </h1>
     </div>
 
@@ -13,7 +13,7 @@
     <div class="mb-10">
 
       <h2 class="text-xl font-semibold text-blue-900 mb-6">
-        Administrative Section
+        {{'deathRegister.sections.administrative' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -22,39 +22,40 @@
           <input type="number" formControlName="id" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">ID</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.id' | translate}}</label>
         </div>
 
         <div class="relative">
           <input type="text" formControlName="document_type" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Document
-            Type</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.documentType' | translate}}</label>
         </div>
 
         <div class="relative">
           <input type="text" formControlName="form_number" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Form
-            Number</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.formNo' | translate}}</label>
         </div>
 
         <div class="relative">
           <input type="text" formControlName="legal_reference" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Legal
-            Reference</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.legalReference' | translate}}</label>
         </div>
 
         <div class="relative">
           <input type="text" formControlName="aadhaar_number" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200" />
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Aadhaar
-            Number</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.aadhaarNumber' | translate}}</label>
         </div>
 
       </div>
@@ -63,17 +64,17 @@
 
         <label class="flex items-center gap-2">
           <input type="checkbox" formControlName="statistical_declaration" class="accent-blue-900">
-          Statistical Declaration
+          {{'deathRegister.fields.statisticalDeclaration' | translate}}
         </label>
 
         <label class="flex items-center gap-2">
           <input type="checkbox" formControlName="government_seal_present" class="accent-blue-900">
-          Govt Seal Present
+          {{'deathRegister.fields.governmentSealPresent' | translate}}
         </label>
 
         <label class="flex items-center gap-2">
           <input type="checkbox" formControlName="office_stamp_present" class="accent-blue-900">
-          Office Stamp Present
+          {{'deathRegister.fields.officeStampPresent' | translate}}
         </label>
 
       </div>
@@ -84,7 +85,7 @@
     <div formGroupName="deceased_details" class="mb-10">
 
       <h2 class="text-xl font-semibold text-blue-900 mb-6">
-        Administrative Section
+        {{'deathRegister.sections.deceasedDetails' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -93,42 +94,42 @@
           <input type="text" formControlName="name_of_deceased" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Name
-            of Deceased</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.nameOfDeceased' | translate}}</label>
         </div>
 
         <div class="relative">
           <input type="date" formControlName="date_of_death" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Date
-            of Death</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.dateOfDeath' | translate}}</label>
         </div>
 
         <div class="relative">
           <input type="text" formControlName="time_of_death" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Time
-            of Death</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.timeOfDeath' | translate}}</label>
         </div>
 
       </div>
 
       <!-- Gender -->
       <div formGroupName="sex" class="mt-6 flex gap-8">
-        <label><input type="checkbox" formControlName="male"> Male</label>
-        <label><input type="checkbox" formControlName="female"> Female</label>
-        <label><input type="checkbox" formControlName="other"> Other</label>
+        <label><input type="checkbox" formControlName="male"> {{'deathRegister.fields.male' | translate}}</label>
+        <label><input type="checkbox" formControlName="female"> {{'deathRegister.fields.female' | translate}}</label>
+        <label><input type="checkbox" formControlName="other"> {{'deathRegister.fields.other' | translate}}</label>
       </div>
 
       <!-- Age -->
       <div formGroupName="age_at_death" class="grid grid-cols-3 gap-6 mt-6 max-w-lg">
-        <input type="number" formControlName="years" placeholder="Years"
+        <input type="number" formControlName="years" [placeholder]="'deathRegister.fields.ageYears' | translate"
           class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
-        <input type="number" formControlName="months" placeholder="Months"
+        <input type="number" formControlName="months" [placeholder]="'deathRegister.fields.ageMonths' | translate"
           class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
-        <input type="number" formControlName="days" placeholder="Days"
+        <input type="number" formControlName="days" [placeholder]="'deathRegister.fields.ageDays' | translate"
           class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
       </div>
 
@@ -138,16 +139,16 @@
           <input type="text" formControlName="marital_status" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Marital
-            Status</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.martialStatus' | translate}}</label>
         </div>
 
         <div class="relative">
           <input type="text" formControlName="spouse_name" placeholder=" "
             class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
           <label
-            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">Spouse
-            Name</label>
+            class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs bg-white px-2">
+            {{'deathRegister.fields.spouseName' | translate}}</label>
         </div>
 
       </div>
@@ -158,7 +159,7 @@
     <div formGroupName="residence_details" class="mb-10">
 
       <h2 class="text-xl font-semibold text-blue-900 mb-6">
-        Residence Details
+        {{'deathRegister.sections.residenceDetails' | translate}}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -172,7 +173,7 @@
         peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
         bg-white px-2">
-            House No
+            {{'deathRegister.fields.houseNo' | translate}}
           </label>
         </div>
 
@@ -185,7 +186,7 @@
         peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
         bg-white px-2">
-            Street Area
+            {{'deathRegister.fields.streetArea' | translate}}
           </label>
         </div>
 
@@ -198,7 +199,7 @@
         peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
         bg-white px-2">
-            Village / Town
+            {{'deathRegister.fields.villageTown' | translate}}
           </label>
         </div>
 
@@ -211,7 +212,7 @@
         peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
         bg-white px-2">
-            Taluka
+            {{'deathRegister.fields.taluka' | translate}}
           </label>
         </div>
 
@@ -224,7 +225,7 @@
         peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
         bg-white px-2">
-            District
+            {{'deathRegister.fields.district' | translate}}
           </label>
         </div>
 
@@ -237,7 +238,7 @@
         peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
         bg-white px-2">
-            State
+            {{'deathRegister.fields.state' | translate}}
           </label>
         </div>
 
@@ -249,12 +250,13 @@
     <!-- ================= PLACE OF DEATH ================= -->
     <div formGroupName="place_of_death_details" class="mb-10">
 
-      <h2 class="text-xl font-semibold text-blue-900 mb-6">Place of Death</h2>
+      <h2 class="text-xl font-semibold text-blue-900 mb-6">{{'deathRegister.sections.placeOfDeath' | translate}}</h2>
 
       <div formGroupName="place_type" class="flex gap-8 mb-6">
-        <label><input type="checkbox" formControlName="hospital"> Hospital</label>
-        <label><input type="checkbox" formControlName="home"> Home</label>
-        <label><input type="checkbox" formControlName="other"> Other</label>
+        <label><input type="checkbox" formControlName="hospital"> {{'deathRegister.fields.hospital' |
+          translate}}l</label>
+        <label><input type="checkbox" formControlName="home"> {{'deathRegister.fields.home' | translate}}</label>
+        <label><input type="checkbox" formControlName="other"> {{'deathRegister.fields.placeOther' | translate}}</label>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -269,7 +271,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Hospital Name
+            {{'deathRegister.fields.hospitalName' | translate}}
           </label>
         </div>
 
@@ -283,7 +285,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Address of Place
+            {{'deathRegister.fields.addressOfPlace' | translate}}
           </label>
         </div>
 
@@ -295,13 +297,15 @@
     <!-- ================= SOCIAL ================= -->
     <div formGroupName="social_details" class="mb-10">
 
-      <h2 class="text-xl font-semibold text-blue-900 mb-6">Social Details</h2>
+      <h2 class="text-xl font-semibold text-blue-900 mb-6">{{'deathRegister.sections.socialDetails' | translate}}</h2>
 
       <div formGroupName="religion" class="flex gap-6 mb-6">
-        <label><input type="checkbox" formControlName="hindu"> Hindu</label>
-        <label><input type="checkbox" formControlName="muslim"> Muslim</label>
-        <label><input type="checkbox" formControlName="christian"> Christian</label>
-        <label><input type="checkbox" formControlName="other"> Other</label>
+        <label><input type="checkbox" formControlName="hindu"> {{'deathRegister.fields.hindu' | translate}}</label>
+        <label><input type="checkbox" formControlName="muslim"> {{'deathRegister.fields.muslim' | translate}}</label>
+        <label><input type="checkbox" formControlName="christian"> Chris{{'deathRegister.fields.christian' |
+          translate}}tian</label>
+        <label><input type="checkbox" formControlName="other"> {{'deathRegister.fields.religionOther' |
+          translate}}</label>
       </div>
 
       <div class="relative w-1/3">
@@ -314,7 +318,7 @@
     peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
     peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
     bg-white px-2">
-          Occupation
+          {{'deathRegister.fields.occupation' | translate}}
         </label>
 
       </div>
@@ -324,88 +328,95 @@
     <!-- ================= MEDICAL ================= -->
     <div formGroupName="medical_details" class="mb-10">
 
-      <h2 class="text-xl font-semibold text-blue-900 mb-6">Medical Details</h2>
+      <h2 class="text-xl font-semibold text-blue-900 mb-6">
+        {{'deathRegister.sections.medicalDetails' | translate}}
+      </h2>
 
+      <!-- Medical Attention -->
+      <div class="flex gap-6 mb-4">
 
-
-      <div formGroupName="type_of_medical_institution" class="flex gap-6 mb-4">
         <label>
           <input type="checkbox" formControlName="medical_attention_received">
-          Medical Attention Received
+          {{'deathRegister.fields.medicalAttentionReceived' | translate}}
         </label>
-        <label><input type="checkbox" formControlName="government"> Govt</label>
-        <label><input type="checkbox" formControlName="private"> Private</label>
-        <label><input type="checkbox" formControlName="none"> None</label>
-      </div>
 
+        <div formGroupName="type_of_medical_institution" class="flex gap-6">
+          <label>
+            <input type="checkbox" formControlName="government">
+            {{'deathRegister.fields.government' | translate}}
+          </label>
 
+          <label>
+            <input type="checkbox" formControlName="private">
+            {{'deathRegister.fields.private' | translate}}
+          </label>
 
-      <div formGroupName="cause_of_death" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <!-- Doctor Name + Duration -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-
-          <!-- Doctor Name -->
-          <div class="relative">
-            <input type="text" formControlName="doctor_name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
-      focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
-
-            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
-      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
-      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
-      bg-white px-2">
-              Doctor Name
-            </label>
-          </div>
-
-          <!-- Duration of Illness -->
-          <div class="relative">
-            <input type="text" formControlName="duration_of_illness" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
-      focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
-
-            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
-      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
-      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
-      bg-white px-2">
-              Duration of Illness
-            </label>
-          </div>
-
+          <label>
+            <input type="checkbox" formControlName="none">
+            {{'deathRegister.fields.none' | translate}}
+          </label>
         </div>
 
+      </div>
 
-        <!-- Cause of Death -->
-        <div formGroupName="cause_of_death" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Doctor + Duration -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
 
-          <!-- Primary Cause -->
-          <div class="relative">
-            <input type="text" formControlName="primary_cause" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
-      focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
+        <div class="relative">
+          <input type="text" formControlName="doctor_name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+        focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
 
-            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
-      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
-      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
-      bg-white px-2">
-              Primary Cause
-            </label>
-          </div>
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            {{'deathRegister.fields.doctorName' | translate}}
+          </label>
+        </div>
 
-          <!-- Secondary Cause -->
-          <div class="relative">
-            <input type="text" formControlName="secondary_cause" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
-      focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
+        <div class="relative">
+          <input type="text" formControlName="duration_of_illness" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+        focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
 
-            <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
-      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
-      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
-      bg-white px-2">
-              Secondary Cause
-            </label>
-          </div>
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            {{'deathRegister.fields.durationOfIllness' | translate}}
+          </label>
+        </div>
 
+      </div>
+
+      <!-- Cause of Death -->
+      <div formGroupName="cause_of_death" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <div class="relative">
+          <input type="text" formControlName="primary_cause" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+        focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
+
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            {{'deathRegister.fields.primaryCause' | translate}}
+          </label>
+        </div>
+
+        <div class="relative">
+          <input type="text" formControlName="secondary_cause" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
+        focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
+
+          <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            {{'deathRegister.fields.secondaryCause' | translate}}
+          </label>
         </div>
 
       </div>
@@ -415,81 +426,87 @@
     <!-- ================= STATISTICAL ================= -->
     <div formGroupName="statistical_information" class="mb-10">
 
-      <h2 class="text-xl font-semibold text-blue-900 mb-6">Statistical Information</h2>
+      <h2 class="text-xl font-semibold text-blue-900 mb-6">
+        {{'deathRegister.sections.statisticalInformation' | translate}}
+      </h2>
 
-      <div formGroupName="type_of_medical_institution" class="flex gap-6 mb-4">
-        <label><input type="checkbox" formControlName="medically_certified"> Medically Certified</label>
-        <label><input type="checkbox" formControlName="post_mortem_conducted"> Post Mortem Conducted</label>
+      <div class="flex gap-6 mb-4">
+
+        <label>
+          <input type="checkbox" formControlName="medically_certified">
+          {{'deathRegister.fields.medicallyCertified' | translate}}
+        </label>
+
+        <label>
+          <input type="checkbox" formControlName="post_mortem_conducted">
+          {{'deathRegister.fields.postMortemConducted' | translate}}
+        </label>
+
       </div>
-
 
     </div>
 
     <!-- ================= INFORMANT ================= -->
     <div formGroupName="informant_details" class="mb-10">
 
-      <h2 class="text-xl font-semibold text-blue-900 mb-6">Informant Details</h2>
+      <h2 class="text-xl font-semibold text-blue-900 mb-6">
+        {{'deathRegister.sections.informantDetails' | translate}}
+      </h2>
+
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Name -->
         <div class="relative">
-          <input type="text" formControlName="name" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
-      focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
-
+          <input type="text" formControlName="name" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white">
           <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
-      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
-      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
-      bg-white px-2">
-            Name
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            {{'deathRegister.fields.informantName' | translate}}
           </label>
         </div>
 
-        <!-- Relationship -->
         <div class="relative">
-          <input type="text" formControlName="relationship_to_deceased" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
-      focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
-
+          <input type="text" formControlName="relationship_to_deceased" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white">
           <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
-      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
-      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
-      bg-white px-2">
-            Relationship
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            {{'deathRegister.fields.relationship' | translate}}
           </label>
         </div>
 
-        <!-- Address -->
         <div class="relative">
-          <input type="text" formControlName="address" placeholder=" " class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white
-      focus:outline-none focus:ring-1 focus:ring-blue-900 focus:border-blue-900 transition duration-200">
-
+          <input type="text" formControlName="address" placeholder=" "
+            class="peer w-full border border-gray-300 rounded-md px-4 py-3 bg-white">
           <label class="absolute left-4 top-4 text-gray-900 text-sm transition-all duration-200
-      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
-      peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
-      bg-white px-2">
-            Address
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
+        peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
+        peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
+        bg-white px-2">
+            {{'deathRegister.fields.address' | translate}}
           </label>
         </div>
 
       </div>
 
-      <div formGroupName="type_of_medical_institution" class="flex gap-6 mt-4">
+      <div class="flex gap-6 mt-4">
         <label>
           <input type="checkbox" formControlName="signature_present">
-          Signature Present
+          {{'deathRegister.fields.signaturePresent' | translate}}
         </label>
       </div>
-
-
 
     </div>
 
     <!-- ================= REGISTRATION ================= -->
     <div formGroupName="registration_details" class="mb-10">
 
-      <h2 class="text-xl font-semibold text-blue-900 mb-6">Registration Details</h2>
+      <h2 class="text-xl font-semibold text-blue-900 mb-6">
+        {{'deathRegister.sections.registrationDetails' | translate}}</h2>
 
 
 
@@ -505,7 +522,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Registration Number
+            {{'deathRegister.fields.registrationNumber' | translate}}
           </label>
         </div>
 
@@ -518,7 +535,7 @@
       peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-900
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Registration Date
+            R{{'deathRegister.fields.registrationDate' | translate}}
           </label>
         </div>
 
@@ -532,7 +549,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Registration Year
+            {{'deathRegister.fields.registrationYear' | translate}}
           </label>
         </div>
 
@@ -546,7 +563,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Registration Unit Code
+            {{'deathRegister.fields.registrationUnitCode' | translate}}
           </label>
         </div>
 
@@ -585,7 +602,8 @@
     <!-- ================= LOCATION ================= -->
     <div formGroupName="registration_location_details" class="mb-10">
 
-      <h2 class="text-xl font-semibold text-blue-900 mb-6">Registration Location</h2>
+      <h2 class="text-xl font-semibold text-blue-900 mb-6">
+        {{'deathRegister.sections.registrationLocation' | translate}}</h2>
 
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -600,7 +618,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            District
+            {{'deathRegister.fields.district' | translate}}
           </label>
         </div>
 
@@ -614,7 +632,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Taluka
+            {{'deathRegister.fields.taluka' | translate}}
           </label>
         </div>
 
@@ -642,7 +660,7 @@
       peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
       peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs
       bg-white px-2">
-            Registration Office Name
+            {{'deathRegister.fields.registrationOfficeName' | translate}}
           </label>
         </div>
 
@@ -653,7 +671,7 @@
 
     <!-- SAVE -->
     <button (click)="onSave()" class="bg-blue-900 text-white px-6 py-3 rounded-md shadow">
-      Save Record
+      {{'deathRegister.buttons.save' | translate}}
     </button>
 
   </div>

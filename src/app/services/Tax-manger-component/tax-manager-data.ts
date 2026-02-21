@@ -1,43 +1,299 @@
 export interface PropertyRow {
-  sno: number;
-  fromYear: string;
-  toYear: string;
+  sno: any;
+  fromYear: any;
+  toYear: any;
 
-  roadName: string;
-  groupNo: number;
-  propertyNo: string;
-  owner: string;
-  occupantName: string;
-  propertyDescription: string;
+  roadName: any;
+  groupNo: any;
+  propertyNo: any;
+  owner: any;
+  occupantName: any;
+  propertyDescription: any;
 
-  constructionYear: number;
-  area: number;
-  landArea: number;
-  buildingArea: number;
-  ratePerSqm: number;
-  taxRatePercent: number;
-  usageType: string;
+  constructionYear: any;
+  area: any;
+  landArea: any;
+  buildingArea: any;
+  ratePerSqm: any;
+  taxRatePercent: any;
+  usageType: any;
 
-  capitalValue: number;
-  ratePercent: number;
-  houseTax: number;
-  lightingTax: number;
-  healthTax: number;
-  waterTax: number;
-  totalTax: number;
+  capitalValue: any;
+  ratePercent: any;
+  houseTax: any;
+  lightingTax: any;
+  healthTax: any;
+  waterTax: any;
+  totalTax: any;
 
-  previousBalance: number;
-  currentYearTax: number;
-  additionalTax: number;
-  penaltyInterest: number;
-  grandTotal: number;
+  previousBalance: any;
+  currentYearTax: any;
+  additionalTax: any;
+  penaltyInterest: any;
+  grandTotal: any;
 
-  remarks: string;
-  gramPanchayath: string, village: string,
-  taluka: string, district: string,
+  remarks: any;
+  gramPanchayath: any;
+  village: any;
+  taluka: any;
+  district: any;
 }
 
+export const ROWDATA_MR: PropertyRow[] = [
 
+  {
+    sno: '१',
+    fromYear: '२०२१–२०२२',
+    toYear: '२०२२–२०२३',
+
+    roadName: 'एमजी रोड',
+    groupNo: '१०१',
+    propertyNo: 'पी-१०१',
+    owner: 'रमेश',
+    occupantName: 'रमेश',
+    propertyDescription: '२ बीएचके निवासी घर',
+
+    constructionYear: '२०१५',
+    area: '१२०',
+    landArea: '१५०',
+    buildingArea: '११०',
+    ratePerSqm: '३५००',
+    taxRatePercent: '५',
+    usageType: 'निवासी',
+
+    capitalValue: '४५००००',
+    ratePercent: '५',
+
+    houseTax: '८०००',
+    lightingTax: '१०००',
+    healthTax: '५००',
+    waterTax: '२५००',
+    totalTax: '१२०००',
+
+    previousBalance: '२०००',
+    currentYearTax: '१२०००',
+    additionalTax: '५००',
+    penaltyInterest: '३००',
+    grandTotal: '१४८००',
+
+    remarks: 'अंशतः भरले',
+    gramPanchayath: 'कटलबोडी ग्रामपंचायत',
+    village: 'कटलबोडी',
+    taluka: 'काटोल',
+    district: 'नागपूर'
+  },
+
+  {
+    sno: '२',
+    fromYear: '२०२२–२०२३',
+    toYear: '२०२३–२०२४',
+
+    roadName: 'नेहरू स्ट्रीट',
+    groupNo: '१०२',
+    propertyNo: 'पी-१०२',
+    owner: 'सुरेश',
+    occupantName: 'सुरेश एंटरप्रायझेस',
+    propertyDescription: 'व्यावसायिक दुकान',
+
+    constructionYear: '२०१२',
+    area: '१५०',
+    landArea: '२००',
+    buildingArea: '१४०',
+    ratePerSqm: '५०००',
+    taxRatePercent: '८',
+    usageType: 'व्यावसायिक',
+
+    capitalValue: '७५००००',
+    ratePercent: '८',
+
+    houseTax: '१२०००',
+    lightingTax: '१५००',
+    healthTax: '८००',
+    waterTax: '४२००',
+    totalTax: '१८५००',
+
+    previousBalance: '५०००',
+    currentYearTax: '१८५००',
+    additionalTax: '१०००',
+    penaltyInterest: '६००',
+    grandTotal: '२५१००',
+
+    remarks: 'प्रलंबित',
+    gramPanchayath: 'कटलबोडी ग्रामपंचायत',
+    village: 'कटलबोडी',
+    taluka: 'काटोल',
+    district: 'नागपूर'
+  },
+
+  {
+    sno: '३',
+    fromYear: '२०२३–२०२४',
+    toYear: '२०२४–२०२५',
+
+    roadName: 'स्टेशन रोड',
+    groupNo: '१०३',
+    propertyNo: 'पी-१०३',
+    owner: 'अनिता',
+    occupantName: 'अनिता',
+    propertyDescription: 'स्वतंत्र घर',
+
+    constructionYear: '२०१८',
+    area: '१००',
+    landArea: '१३०',
+    buildingArea: '९५',
+    ratePerSqm: '३४००',
+    taxRatePercent: '५',
+    usageType: 'निवासी',
+
+    capitalValue: '४०००००',
+    ratePercent: '५',
+
+    houseTax: '७०००',
+    lightingTax: '९००',
+    healthTax: '४५०',
+    waterTax: '२२००',
+    totalTax: '१०५५०',
+
+    previousBalance: '०',
+    currentYearTax: '१०५५०',
+    additionalTax: '३००',
+    penaltyInterest: '१५०',
+    grandTotal: '११०००',
+
+    remarks: 'पूर्ण भरले',
+    gramPanchayath: 'कटलबोडी ग्रामपंचायत',
+    village: 'कटलबोडी',
+    taluka: 'काटोल',
+    district: 'नागपूर'
+  },
+
+  {
+    sno: '४',
+    fromYear: '२०२१–२०२२',
+    toYear: '२०२२–२०२३',
+
+    roadName: 'मंदिर रोड',
+    groupNo: '१०४',
+    propertyNo: 'पी-१०४',
+    owner: 'विजय',
+    occupantName: 'विजय ट्रेडर्स',
+    propertyDescription: 'किरकोळ दुकान',
+
+    constructionYear: '२०१०',
+    area: '१८०',
+    landArea: '२२०',
+    buildingArea: '१७०',
+    ratePerSqm: '५२००',
+    taxRatePercent: '८',
+    usageType: 'व्यावसायिक',
+
+    capitalValue: '९२००००',
+    ratePercent: '८',
+
+    houseTax: '१५०००',
+    lightingTax: '२०००',
+    healthTax: '१०००',
+    waterTax: '५०००',
+    totalTax: '२३०००',
+
+    previousBalance: '३०००',
+    currentYearTax: '२३०००',
+    additionalTax: '१२००',
+    penaltyInterest: '७००',
+    grandTotal: '२७९००',
+
+    remarks: 'प्रलंबित',
+    gramPanchayath: 'कटलबोडी ग्रामपंचायत',
+    village: 'कटलबोडी',
+    taluka: 'काटोल',
+    district: 'नागपूर'
+  },
+
+  {
+    sno: '५',
+    fromYear: '२०२२–२०२३',
+    toYear: '२०२३–२०२४',
+
+    roadName: 'लेक व्ह्यू',
+    groupNo: '१०५',
+    propertyNo: 'पी-१०५',
+    owner: 'लक्ष्मी',
+    occupantName: 'लक्ष्मी',
+    propertyDescription: 'व्हिला',
+
+    constructionYear: '२०२०',
+    area: '१६०',
+    landArea: '२००',
+    buildingArea: '१५०',
+    ratePerSqm: '४८००',
+    taxRatePercent: '६',
+    usageType: 'निवासी',
+
+    capitalValue: '६८००००',
+    ratePercent: '६',
+
+    houseTax: '११०००',
+    lightingTax: '१२००',
+    healthTax: '७००',
+    waterTax: '३०००',
+    totalTax: '१५९००',
+
+    previousBalance: '०',
+    currentYearTax: '१५९००',
+    additionalTax: '५००',
+    penaltyInterest: '२५०',
+    grandTotal: '१६६५०',
+
+    remarks: 'भरले',
+    gramPanchayath: 'कटलबोडी ग्रामपंचायत',
+    village: 'कटलबोडी',
+    taluka: 'काटोल',
+    district: 'नागपूर'
+  },
+
+  {
+    sno: '६',
+    fromYear: '२०२३–२०२४',
+    toYear: '२०२४–२०२५',
+
+    roadName: 'मार्केट रोड',
+    groupNo: '१०६',
+    propertyNo: 'पी-१०६',
+    owner: 'महेश',
+    occupantName: 'महेश इंडस्ट्रीज',
+    propertyDescription: 'गोदाम',
+
+    constructionYear: '२००८',
+    area: '३००',
+    landArea: '४००',
+    buildingArea: '२८०',
+    ratePerSqm: '६०००',
+    taxRatePercent: '१०',
+    usageType: 'औद्योगिक',
+
+    capitalValue: '१५०००००',
+    ratePercent: '१०',
+
+    houseTax: '२५०००',
+    lightingTax: '३०००',
+    healthTax: '१५००',
+    waterTax: '८०००',
+    totalTax: '३७५००',
+
+    previousBalance: '१००००',
+    currentYearTax: '३७५००',
+    additionalTax: '२०००',
+    penaltyInterest: '१५००',
+    grandTotal: '५१०००',
+
+    remarks: 'थकबाकी',
+    gramPanchayath: 'कटलबोडी ग्रामपंचायत',
+    village: 'कटलबोडी',
+    taluka: 'काटोल',
+    district: 'नागपूर'
+  }
+
+];
 
 export const ROWDATA: PropertyRow[] = [
 

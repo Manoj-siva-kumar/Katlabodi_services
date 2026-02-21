@@ -1,7 +1,13 @@
 export interface GrandTotals {
-    previous: number;
-    current: number;
-    total: number;
+    previous: any;
+    current: any;
+    total: any;
+}
+
+export interface TaxAmount {
+    previous: any;
+    current: any;
+    total: any;
 }
 
 export interface TaxDetails {
@@ -16,48 +22,221 @@ export interface TaxDetails {
     other: TaxAmount;
 }
 
-export interface TaxAmount {
-    previous: number;
-    current: number;
-    total: number;
-}
-
-
-
-export interface GrandTotals {
-    previous: number;
-    current: number;
-    total: number;
-}
-
-
 export interface rowdata {
 
-    id: number;
+    id: any;
 
-    receiptType: string;
-    formNo: string;
-    ruleReference: string;
+    receiptType: any;
+    formNo: any;
+    ruleReference: any;
 
-    officeName?: string;
-    panchayatSamiti?: string;
-    district?: string;
+    officeName?: any;
+    panchayatSamiti?: any;
+    district?: any;
 
-    financialYear: string;
-    receiptNo?: string;
-    date?: string;
+    financialYear: any;
+    receiptNo?: any;
+    date?: any;
 
-    taxpayerName: string;
-    address?: string;
-    wardNo: number;
-    propertyNo: string;
-    plotNo?: string;
-    billNo?: string;
+    taxpayerName: any;
+    address?: any;
+    wardNo: any;
+    propertyNo: any;
+    plotNo?: any;
+    billNo?: any;
 
     taxDetails: TaxDetails;
     grandTotals: GrandTotals;
-
 }
+
+export const ROWDATA_MR: rowdata[] = [
+
+    {
+        id: '१',
+        receiptType: 'कर वसुली पावती',
+        formNo: 'फॉर्म क्र. १०',
+        ruleReference: 'नियम ३२ (४)',
+
+        financialYear: '२०२५-२०२६',
+        officeName: 'कळंब ग्रामपंचायत',
+        panchayatSamiti: 'कळंब',
+        district: 'यवतमाळ',
+
+        receiptNo: 'आरसी-१००१',
+        date: '२०२५-०४-१०',
+
+        taxpayerName: 'रमेश पाटील',
+        address: 'मुख्य रस्ता, कळंब',
+
+        wardNo: '१',
+        propertyNo: 'पी-१०१',
+        plotNo: 'प्लॉट-४५',
+        billNo: 'बी-७८९',
+
+        taxDetails: {
+            buildingTax: { previous: '१२००', current: '२६०', total: '१४६०' },
+            landTax: { previous: '३००', current: '२००', total: '५००' },
+            lightingTax: { previous: '६०', current: '६०', total: '१२०' },
+            waterTax: { previous: '१२०', current: '१३०', total: '२५०' },
+            sanitationTax: { previous: '९०', current: '९०', total: '१८०' },
+            educationTax: { previous: '४५', current: '४५', total: '९०' },
+            noticeFee: { previous: '०', current: '५०', total: '५०' },
+            warrantFee: { previous: '०', current: '०', total: '०' },
+            other: { previous: '२०', current: '२०', total: '४०' }
+        },
+
+        grandTotals: { previous: '१८३५', current: '८५५', total: '२६९०' }
+    },
+
+    {
+        id: '२',
+        receiptType: 'कर वसुली पावती',
+        formNo: 'फॉर्म क्र. १०',
+        ruleReference: 'नियम ३२ (४)',
+
+        financialYear: '२०२५-२०२६',
+        officeName: 'कळंब ग्रामपंचायत',
+        panchayatSamiti: 'कळंब',
+        district: 'यवतमाळ',
+
+        receiptNo: 'आरसी-१००२',
+        date: '२०२५-०४-१२',
+
+        taxpayerName: 'सुरेश पाटील',
+        address: 'स्टेशन रोड, कळंब',
+
+        wardNo: '२',
+        propertyNo: 'पी-१०२',
+        plotNo: 'प्लॉट-१८',
+        billNo: 'बी-७९०',
+
+        taxDetails: {
+            buildingTax: { previous: '१५००', current: '४००', total: '१९००' },
+            landTax: { previous: '३००', current: '२००', total: '५००' },
+            lightingTax: { previous: '७०', current: '७०', total: '१४०' },
+            waterTax: { previous: '१५०', current: '१५०', total: '३००' },
+            sanitationTax: { previous: '८०', current: '८०', total: '१६०' },
+            educationTax: { previous: '४०', current: '४०', total: '८०' },
+            noticeFee: { previous: '०', current: '५०', total: '५०' },
+            warrantFee: { previous: '०', current: '०', total: '०' },
+            other: { previous: '२५', current: '२५', total: '५०' }
+        },
+
+        grandTotals: { previous: '२१६५', current: '१०१५', total: '३१८०' }
+    },
+
+    {
+        id: '३',
+        receiptType: 'कर वसुली पावती',
+        formNo: 'फॉर्म क्र. १०',
+        ruleReference: 'नियम ३२ (४)',
+
+        financialYear: '२०२५-२०२६',
+        officeName: 'कळंब ग्रामपंचायत',
+        panchayatSamiti: 'कळंब',
+        district: 'यवतमाळ',
+
+        receiptNo: 'आरसी-१००३',
+        date: '२०२५-०४-१५',
+
+        taxpayerName: 'अनिता देशमुख',
+        address: 'मंदिर रोड, कळंब',
+
+        wardNo: '३',
+        propertyNo: 'पी-१०३',
+        plotNo: 'प्लॉट-२२',
+        billNo: 'बी-७९१',
+
+        taxDetails: {
+            buildingTax: { previous: '१०००', current: '३००', total: '१३००' },
+            landTax: { previous: '२००', current: '१५०', total: '३५०' },
+            lightingTax: { previous: '५०', current: '५०', total: '१००' },
+            waterTax: { previous: '१००', current: '१२०', total: '२२०' },
+            sanitationTax: { previous: '७०', current: '७०', total: '१४०' },
+            educationTax: { previous: '३५', current: '३५', total: '७०' },
+            noticeFee: { previous: '०', current: '०', total: '०' },
+            warrantFee: { previous: '०', current: '०', total: '०' },
+            other: { previous: '२०', current: '२०', total: '४०' }
+        },
+
+        grandTotals: { previous: '१४७५', current: '७४५', total: '२२२०' }
+    },
+
+    {
+        id: '४',
+        receiptType: 'कर वसुली पावती',
+        formNo: 'फॉर्म क्र. १०',
+        ruleReference: 'नियम ३२ (४)',
+
+        financialYear: '२०२५-२०२६',
+        officeName: 'कळंब ग्रामपंचायत',
+        panchayatSamiti: 'कळंब',
+        district: 'यवतमाळ',
+
+        receiptNo: 'आरसी-१००४',
+        date: '२०२५-०४-१८',
+
+        taxpayerName: 'विजय शिंदे',
+        address: 'मार्केट रोड, कळंब',
+
+        wardNo: '४',
+        propertyNo: 'पी-१०४',
+        plotNo: 'प्लॉट-३०',
+        billNo: 'बी-७९२',
+
+        taxDetails: {
+            buildingTax: { previous: '२५००', current: '८००', total: '३३००' },
+            landTax: { previous: '५००', current: '३००', total: '८००' },
+            lightingTax: { previous: '१००', current: '१००', total: '२००' },
+            waterTax: { previous: '२००', current: '२५०', total: '४५०' },
+            sanitationTax: { previous: '१५०', current: '१५०', total: '३००' },
+            educationTax: { previous: '७५', current: '७५', total: '१५०' },
+            noticeFee: { previous: '५०', current: '५०', total: '१००' },
+            warrantFee: { previous: '०', current: '०', total: '०' },
+            other: { previous: '४०', current: '४०', total: '८०' }
+        },
+
+        grandTotals: { previous: '४११५', current: '१७६५', total: '५८८०' }
+    },
+
+    {
+        id: '५',
+        receiptType: 'कर वसुली पावती',
+        formNo: 'फॉर्म क्र. १०',
+        ruleReference: 'नियम ३२ (४)',
+
+        financialYear: '२०२५-२०२६',
+        officeName: 'कळंब ग्रामपंचायत',
+        panchayatSamiti: 'कळंब',
+        district: 'यवतमाळ',
+
+        receiptNo: 'आरसी-१००५',
+        date: '२०२५-०४-२०',
+
+        taxpayerName: 'लक्ष्मी राव',
+        address: 'लेक व्ह्यू कॉलनी, कळंब',
+
+        wardNo: '५',
+        propertyNo: 'पी-१०५',
+        plotNo: 'प्लॉट-१४',
+        billNo: 'बी-७९३',
+
+        taxDetails: {
+            buildingTax: { previous: '१८००', current: '६००', total: '२४००' },
+            landTax: { previous: '३५०', current: '२५०', total: '६००' },
+            lightingTax: { previous: '८०', current: '८०', total: '१६०' },
+            waterTax: { previous: '१५०', current: '१७०', total: '३२०' },
+            sanitationTax: { previous: '१००', current: '१००', total: '२००' },
+            educationTax: { previous: '५०', current: '५०', total: '१००' },
+            noticeFee: { previous: '०', current: '०', total: '०' },
+            warrantFee: { previous: '०', current: '०', total: '०' },
+            other: { previous: '३०', current: '३०', total: '६०' }
+        },
+
+        grandTotals: { previous: '२५६०', current: '१२८०', total: '३८४०' }
+    }
+
+];
 
 export const ROWDATA: rowdata[] = [
 

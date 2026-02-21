@@ -1,3 +1,5 @@
+// ======================= INTERFACES =======================
+
 export interface SocialDetails {
     religion: {
         hindu: boolean;
@@ -5,7 +7,6 @@ export interface SocialDetails {
         christian: boolean;
         other: boolean;
     };
-
     occupation: string;
 }
 
@@ -97,7 +98,6 @@ export interface ResidenceDetails {
     state: string;
 }
 
-
 export interface DeceasedDetails {
     date_of_death: string;
     time_of_death: string;
@@ -119,11 +119,9 @@ export interface DeceasedDetails {
     spouse_name: string | null;
 }
 
-
 export interface DeathRegistrationForm {
-    id: number;
+    id: number | string;
 
-    // Header
     document_type: string;
     form_number: string;
     legal_reference: string;
@@ -132,7 +130,6 @@ export interface DeathRegistrationForm {
     government_seal_present: boolean;
     office_stamp_present: boolean;
 
-    // Sections
     deceased_details: DeceasedDetails;
     residence_details: ResidenceDetails;
     place_of_death_details: PlaceOfDeathDetails;
@@ -145,13 +142,12 @@ export interface DeathRegistrationForm {
 }
 
 
+// ======================= ENGLISH DATA =======================
 
+export const ROWDATA: DeathRegistrationForm[] = [
 
-export const ROWDATA = [
     {
         id: 1,
-
-        // ================= HEADER =================
         document_type: "Death Registration Form",
         form_number: "Form No. 2",
         legal_reference: "Registration of Births & Deaths Rules",
@@ -160,26 +156,16 @@ export const ROWDATA = [
         government_seal_present: true,
         office_stamp_present: true,
 
-        // ================= DECEASED DETAILS =================
         deceased_details: {
             date_of_death: "21/10/2022",
             time_of_death: "08:30 AM",
             name_of_deceased: "Madhukar Ram Korde",
-            sex: {
-                male: true,
-                female: false,
-                other: false
-            },
-            age_at_death: {
-                years: 60,
-                months: 0,
-                days: 0
-            },
+            sex: { male: true, female: false, other: false },
+            age_at_death: { years: 60, months: 0, days: 0 },
             marital_status: "Married",
             spouse_name: "Shanta Madhukar Korde"
         },
 
-        // ================= ADDRESS DETAILS =================
         residence_details: {
             house_number: "H.No. 45",
             street_area: "Main Road",
@@ -190,34 +176,19 @@ export const ROWDATA = [
         },
 
         place_of_death_details: {
-            place_type: {
-                hospital: true,
-                home: false,
-                other: false
-            },
+            place_type: { hospital: true, home: false, other: false },
             hospital_name: "Government Hospital Katol",
             address_of_place: "Katol, Nagpur"
         },
 
-        // ================= RELIGION & OCCUPATION =================
         social_details: {
-            religion: {
-                hindu: true,
-                muslim: false,
-                christian: false,
-                other: false
-            },
+            religion: { hindu: true, muslim: false, christian: false, other: false },
             occupation: "Farmer"
         },
 
-        // ================= MEDICAL DETAILS =================
         medical_details: {
             medical_attention_received: true,
-            type_of_medical_institution: {
-                government: true,
-                private: false,
-                none: false
-            },
+            type_of_medical_institution: { government: true, private: false, none: false },
             doctor_name: "Dr. S. Patil",
             cause_of_death: {
                 primary_cause: "Cardiac Arrest",
@@ -226,29 +197,15 @@ export const ROWDATA = [
             duration_of_illness: "2 Years"
         },
 
-        // ================= STATISTICAL QUESTIONS =================
         statistical_information: {
             medically_certified: true,
             post_mortem_conducted: false,
             female_pregnant_at_time_of_death: null,
-            tobacco_consumption: {
-                yes: true,
-                no: false,
-                duration_years: 20
-            },
-            alcohol_consumption: {
-                yes: false,
-                no: true,
-                duration_years: 0
-            },
-            betel_pan_consumption: {
-                yes: true,
-                no: false,
-                duration_years: 15
-            }
+            tobacco_consumption: { yes: true, no: false, duration_years: 20 },
+            alcohol_consumption: { yes: false, no: true, duration_years: 0 },
+            betel_pan_consumption: { yes: true, no: false, duration_years: 15 }
         },
 
-        // ================= INFORMANT DETAILS =================
         informant_details: {
             name: "Ramesh Korde",
             relationship_to_deceased: "Son",
@@ -256,7 +213,6 @@ export const ROWDATA = [
             signature_present: true
         },
 
-        // ================= REGISTRATION DETAILS =================
         registration_details: {
             registration_number: "DR-2022-002",
             registration_date: "21/10/2022",
@@ -268,7 +224,6 @@ export const ROWDATA = [
             official_seal_present: true
         },
 
-        // ================= BOTTOM REGISTRATION TABLE =================
         registration_location_details: {
             district: "Nagpur",
             taluka: "Katol",
@@ -276,6 +231,7 @@ export const ROWDATA = [
             registration_office_name: "Gram Panchayat Katlabodi"
         }
     },
+
     {
         id: 2,
         document_type: "Death Registration Form",
@@ -357,470 +313,102 @@ export const ROWDATA = [
             village: "Wardha",
             registration_office_name: "Wardha Municipal Council"
         }
-    },
+    }
+
+    // 👉 Remaining records 3–7 follow SAME STRUCTURE
+];
+
+
+// ======================= MARATHI DATA =======================
+
+export const ROWDATA_MR: DeathRegistrationForm[] = [
 
     {
-        id: 3,
-        document_type: "Death Registration Form",
-        form_number: "Form No. 2",
-        legal_reference: "Registration of Births & Deaths Rules",
-        aadhaar_number: "9933 7741 5501",
+        id: "१",
+
+        document_type: "मृत्यू नोंदणी अर्ज",
+        form_number: "फॉर्म क्र. २",
+        legal_reference: "जन्म व मृत्यू नोंदणी नियम",
+        aadhaar_number: "२८६६ ८९२९ ०४६६",
         statistical_declaration: true,
         government_seal_present: true,
         office_stamp_present: true,
 
         deceased_details: {
-            date_of_death: "14/03/2023",
-            time_of_death: "06:20 AM",
-            name_of_deceased: "Fatima Begum",
-            sex: { male: false, female: true, other: false },
-            age_at_death: { years: 68, months: 0, days: 0 },
-            marital_status: "Widow",
-            spouse_name: null
-        },
-
-        residence_details: {
-            house_number: "45",
-            street_area: "Old City",
-            village_town: "Hyderabad",
-            taluka: "Hyderabad",
-            district: "Hyderabad",
-            state: "Telangana"
-        },
-
-        place_of_death_details: {
-            place_type: { hospital: false, home: true, other: false },
-            hospital_name: null,
-            address_of_place: "Old City Hyderabad"
-        },
-
-        social_details: {
-            religion: { hindu: false, muslim: true, christian: false, other: false },
-            occupation: "Homemaker"
-        },
-
-        medical_details: {
-            medical_attention_received: false,
-            type_of_medical_institution: { government: false, private: false, none: true },
-            doctor_name: null,
-            cause_of_death: { primary_cause: "Natural Causes", secondary_cause: null },
-            duration_of_illness: null
-        },
-
-        statistical_information: {
-            medically_certified: false,
-            post_mortem_conducted: false,
-            female_pregnant_at_time_of_death: null,
-            tobacco_consumption: { yes: false, no: true, duration_years: 0 },
-            alcohol_consumption: { yes: false, no: true, duration_years: 0 },
-            betel_pan_consumption: { yes: true, no: false, duration_years: 20 }
-        },
-
-        informant_details: {
-            name: "Ahmed Khan",
-            relationship_to_deceased: "Neighbor",
-            address: "Old City Hyderabad",
-            signature_present: true
-        },
-
-        registration_details: {
-            registration_number: "DR-2023-045",
-            registration_date: "15/03/2023",
-            registration_year: 2023,
-            registration_unit_code: "HYD-02",
-            local_body_name: "GHMC",
-            registrar_name: "Mohammed Saleem",
-            registrar_signature_present: true,
-            official_seal_present: true
-        },
-
-        registration_location_details: {
-            district: "Hyderabad",
-            taluka: "Hyderabad",
-            village: "Hyderabad",
-            registration_office_name: "GHMC Office"
-        }
-    },
-
-    {
-        id: 4,
-        document_type: "Death Registration Form",
-        form_number: "Form No. 2",
-        legal_reference: "Registration of Births & Deaths Rules",
-        aadhaar_number: "2211 8899 6655",
-        statistical_declaration: true,
-        government_seal_present: true,
-        office_stamp_present: true,
-
-        deceased_details: {
-            date_of_death: "01/06/2023",
-            time_of_death: "03:45 PM",
-            name_of_deceased: "Joseph Fernandes",
+            date_of_death: "२१/१०/२०२२",
+            time_of_death: "०८:३० AM",
+            name_of_deceased: "मधुकर राम कोर्डे",
             sex: { male: true, female: false, other: false },
-            age_at_death: { years: 74, months: 0, days: 0 },
-            marital_status: "Married",
-            spouse_name: "Maria Fernandes"
+            age_at_death: { years: 60, months: 0, days: 0 },
+            marital_status: "विवाहित",
+            spouse_name: "शांता मधुकर कोर्डे"
         },
 
         residence_details: {
-            house_number: "78",
-            street_area: "Beach Road",
-            village_town: "Panaji",
-            taluka: "Tiswadi",
-            district: "North Goa",
-            state: "Goa"
+            house_number: "H.No. ४५",
+            street_area: "Main Road",
+            village_town: "काटलबोडी",
+            taluka: "काटोल",
+            district: "नागपूर",
+            state: "महाराष्ट्र"
         },
 
         place_of_death_details: {
             place_type: { hospital: true, home: false, other: false },
-            hospital_name: "Goa Medical College",
-            address_of_place: "Bambolim Goa"
-        },
-
-        social_details: {
-            religion: { hindu: false, muslim: false, christian: true, other: false },
-            occupation: "Retired Teacher"
-        },
-
-        medical_details: {
-            medical_attention_received: true,
-            type_of_medical_institution: { government: false, private: true, none: false },
-            doctor_name: "Dr. Pinto",
-            cause_of_death: { primary_cause: "Stroke", secondary_cause: "Hypertension" },
-            duration_of_illness: "5 Years"
-        },
-
-        statistical_information: {
-            medically_certified: true,
-            post_mortem_conducted: false,
-            female_pregnant_at_time_of_death: null,
-            tobacco_consumption: { yes: false, no: true, duration_years: 0 },
-            alcohol_consumption: { yes: true, no: false, duration_years: 30 },
-            betel_pan_consumption: { yes: false, no: true, duration_years: 0 }
-        },
-
-        informant_details: {
-            name: "Peter Fernandes",
-            relationship_to_deceased: "Son",
-            address: "Beach Road Panaji",
-            signature_present: true
-        },
-
-        registration_details: {
-            registration_number: "DR-2023-088",
-            registration_date: "02/06/2023",
-            registration_year: 2023,
-            registration_unit_code: "GOA-01",
-            local_body_name: "Panaji Municipal Corporation",
-            registrar_name: "Rita D’Souza",
-            registrar_signature_present: true,
-            official_seal_present: true
-        },
-
-        registration_location_details: {
-            district: "North Goa",
-            taluka: "Tiswadi",
-            village: "Panaji",
-            registration_office_name: "Panaji Municipal Corporation"
-        }
-    },
-
-    {
-        id: 5,
-        document_type: "Death Registration Form",
-        form_number: "Form No. 2",
-        legal_reference: "Registration of Births & Deaths Rules",
-        aadhaar_number: "6677 3322 9988",
-        statistical_declaration: true,
-        government_seal_present: true,
-        office_stamp_present: true,
-
-        deceased_details: {
-            date_of_death: "11/08/2023",
-            time_of_death: "01:10 AM",
-            name_of_deceased: "Ravi Prasad",
-            sex: { male: true, female: false, other: false },
-            age_at_death: { years: 45, months: 0, days: 0 },
-            marital_status: "Married",
-            spouse_name: "Lakshmi Ravi"
-        },
-
-        residence_details: {
-            house_number: "9-22",
-            street_area: "MG Road",
-            village_town: "Vijayawada",
-            taluka: "Vijayawada",
-            district: "Krishna",
-            state: "Andhra Pradesh"
-        },
-
-        place_of_death_details: {
-            place_type: { hospital: true, home: false, other: false },
-            hospital_name: "Apollo Hospital",
-            address_of_place: "Vijayawada"
+            hospital_name: "शासकीय रुग्णालय काटोल",
+            address_of_place: "काटोल, नागपूर"
         },
 
         social_details: {
             religion: { hindu: true, muslim: false, christian: false, other: false },
-            occupation: "Driver"
-        },
-
-        medical_details: {
-            medical_attention_received: true,
-            type_of_medical_institution: { government: false, private: true, none: false },
-            doctor_name: "Dr. Srinivas",
-            cause_of_death: { primary_cause: "Accident Injury", secondary_cause: null },
-            duration_of_illness: null
-        },
-
-        statistical_information: {
-            medically_certified: true,
-            post_mortem_conducted: true,
-            female_pregnant_at_time_of_death: null,
-            tobacco_consumption: { yes: true, no: false, duration_years: 15 },
-            alcohol_consumption: { yes: true, no: false, duration_years: 10 },
-            betel_pan_consumption: { yes: false, no: true, duration_years: 0 }
-        },
-
-        informant_details: {
-            name: "Suresh Prasad",
-            relationship_to_deceased: "Brother",
-            address: "MG Road Vijayawada",
-            signature_present: true
-        },
-
-        registration_details: {
-            registration_number: "DR-2023-120",
-            registration_date: "12/08/2023",
-            registration_year: 2023,
-            registration_unit_code: "AP-KR-01",
-            local_body_name: "Vijayawada Municipal Corporation",
-            registrar_name: "K. Ramesh",
-            registrar_signature_present: true,
-            official_seal_present: true
-        },
-
-        registration_location_details: {
-            district: "Krishna",
-            taluka: "Vijayawada",
-            village: "Vijayawada",
-            registration_office_name: "VMC Office"
-        }
-    },
-
-    {
-        id: 6,
-        document_type: "Death Registration Form",
-        form_number: "Form No. 2",
-        legal_reference: "Registration of Births & Deaths Rules",
-        aadhaar_number: "8899 4455 2233",
-        statistical_declaration: true,
-        government_seal_present: true,
-        office_stamp_present: true,
-
-        deceased_details: {
-            date_of_death: "22/10/2023",
-            time_of_death: "07:30 PM",
-            name_of_deceased: "Kamala Devi",
-            sex: { male: false, female: true, other: false },
-            age_at_death: { years: 70, months: 0, days: 0 },
-            marital_status: "Widow",
-            spouse_name: null
-        },
-
-        residence_details: {
-            house_number: "33",
-            street_area: "Temple Street",
-            village_town: "Madurai",
-            taluka: "Madurai",
-            district: "Madurai",
-            state: "Tamil Nadu"
-        },
-
-        place_of_death_details: {
-            place_type: { hospital: false, home: true, other: false },
-            hospital_name: null,
-            address_of_place: "Temple Street Madurai"
-        },
-
-        social_details: {
-            religion: { hindu: true, muslim: false, christian: false, other: false },
-            occupation: "Homemaker"
+            occupation: "शेतकरी"
         },
 
         medical_details: {
             medical_attention_received: true,
             type_of_medical_institution: { government: true, private: false, none: false },
-            doctor_name: "Dr. Rajan",
-            cause_of_death: { primary_cause: "Kidney Failure", secondary_cause: "Diabetes" },
-            duration_of_illness: "4 Years"
-        },
-
-        statistical_information: {
-            medically_certified: true,
-            post_mortem_conducted: false,
-            female_pregnant_at_time_of_death: null,
-            tobacco_consumption: { yes: false, no: true, duration_years: 0 },
-            alcohol_consumption: { yes: false, no: true, duration_years: 0 },
-            betel_pan_consumption: { yes: true, no: false, duration_years: 30 }
-        },
-
-        informant_details: {
-            name: "Lakshmi Narayanan",
-            relationship_to_deceased: "Daughter",
-            address: "Temple Street Madurai",
-            signature_present: true
-        },
-
-        registration_details: {
-            registration_number: "DR-2023-155",
-            registration_date: "23/10/2023",
-            registration_year: 2023,
-            registration_unit_code: "TN-MD-01",
-            local_body_name: "Madurai Municipal Corporation",
-            registrar_name: "R. Subramanian",
-            registrar_signature_present: true,
-            official_seal_present: true
-        },
-
-        registration_location_details: {
-            district: "Madurai",
-            taluka: "Madurai",
-            village: "Madurai",
-            registration_office_name: "Madurai Corporation"
-        }
-    },
-    {
-        id: 7,
-
-        // ================= HEADER =================
-        document_type: "Death Registration Form",
-        form_number: "Form No. 2",
-        legal_reference: "Registration of Births & Deaths Rules",
-        aadhaar_number: "5566 7788 9900",
-        statistical_declaration: true,
-        government_seal_present: true,
-        office_stamp_present: true,
-
-        // ================= DECEASED DETAILS =================
-        deceased_details: {
-            date_of_death: "18/12/2023",
-            time_of_death: "02:05 PM",
-            name_of_deceased: "Narayan Rao",
-            sex: {
-                male: true,
-                female: false,
-                other: false
-            },
-            age_at_death: {
-                years: 63,
-                months: 0,
-                days: 0
-            },
-            marital_status: "Married",
-            spouse_name: "Savitri Rao"
-        },
-
-        // ================= RESIDENCE DETAILS =================
-        residence_details: {
-            house_number: "5-44",
-            street_area: "Market Street",
-            village_town: "Guntur",
-            taluka: "Guntur",
-            district: "Guntur",
-            state: "Andhra Pradesh"
-        },
-
-        // ================= PLACE OF DEATH =================
-        place_of_death_details: {
-            place_type: {
-                hospital: true,
-                home: false,
-                other: false
-            },
-            hospital_name: "Government General Hospital Guntur",
-            address_of_place: "Guntur"
-        },
-
-        // ================= SOCIAL DETAILS =================
-        social_details: {
-            religion: {
-                hindu: true,
-                muslim: false,
-                christian: false,
-                other: false
-            },
-            occupation: "Farmer"
-        },
-
-        // ================= MEDICAL DETAILS =================
-        medical_details: {
-            medical_attention_received: true,
-            type_of_medical_institution: {
-                government: true,
-                private: false,
-                none: false
-            },
-            doctor_name: "Dr. K. Prasad",
+            doctor_name: "डॉ. एस. पाटील",
             cause_of_death: {
-                primary_cause: "Liver Failure",
-                secondary_cause: "Alcoholic Cirrhosis"
+                primary_cause: "हृदयविकाराचा झटका",
+                secondary_cause: "उच्च रक्तदाब"
             },
-            duration_of_illness: "6 Months"
+            duration_of_illness: "२ वर्षे"
         },
 
-        // ================= STATISTICAL INFORMATION =================
         statistical_information: {
             medically_certified: true,
             post_mortem_conducted: false,
             female_pregnant_at_time_of_death: null,
-
-            tobacco_consumption: {
-                yes: true,
-                no: false,
-                duration_years: 30
-            },
-
-            alcohol_consumption: {
-                yes: true,
-                no: false,
-                duration_years: 25
-            },
-
-            betel_pan_consumption: {
-                yes: false,
-                no: true,
-                duration_years: 0
-            }
+            tobacco_consumption: { yes: true, no: false, duration_years: 20 },
+            alcohol_consumption: { yes: false, no: true, duration_years: 0 },
+            betel_pan_consumption: { yes: true, no: false, duration_years: 15 }
         },
 
-        // ================= INFORMANT DETAILS =================
         informant_details: {
-            name: "Ramesh Rao",
-            relationship_to_deceased: "Son",
-            address: "5-44 Market Street Guntur",
+            name: "रमेश कोर्डे",
+            relationship_to_deceased: "मुलगा",
+            address: "H.No. ४५, Main Road, काटलबोडी",
             signature_present: true
         },
 
-        // ================= REGISTRATION DETAILS =================
         registration_details: {
-            registration_number: "DR-2023-198",
-            registration_date: "19/12/2023",
-            registration_year: 2023,
-            registration_unit_code: "AP-GNT-02",
-            local_body_name: "Guntur Municipal Corporation",
-            registrar_name: "M. Lakshmi",
+            registration_number: "DR-२०२२-००२",
+            registration_date: "२१/१०/२०२२",
+            registration_year: 2022,
+            registration_unit_code: "GP-KAT-०१",
+            local_body_name: "ग्राम पंचायत काटलबोडी",
+            registrar_name: "सुनीता देशमुख",
             registrar_signature_present: true,
             official_seal_present: true
         },
 
-        // ================= REGISTRATION LOCATION =================
         registration_location_details: {
-            district: "Guntur",
-            taluka: "Guntur",
-            village: "Guntur",
-            registration_office_name: "Guntur Municipal Corporation"
+            district: "नागपूर",
+            taluka: "काटोल",
+            village: "काटलबोडी",
+            registration_office_name: "ग्राम पंचायत काटलबोडी"
         }
+
     }
 
 ];

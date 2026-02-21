@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
 
   private STORAGE_KEY = 'lang';
   private initialized = false;
+
+  private langSubject = new BehaviorSubject<string>('en');
+  language$ = this.langSubject.asObservable();
 
   constructor(private translate: TranslateService) { }
 
@@ -18,6 +22,8 @@ export class LanguageService {
     this.translate.setDefaultLang('en');
     this.translate.use(saved);
 
+    this.langSubject.next(saved);   // ⭐ important
+
     this.initialized = true;
 
     return Promise.resolve();
@@ -26,6 +32,8 @@ export class LanguageService {
   setLanguage(lang: string) {
     localStorage.setItem(this.STORAGE_KEY, lang);
     this.translate.use(lang);
+
+    this.langSubject.next(lang);   // ⭐ notify all components
   }
 
   getLanguage(): string {

@@ -5,9 +5,10 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
-import { BirthRegistrationForm, ROWDATA } from '../birth-register-data';
+import { BirthRegistrationForm, ROWDATA, ROWDATA_MR } from '../birth-register-data';
 import { BirthRegisterActionsComponent } from '../birth-register-actions/birth-register-actions.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../language-service';
 
 
 @Component({
@@ -22,13 +23,17 @@ export class BirthRegisterGridComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly translate: TranslateService,
+    private readonly langService: LanguageService,
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
 
     this.buildColumns();
 
-    this.translate.onLangChange.subscribe(() => {
+    this.setRowData(this.langService.getLanguage());
+
+    this.langService.language$.subscribe(lang => {
+      this.setRowData(lang);
       this.buildColumns();
     });
 
@@ -36,7 +41,7 @@ export class BirthRegisterGridComponent implements OnInit {
 
 
   public columnDefs: ColDef<BirthRegistrationForm>[] = [];
-  public rowData: BirthRegistrationForm[] = ROWDATA;
+  public rowData: BirthRegistrationForm[] = [];
   public defaultColDef: ColDef = {
     flex: 1,
     sortable: true,
@@ -44,7 +49,11 @@ export class BirthRegisterGridComponent implements OnInit {
     filter: true,
   };
 
-  buildColumns() {
+  public setRowData(lang: string) {
+    this.rowData = lang === 'mr' ? ROWDATA_MR : ROWDATA;
+  }
+
+  private buildColumns() {
 
     this.translate.get([
       'birthRegister.columns.serial',
@@ -101,24 +110,13 @@ export class BirthRegisterGridComponent implements OnInit {
           headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
           cellClass: "font-[poppins]",
         },
-
         {
           headerName: t['birthRegister.columns.gender'],
-          valueGetter: params => {
-
-            const gender = params.data?.birth_event_details?.sex_of_child;
-            if (!gender) return '';
-
-            if (gender.male) return this.translate.instant('birthRegister.gender.male');
-            if (gender.female) return this.translate.instant('birthRegister.gender.female');
-            if (gender.other) return this.translate.instant('birthRegister.gender.other');
-
-            return '';
-          },
+          valueGetter: params =>
+            params.data?.birth_event_details?.gender_label || '',
           headerClass: "font-sans font-semibold text-gray-700 text-base !bg-blue-900 !text-white opacity-80 hover:opacity-90",
           cellClass: "font-[poppins]",
         },
-
         {
           headerName: t['birthRegister.columns.motherName'],
           valueGetter: params => params.data?.mother_details?.name,

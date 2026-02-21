@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ROWDATA } from '../birth-register-data';
+import { ROWDATA, ROWDATA_MR } from '../birth-register-data';
 import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../language-service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class BirthRegisterCreateComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly fb: FormBuilder,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly langService: LanguageService,
   ) { }
 
   private convertToISO(dateStr: string | null): string | null {
@@ -149,9 +151,10 @@ export class BirthRegisterCreateComponent implements OnInit {
 
     this.isEditMode = true;
 
-    const record = ROWDATA.find(r => r.id === +id);
+    const lang = this.langService.getLanguage();
+    const data = lang === 'mr' ? ROWDATA_MR : ROWDATA;
 
-    console.log('Editing record:', record);
+    const record = data.find(r => String(r.id) === String(id));
 
     if (!record) return;
 
@@ -174,7 +177,6 @@ export class BirthRegisterCreateComponent implements OnInit {
     };
 
     this.birthForm.patchValue(patchedRecord);
-
 
   }
 

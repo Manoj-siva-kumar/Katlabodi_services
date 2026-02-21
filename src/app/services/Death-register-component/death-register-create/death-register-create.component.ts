@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ROWDATA } from '../death-register-data';
+import { ROWDATA, ROWDATA_MR } from '../death-register-data';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../language-service';
 
 @Component({
   selector: 'app-death-register-create',
   templateUrl: './death-register-create.component.html',
   styleUrls: ['./death-register-create.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule]
 })
 
 export class DeathRegisterCreateComponent implements OnInit {
@@ -20,7 +22,8 @@ export class DeathRegisterCreateComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly fb: FormBuilder,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly langService: LanguageService,
   ) { }
 
   private convertToISO(dateStr: string | null): string | null {
@@ -32,6 +35,7 @@ export class DeathRegisterCreateComponent implements OnInit {
     return `${parts[2]}-${parts[1]}-${parts[0]}`;
   }
 
+  
   public ngOnInit() {
 
     this.deathForm = this.fb.group({
@@ -183,7 +187,10 @@ export class DeathRegisterCreateComponent implements OnInit {
 
     this.isEditMode = true;
 
-    const record = ROWDATA.find(r => r.id === +id);
+    const lang = this.langService.getLanguage();
+    const data = lang === 'mr' ? ROWDATA_MR : ROWDATA;
+
+    const record = data.find(r => String(r.id) === String(id));
 
     if (!record) return;
 

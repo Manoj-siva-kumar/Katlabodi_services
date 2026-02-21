@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ROWDATA } from '../tax-receipt-data';
+import { ROWDATA, ROWDATA_MR } from '../tax-receipt-data';
 import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../language-service';
 
 @Component({
   selector: 'app-tax-receipt-create',
@@ -30,7 +31,8 @@ export class TaxReceiptCreateComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly fb: FormBuilder,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly langService: LanguageService,
   ) { }
 
   private createTaxGroup() {
@@ -90,25 +92,18 @@ export class TaxReceiptCreateComponent implements OnInit {
 
     this.isEditMode = true;
 
-    const record = ROWDATA.find(r => r.id === +id);
+    const lang = this.langService.getLanguage();
+    const data = lang === 'mr' ? ROWDATA_MR : ROWDATA;
 
-    console.log('Editing record:', record);
+    const record = data.find(r => String(r.id) === String(id));
 
     if (!record) return;
-
-    // Reset first  
     this.taxReceipt.reset();
-
-    // Patch full object (deep patch)
     this.taxReceipt.patchValue(record);
-
-    // Fix date for input[type="date"]
     if (record.date) {
       const isoDate = new Date(record.date).toISOString().split('T')[0];
       this.taxReceipt.get('date')?.setValue(isoDate);
     }
-
-    // Fix financial year header display
     if (record.financialYear) {
       const years = record.financialYear.split('-');
       this.fromYear = years[0];
@@ -122,7 +117,7 @@ export class TaxReceiptCreateComponent implements OnInit {
   public confirmYear() {
     if (this.fromYear && this.toYear) {
       this.yearConfirmed = true;
-    } 
+    }
   }
 
   public onSave(): void {

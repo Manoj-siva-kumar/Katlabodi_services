@@ -5,9 +5,10 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
-import { rowdata, ROWDATA } from '../tax-receipt-data';
+import { rowdata, ROWDATA, ROWDATA_MR } from '../tax-receipt-data';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TaxReceiptActionsComponent } from '../tax-receipt-actions/tax-receipt-actions.component';
+import { LanguageService } from '../../language-service';
 
 @Component({
   selector: 'app-tax-receipt-grid',
@@ -33,18 +34,25 @@ export class TaxReceiptGridComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly translate: TranslateService,
+    private readonly langService: LanguageService,
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit() {
+
     this.buildColumns();
 
-    this.translate.onLangChange.subscribe(() => {
+    this.setRowData(this.langService.getLanguage());
+
+    this.langService.language$.subscribe(lang => {
+      this.setRowData(lang);
       this.buildColumns();
     });
+
   }
 
-
-
+  public setRowData(lang: string) {
+    this.rowData = lang === 'mr' ? ROWDATA_MR : ROWDATA;
+  }
 
   private buildColumns(): void {
 

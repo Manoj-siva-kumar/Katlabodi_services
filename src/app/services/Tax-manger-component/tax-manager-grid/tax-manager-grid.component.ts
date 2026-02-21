@@ -6,8 +6,9 @@ import { TaxActionsComponentComponent } from '../tax-actions-component/tax-actio
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltip } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
-import { PropertyRow, ROWDATA } from '../tax-manager-data';
+import { PropertyRow, ROWDATA, ROWDATA_MR } from '../tax-manager-data';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../language-service';
 
 @Component({
   selector: 'app-tax-manager-grid',
@@ -30,15 +31,21 @@ export class TaxManagerGridComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly translate: TranslateService,
+    private readonly langService: LanguageService,
   ) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit() {
+
     this.buildColumns();
 
-    this.translate.onLangChange.subscribe(() => {
+    this.setRowData(this.langService.getLanguage());
+
+    this.langService.language$.subscribe(lang => {
+      this.setRowData(lang);
       this.buildColumns();
     });
+
   }
 
 
@@ -48,6 +55,10 @@ export class TaxManagerGridComponent implements OnInit {
     resizable: true,
     filter: true,
   };
+
+  public setRowData(lang: string) {
+    this.rowData = lang === 'mr' ? ROWDATA_MR : ROWDATA;
+  }
 
   private buildColumns(): void {
 
